@@ -1,0 +1,31 @@
+.article-item{
+    .article-title a{
+        color: red;
+    }
+}
+.article-section-title{
+    color: #4070A2;
+    border-bottom: 3px solid #4070A2;
+    font-size: 24px;
+}
+.article-animated{
+    .article-thumb{
+        overflow: hidden;
+        .image-scale{
+            transition: all 1s ease;
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            -o-transition: all 1s ease;
+        }
+        &:hover{
+            .image-scale{
+                transform: scale(1.1,1.1);
+                -webkit-transform: scale(1.1,1.1);
+                -moz-transform: scale(1.1,1.1);
+                -o-transform: scale(1.1,1.1);
+                -ms-transform: scale(1.1,1.1);
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,19 @@
+#app-footer{
+    .flow-me{
+        .fab{
+            font-size: 2em;
+        }
+    }
+    
+    .text-body{
+        &:hover{
+            color: #534e4e!important
+        }
+    }
+    
+    .footer-title-2{
+        font-size: 1.4em;
+        font-weight: 600;
+        color: $text-color-hover;
+    }
+}
