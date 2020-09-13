@@ -18,3 +18,6 @@ Route::get('/', 'Frontend\SiteController@index')->name('app.index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+require 'backend/Backend.php';

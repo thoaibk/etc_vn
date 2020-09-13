@@ -140,4 +140,37 @@ return [
 
         'store' => 'default',
     ],
+
+    'seed' => [
+        'permissions' => [
+            'view_admin',
+            'product_manager',
+            'article_manager'
+        ],
+        'roles' => [
+            'admin' => [
+                'name' => 'admin',
+                'allow_permissions' => [
+                    'view_admin',
+                    'product_manager',
+                    'article_manager'
+                ]
+            ],
+            'mode_product' => [
+                'name' => 'mode_product',
+                'allow_permissions' => [
+                    'view_admin',
+                    'product_manager',
+                ]
+            ],
+            'mode_article' => [
+                'name' => 'mode_article',
+                'allow_permissions' => [
+                    'view_admin',
+                    'article_manager',
+                ]
+            ],
+
+        ]
+    ]
 ];
