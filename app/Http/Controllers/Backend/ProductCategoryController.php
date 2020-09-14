@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProductCategoryController extends Controller
+class ProductCategoryController extends BackendController
 {
     /**
      * Display a listing of the resource.

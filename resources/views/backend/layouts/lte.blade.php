@@ -9,8 +9,9 @@
 
     @yield('before-styles-end')
 
-    <link rel="stylesheet" href="{{ mix('assets/backend/css/lte.scss') }}">
+    <link rel="stylesheet" href="/assets/plugins/awesome/css/all.min.css">
     <link rel="stylesheet" href="/assets/plugins/overlayscrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="{{ mix('assets/backend/css/lte.scss') }}">
 
 {{--    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
 {{--    {!! Html::style('/backend/lte3/css/adminlte.min.css') !!}--}}
