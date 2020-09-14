@@ -156,15 +156,15 @@ return [
                     'article_manager'
                 ]
             ],
-            'mode_product' => [
-                'name' => 'mode_product',
+            'mod_product' => [
+                'name' => 'mod_product',
                 'allow_permissions' => [
                     'view_admin',
                     'product_manager',
                 ]
             ],
-            'mode_article' => [
-                'name' => 'mode_article',
+            'mod_article' => [
+                'name' => 'mod_article',
                 'allow_permissions' => [
                     'view_admin',
                     'article_manager',
