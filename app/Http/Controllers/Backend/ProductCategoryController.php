@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Backend\ProductCategoryRequest;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
 class ProductCategoryController extends BackendController
@@ -14,7 +16,13 @@ class ProductCategoryController extends BackendController
      */
     public function index()
     {
-        //
+        $categories = ProductCategory::query()
+            ->orderByDesc('created_at')
+            ->paginate(15);
+
+
+        return view('backend.product-category.index')
+            ->with('categories', $categories);
     }
 
     /**
@@ -33,9 +41,13 @@ class ProductCategoryController extends BackendController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductCategoryRequest $request)
     {
-        //
+        ProductCategory::create([
+            'name' => $request->get('name')
+        ]);
+
+        return redirect(route('backend.product_category.index'))->withFlashSuccess('Thêm danh mục thành công');
     }
 
     /**
