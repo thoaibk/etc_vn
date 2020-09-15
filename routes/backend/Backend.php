@@ -14,7 +14,15 @@ Route::prefix('backend')->middleware('permission:view_admin')->group(function(){
         Route::delete('/{id}/delete', 'Backend\ProductCategoryController@destroy')->name('backend.product_category.destroy');
     });
     Route::prefix('product')->group(function(){
+        Route::get('/', 'Backend\ProductController@index')->name('backend.product.index');
 
-//        Route::get('category/create', 'Backend\ProductCategoryController@create')->name('backend.product_category.index');
+        Route::get('/create', 'Backend\ProductController@create')->name('backend.product.create');
+        Route::post('/create', 'Backend\ProductController@store')->name('backend.product.store');
+
+        Route::get('/{id}/update', 'Backend\ProductController@edit')->name('backend.product.edit');
+        Route::post('/{id}/update', 'Backend\ProductController@update')->name('backend.product.update');
+
+        Route::post('/{id}/toggle-status', 'Backend\ProductController@toggleStatus')->name('backend.product.toggle_status');
+        Route::delete('/{id}/delete', 'Backend\ProductController@destroy')->name('backend.product.destroy');
     });
 });

@@ -33,6 +33,12 @@
 
                 <li class="nav-header text-uppercase text-11 pl-3">Quản lý sản phẩm</li>
                 <li class="nav-item">
+                    <a href="{{ route('backend.product.index') }}" class="nav-link {{ active_class(if_route('backend.product.index')) }}">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>Sản phẩm</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('backend.product_category.index') }}" class="nav-link {{ active_class(if_route('backend.product_category.index')) }}">
                         <i class="nav-icon fas fa-user"></i>
                         <p>Danh mục</p>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,7 +15,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::query()
+            ->orderByDesc('created_at')
+            ->paginate(15);
+        return  view('backend.product.index')
+            ->with('products', $products);
     }
 
     /**
@@ -24,7 +29,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return  view('backend.product.create');
     }
 
     /**

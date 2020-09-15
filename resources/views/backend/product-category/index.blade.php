@@ -24,13 +24,16 @@
                 </thead>
                 <tbody>
                 @foreach($categories as $category)
-                    <tr>
+                    <tr id="row_{{ $category->id }}">
                         <td>{{ $category->id }}</td>
                         <td>{{ $category->name }}</td>
                         <td>
-                            <span class="pointer" title="{{ $category->statusLable() }}"><i onclick="toggleTableStatus(this, '{{ route('backend.product_category.toggle_status', ['id' => $category->id]) }}')"  class="{{ $category->statusStateIcon() }}"></i></span>
+                            <span class="pointer" title="{{ $category->statusLable() }}"><i onclick="toggleTableStatus(this, '{{ $category->toggleStatusUrl() }}')"  class="{{ $category->statusStateIcon() }}"></i></span>
                         </td>
-                        <td></td>
+                        <td>
+                            <a href="{{ $category->editUrl() }}" class="btn btn-info btn-sm" title="Sửa"><i class="fa fa-pencil"></i></a>
+                            <button class="btn btn-danger btn-sm" title="Xóa" onclick="deleteTableRow('{{ $category->id }}', '{{ $category->deleteUrl() }}')"><i class="fa fa-times"></i></button>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

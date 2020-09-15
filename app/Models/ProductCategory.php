@@ -53,4 +53,24 @@ class ProductCategory extends Model
     public function statusStateIcon(){
         return ($this->status === self::STATUS_ACTIVE) ? 'text-info fa-2x fas fa-toggle-on' : 'text-secondary fa-2x fal fa-toggle-off';
     }
+
+    /**
+     * @return string
+     */
+    public function editUrl(){
+        return route('backend.product_category.edit', ['id' => $this->id]);
+    }
+
+    /**
+     * @return string
+     */
+    public function toggleStatusUrl(){
+        return route('backend.product_category.toggle_status', ['id' => $this->id]);
+    }
+    /**
+     * @return string
+     */
+    public function deleteUrl(){
+        return route('backend.product_category.destroy', ['id' => $this->id]);
+    }
 }

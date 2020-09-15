@@ -98,3 +98,44 @@ function toggleTableStatus(obj, url) {
         notifiMessage(message, 'danger')
     })
 }
+
+
+function deleteTableRow(rowID, deleteUrl) {
+
+    $.confirm({
+        title: 'Xác nhận xóa dữ liệu',
+        content: 'Sau khi xóa dữ liệu sẽ không thể khôi phục',
+        type: 'red',
+        typeAnimated: true,
+        buttons: {
+            close: {
+                text: 'Hủy',
+                btnClass: 'btn-default',
+                action: function(){
+
+                }
+            },
+
+            confirmDelete: {
+                text: 'Xóa',
+                btnClass: 'btn-red',
+                action: function(){
+                    $.ajax(deleteUrl, {
+                        type: 'DELETE'
+                    }).done(res => {
+                        if(res.success){
+                            notifiMessage(res.message, 'success');
+                            $('#row_' + rowID).remove();
+                        }
+                    }).fail(function (xhr, exception) {
+                        var message = formatErrorAjaxMessage(xhr,exception);
+                        notifiMessage(message, 'danger')
+                    });
+                }
+            }
+        }
+    });
+
+
+
+}

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ mix('assets/backend/css/lte.scss') }}">
 
     <link rel="stylesheet" href="/assets/plugins/toastr/toastr.min.css">
+    <link rel="stylesheet" href="/assets/plugins/jquery-confirm/jquery-confirm.css">
 
 {{--    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
 {{--    {!! Html::style('/backend/lte3/css/adminlte.min.css') !!}--}}
@@ -83,6 +84,7 @@
 
 <script src="/assets/plugins/overlayscrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <script src="/assets/plugins/toastr/toastr.min.js"></script>
+<script src="/assets/plugins/jquery-confirm/jquery-confirm.js"></script>
 
 
 <script src="{{ mix('assets/backend/js/common.js') }}"></script>

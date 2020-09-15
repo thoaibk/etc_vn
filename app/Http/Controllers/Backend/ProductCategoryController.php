@@ -69,7 +69,13 @@ class ProductCategoryController extends BackendController
      */
     public function edit($id)
     {
-        //
+        $category = ProductCategory::find($id);
+        if(!$category){
+            abort(404);
+        }
+
+        return  view('backend.product-category.edit')
+            ->with('category', $category);
     }
 
     /**
@@ -79,9 +85,16 @@ class ProductCategoryController extends BackendController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductCategoryRequest $request, $id)
     {
-        //
+        $category = ProductCategory::find($id);
+        if(!$category){
+            abort(404);
+        }
+        $category->name = $request->get('name');
+        $category->update();
+
+        return redirect(route('backend.product_category.index'))->withFlashSuccess('Sửa danh mục thành công');
     }
 
     /**
@@ -117,6 +130,15 @@ class ProductCategoryController extends BackendController
      */
     public function destroy($id)
     {
-        //
+        $category = ProductCategory::find($id);
+        if(!$category){
+            abort(404);
+        }
+
+        $category->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Danh mục đã bị xóa'
+        ]);
     }
 }
