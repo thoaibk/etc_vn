@@ -10,7 +10,7 @@ Route::prefix('backend')->middleware('permission:view_admin')->group(function(){
         Route::post('store', 'Backend\ProductCategoryController@store')->name('backend.product_category.store');
         Route::get('/{id}/edit', 'Backend\ProductCategoryController@edit')->name('backend.product_category.edit');
         Route::post('/{id}/update', 'Backend\ProductCategoryController@update')->name('backend.product_category.update');
-        Route::delete('/{id}/delete', 'Backend\ProductCategoryController@destroy')->name('backend.product_category.destroy');
+        Route::post('/{id}/toggle-status', 'Backend\ProductCategoryController@toggleStatus')->name('backend.product_category.toggle_status');
         Route::delete('/{id}/delete', 'Backend\ProductCategoryController@destroy')->name('backend.product_category.destroy');
     });
     Route::prefix('product')->group(function(){

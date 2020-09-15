@@ -85,6 +85,31 @@ class ProductCategoryController extends BackendController
     }
 
     /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function toggleStatus($id){
+        $category = ProductCategory::find($id);
+        if(!$category){
+            abort(404);
+        }
+
+        $toggleStatus = $category->status === ProductCategory::STATUS_ACTIVE ? ProductCategory::STATUS_INACTIVE : ProductCategory::STATUS_ACTIVE;
+
+        $category->status = $toggleStatus;
+        $category->update();
+        $toggleStatusIcon = $category->statusStateIcon();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Thay đổi trạng thái thành công',
+            'status_label' => $category->statusLable(),
+            'icon' => $toggleStatusIcon
+        ]);
+
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id

@@ -26,6 +26,34 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+let token = document.head.querySelector('meta[name="_token"]');
+
+if (token) {
+    if ('undefined' !== typeof token.content) {
+        window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+        $.ajaxSetup({
+            beforeSend: function(){},
+            headers: {
+                'X-CSRF-TOKEN': token.content
+            }
+        });
+    }
+} else {
+    token = document.head.querySelector('meta[name="csrf-token"]');
+    if (token) {
+        window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+        $.ajaxSetup({
+            beforeSend: function(xhr){},
+            headers: {
+                'X-CSRF-TOKEN': token.content
+            }
+        });
+    } else {
+        console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+    }
+}
+
+
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

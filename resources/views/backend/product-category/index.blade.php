@@ -18,7 +18,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Tên danh mục</th>
-                    <th>Thao tác</th>
+                    <th style="width: 130px">Trạng thái</th>
+                    <th style="width: 130px">Thao tác</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,9 @@
                     <tr>
                         <td>{{ $category->id }}</td>
                         <td>{{ $category->name }}</td>
+                        <td>
+                            <span class="pointer" title="{{ $category->statusLable() }}"><i onclick="toggleTableStatus(this, '{{ route('backend.product_category.toggle_status', ['id' => $category->id]) }}')"  class="{{ $category->statusStateIcon() }}"></i></span>
+                        </td>
                         <td></td>
                     </tr>
                 @endforeach

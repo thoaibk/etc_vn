@@ -25,6 +25,8 @@ mix.sass('resources/assets/backend/sass/lte.scss', 'public/assets/backend/css/lt
 mix.copy('node_modules/overlayscrollbars/css', 'public/assets/plugins/overlayscrollbars/css');
 mix.copy('node_modules/overlayscrollbars/js', 'public/assets/plugins/overlayscrollbars/js');
 
+mix.scripts('resources/assets/backend/js/common.js', 'public/assets/backend/js/common.js');
+
 if(mix.inProduction()){
     mix.version();
 }

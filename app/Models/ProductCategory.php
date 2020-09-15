@@ -34,6 +34,9 @@ class ProductCategory extends Model
 
     protected $guarded = ['id'];
 
+    const STATUS_ACTIVE = 'active';
+    const STATUS_INACTIVE = 'inactive';
+
     public function sluggable()
     {
         return [
@@ -41,5 +44,13 @@ class ProductCategory extends Model
                 'source' => 'name'
             ]
         ];
+    }
+
+    public function statusLable(){
+        return ($this->status === self::STATUS_ACTIVE) ? 'Đang active' : 'Đang tắt';
+    }
+
+    public function statusStateIcon(){
+        return ($this->status === self::STATUS_ACTIVE) ? 'text-info fa-2x fas fa-toggle-on' : 'text-secondary fa-2x fal fa-toggle-off';
     }
 }

@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="/assets/plugins/overlayscrollbars/css/OverlayScrollbars.min.css">
     <link rel="stylesheet" href="{{ mix('assets/backend/css/lte.scss') }}">
 
+    <link rel="stylesheet" href="/assets/plugins/toastr/toastr.min.css">
+
 {{--    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
 {{--    {!! Html::style('/backend/lte3/css/adminlte.min.css') !!}--}}
 {{--    {!! Html::style('/backend/lte3/css/style.css') !!}--}}
@@ -76,12 +78,15 @@
 </script>
 
 <script src="{{ mix('assets/backend/js/backend.js') }}"></script>
-{{--<script src="plugins/jquery-ui/jquery-ui.min.js"></script>--}}
-{{--<script src="/backend/lte3/plugins/moment/moment.min.js"></script>--}}
+
+<script src="/assets/plugins/bootstrap-notify-3.1.3/dist/bootstrap-notify.min.js"></script>
+
 <script src="/assets/plugins/overlayscrollbars/js/jquery.overlayScrollbars.min.js"></script>
-{{--{!! Html::script('/plugin/select2/dist/js/select2.js') !!}--}}
-{{--{!! Html::script('/backend/js/common.js?v=1.0.0') !!}--}}
-{{--{!! Html::script('/backend/js/backend.js?cache='.time()) !!}--}}
+<script src="/assets/plugins/toastr/toastr.min.js"></script>
+
+
+<script src="{{ mix('assets/backend/js/common.js') }}"></script>
+
 
 @yield('after-scripts-end')
 
