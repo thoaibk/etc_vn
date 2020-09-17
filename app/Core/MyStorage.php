@@ -9,9 +9,8 @@
 namespace App\Core;
 
 
-use App\Core\ImageTemplate\CourseCoverLarge;
-use App\Core\ImageTemplate\CourseCoverSmall;
-use App\Http\Requests\Frontend\Access\LoginRequest;
+use App\Core\ImageTemplate\Medium;
+use App\Core\ImageTemplate\Small;
 use GrahamCampbell\Flysystem\Facades\Flysystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
@@ -33,7 +32,7 @@ class MyStorage
      * @return \League\Flysystem\Filesystem
      */
     public static function getDisk($disk){
-        return \Flysystem::connection($disk);
+        return Flysystem::connection($disk);
     }
 
     /**

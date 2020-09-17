@@ -14891,6 +14891,138 @@
      
 }
 
+    namespace GrahamCampbell\Flysystem\Facades { 
+            /**
+     * This is the flysystem facade class.
+     *
+     * @author Graham Campbell <graham@alt-three.com>
+     */ 
+        class Flysystem {
+                    /**
+         * Get the configuration for a connection.
+         *
+         * @param string|null $name
+         * @throws \InvalidArgumentException
+         * @return array 
+         * @static 
+         */ 
+        public static function getConnectionConfig($name = null)
+        {
+                        /** @var \GrahamCampbell\Flysystem\FlysystemManager $instance */
+                        return $instance->getConnectionConfig($name);
+        }
+                    /**
+         * Get the factory instance.
+         *
+         * @return \GrahamCampbell\Flysystem\FlysystemFactory 
+         * @static 
+         */ 
+        public static function getFactory()
+        {
+                        /** @var \GrahamCampbell\Flysystem\FlysystemManager $instance */
+                        return $instance->getFactory();
+        }
+                    /**
+         * Get a connection instance.
+         *
+         * @param string|null $name
+         * @throws \InvalidArgumentException
+         * @return object 
+         * @static 
+         */ 
+        public static function connection($name = null)
+        {            //Method inherited from \GrahamCampbell\Manager\AbstractManager         
+                        /** @var \GrahamCampbell\Flysystem\FlysystemManager $instance */
+                        return $instance->connection($name);
+        }
+                    /**
+         * Reconnect to the given connection.
+         *
+         * @param string|null $name
+         * @throws \InvalidArgumentException
+         * @return object 
+         * @static 
+         */ 
+        public static function reconnect($name = null)
+        {            //Method inherited from \GrahamCampbell\Manager\AbstractManager         
+                        /** @var \GrahamCampbell\Flysystem\FlysystemManager $instance */
+                        return $instance->reconnect($name);
+        }
+                    /**
+         * Disconnect from the given connection.
+         *
+         * @param string|null $name
+         * @return void 
+         * @static 
+         */ 
+        public static function disconnect($name = null)
+        {            //Method inherited from \GrahamCampbell\Manager\AbstractManager         
+                        /** @var \GrahamCampbell\Flysystem\FlysystemManager $instance */
+                        $instance->disconnect($name);
+        }
+                    /**
+         * Get the default connection name.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getDefaultConnection()
+        {            //Method inherited from \GrahamCampbell\Manager\AbstractManager         
+                        /** @var \GrahamCampbell\Flysystem\FlysystemManager $instance */
+                        return $instance->getDefaultConnection();
+        }
+                    /**
+         * Set the default connection name.
+         *
+         * @param string $name
+         * @return void 
+         * @static 
+         */ 
+        public static function setDefaultConnection($name)
+        {            //Method inherited from \GrahamCampbell\Manager\AbstractManager         
+                        /** @var \GrahamCampbell\Flysystem\FlysystemManager $instance */
+                        $instance->setDefaultConnection($name);
+        }
+                    /**
+         * Register an extension connection resolver.
+         *
+         * @param string $name
+         * @param callable $resolver
+         * @return void 
+         * @static 
+         */ 
+        public static function extend($name, $resolver)
+        {            //Method inherited from \GrahamCampbell\Manager\AbstractManager         
+                        /** @var \GrahamCampbell\Flysystem\FlysystemManager $instance */
+                        $instance->extend($name, $resolver);
+        }
+                    /**
+         * Return all of the created connections.
+         *
+         * @return \GrahamCampbell\Manager\array<string,object> 
+         * @static 
+         */ 
+        public static function getConnections()
+        {            //Method inherited from \GrahamCampbell\Manager\AbstractManager         
+                        /** @var \GrahamCampbell\Flysystem\FlysystemManager $instance */
+                        return $instance->getConnections();
+        }
+                    /**
+         * Get the config instance.
+         *
+         * @return \Illuminate\Contracts\Config\Repository 
+         * @static 
+         */ 
+        public static function getConfig()
+        {            //Method inherited from \GrahamCampbell\Manager\AbstractManager         
+                        /** @var \GrahamCampbell\Flysystem\FlysystemManager $instance */
+                        return $instance->getConfig();
+        }
+         
+    }
+     
+}
+
     namespace Facade\Ignition\Facades { 
             /**
      * Class Flare.
@@ -19439,6 +19571,7 @@ namespace  {
             class Active extends \HieuLe\Active\Facades\Active {}
             class Debugbar extends \Barryvdh\Debugbar\Facade {}
             class Image extends \Intervention\Image\Facades\Image {}
+            class Flysystem extends \GrahamCampbell\Flysystem\Facades\Flysystem {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
             class Socialite extends \Laravel\Socialite\Facades\Socialite {}
             class Form extends \Collective\Html\FormFacade {}

@@ -70,9 +70,9 @@ $(document).ready(function() {
     // $('i.note-recent-color').attr("style", "background-color: transparent");
 
 
-    var imageId = $('#product-image_id').val();
+    var productImage = $('#product-image_id');
 
-    var uploadThumbUrl = '/admin/product/store-image';
+    var uploadThumbUrl = '/backend/api/image/store';
     /* jQuery File Upload
 
      -------------------------------------------------- */
@@ -113,7 +113,7 @@ $(document).ready(function() {
         console.log('fileuploaddone.............');
 
         if(data.result.success){
-            $('#productCreateImageId').val(data.result.image_id);
+            productImage.val(data.result.image_id);
         }
 
 
