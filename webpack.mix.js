@@ -26,6 +26,7 @@ mix.copy('node_modules/overlayscrollbars/css', 'public/assets/plugins/overlayscr
 mix.copy('node_modules/overlayscrollbars/js', 'public/assets/plugins/overlayscrollbars/js');
 
 mix.scripts('resources/assets/backend/js/common.js', 'public/assets/backend/js/common.js');
+mix.scripts('resources/assets/backend/js/editor_summernote.js', 'public/assets/backend/js/editor_summernote.js');
 
 if(mix.inProduction()){
     mix.version();

@@ -3,5 +3,6 @@
     "/assets/js/app.js": "/assets/js/app.js",
     "/assets/css/master.css": "/assets/css/master.css",
     "/assets/backend/css/lte.scss": "/assets/backend/css/lte.scss",
-    "/assets/backend/js/common.js": "/assets/backend/js/common.js"
+    "/assets/backend/js/common.js": "/assets/backend/js/common.js",
+    "/assets/backend/js/editor_summernote.js": "/assets/backend/js/editor_summernote.js"
 }
