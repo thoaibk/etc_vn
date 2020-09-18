@@ -1,31 +1,90 @@
-.article-item{
-    .article-title a{
-        color: red;
+.section-title{
+
+}
+
+#index-slider{
+    margin-bottom: 100px;
+    
+    .carousel-image{
+        width: 100%;
     }
 }
-.article-section-title{
-    color: #4070A2;
-    border-bottom: 3px solid #4070A2;
-    font-size: 24px;
-}
-.article-animated{
-    .article-thumb{
-        overflow: hidden;
-        .image-scale{
-            transition: all 1s ease;
-            -webkit-transition: all 1s ease;
-            -moz-transition: all 1s ease;
-            -o-transition: all 1s ease;
+.hot-priduct-wrapper{
+    .hot-product-inner{
+        position: relative;
+        transition: .5s all;
+        .thumb{
+            width: 100%;
         }
+        
+        .inner-content{
+            transition: .3s;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            
+            .inner-text{
+                color: white;
+            }
+        }
+    
         &:hover{
-            .image-scale{
-                transform: scale(1.1,1.1);
-                -webkit-transform: scale(1.1,1.1);
-                -moz-transform: scale(1.1,1.1);
-                -o-transform: scale(1.1,1.1);
-                -ms-transform: scale(1.1,1.1);
+            -webkit-box-shadow: 0 0 38px 0 rgba(0,0,0,.42);
+            -moz-box-shadow: 0 0 38px 0 rgba(0,0,0,.42);
+            box-shadow: 0 0 38px 0 rgba(0,0,0,.42);
+            transform: scale(1.05);
+        
+            .inner-content{
+                background: #495158b5;
             }
         }
     }
-    
+}
+
+
+#lastet-post{
+    margin-top: 85px;
+    margin-bottom: 65px;
+    .owl-carousel .owl-item img{
+        max-height: 247px;
+    }
+    .latest-post-item{
+        box-shadow: none;
+        border: 1px solid #e8e8e8;
+        .latest-post-image{
+        
+        }
+        
+        .latest-post-content{
+            width: 100%;
+            height: auto;
+            display: block;
+            padding: 30px;
+            background: 0 0;
+            position: static;
+            
+            .blog-title{
+                a{
+                    display: block;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    color: #1a1a1a;
+                    text-decoration: none;
+                }
+            }
+            
+            .latest-post-excerpt{
+                height: 66px;
+                overflow: hidden;
+            }
+        }
+        
+        .meta-ul{
+            list-style: none;
+            padding: 0;
+        }
+    }
 }

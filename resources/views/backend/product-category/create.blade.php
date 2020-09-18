@@ -23,6 +23,14 @@
                     {!! Form::input('text', 'name', Request::old('name'), ['class' => 'form-control', 'placeholder' => 'Tên danh mục', 'data-lpignore' =>"true"]) !!}
                 </div>
             </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="name">Danh mục cha</label>
+                <div class="col-sm-6">
+                    {!! Form::select('parent_id', [null => '-- Danh mục gốc --'] + \App\Models\ProductCategory::rootCategories(), null, ['class' => 'form-control']) !!}
+                </div>
+            </div>
+
             <div class="form-group">
                 <label class="control-label col-sm-2" for="name"></label>
                 <div class="col-sm-6">

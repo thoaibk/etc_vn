@@ -21,18 +21,19 @@
 </head>
 <body>
 <div id="evico-app">
-    @include('frontend.layouts.master.nav')
+    @include('frontend.layouts.master.evismart.nav')
     <div id="app-content" class="bg-white">
         <div class="container">
-            @yield('content')
+
         </div>
     </div>
-    @include('frontend.layouts.master.footer')
+    @yield('content')
+    @include('frontend.layouts.master.evismart.footer')
 </div>
 
 @yield('script-before')
 <!-- Scripts -->
-<script src="{{ mix('assets/js/app.js') }}" defer></script>
+<script src="{{ mix('assets/js/app.js') }}"></script>
 
 @yield('script-after')
 

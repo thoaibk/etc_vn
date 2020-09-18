@@ -26,6 +26,7 @@
     "dependencies": {
         "admin-lte": "^3.0.5",
         "moment": "^2.28.0",
-        "popper": "^1.0.1"
+        "popper": "^1.0.1",
+        "tooltip": "^1.6.1"
     }
 }

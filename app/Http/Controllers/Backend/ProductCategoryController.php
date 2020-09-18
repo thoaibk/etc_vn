@@ -21,6 +21,8 @@ class ProductCategoryController extends BackendController
             ->paginate(15);
 
 
+
+
         return view('backend.product-category.index')
             ->with('categories', $categories);
     }
@@ -44,7 +46,8 @@ class ProductCategoryController extends BackendController
     public function store(ProductCategoryRequest $request)
     {
         ProductCategory::create([
-            'name' => $request->get('name')
+            'name' => $request->get('name'),
+            'parent_id' => $request->get('parent_id')
         ]);
 
         return redirect(route('backend.product_category.index'))->withFlashSuccess('Thêm danh mục thành công');
@@ -92,6 +95,7 @@ class ProductCategoryController extends BackendController
             abort(404);
         }
         $category->name = $request->get('name');
+        $category->parent_id = $request->get('parent_id');
         $category->update();
 
         return redirect(route('backend.product_category.index'))->withFlashSuccess('Sửa danh mục thành công');

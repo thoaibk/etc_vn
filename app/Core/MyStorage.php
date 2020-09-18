@@ -36,17 +36,16 @@ class MyStorage
     }
 
     /**
-     * Lấy đường dẫn ảnh tùy thuộc vào các disk khác nhau
-     * @todo chú ý từng disk khác nhau cần được ỗ trợ để có thể hiển thị.
      * @param $disk
      * @param $path
-     * @param $template
-     * @return string
+     * @param $entity
+     * @param string $template
+     * @return bool|\Illuminate\Contracts\Routing\UrlGenerator|string
      */
-    public static function get_image_link($disk, $path, $template = 'medium'){
+    public static function get_image_link($disk, $path, $entity, $template = 'medium'){
 //        if(in_array($disk, ['public'])){
 //            //return route('imagecache', ['template' => $template, 'filename' => self::pathToLink($path)]);
-            return self::getThumbLinkAttribute($disk, $path,$template);
+            return self::getThumbLinkAttribute($disk, $path, $entity ,$template);
 //        }else{
 //            return self::get_default_image($template);
 //        }
@@ -54,17 +53,19 @@ class MyStorage
     }
 
     /**
-     * Load ảnh cache
      * @param $disk
      * @param $path
-     * @param $template
-     * @return $path
+     * @param $entity
+     * @param string $template
+     * @param bool $flag
+     * @return bool|\Illuminate\Contracts\Routing\UrlGenerator|string
      */
-    public static function getThumbLinkAttribute($disk, $path, $template = 'medium', $flag = true){
+    public static function getThumbLinkAttribute($disk, $path, $entity, $template = 'medium', $flag = true){
 //        \Log::info('Path: ' . $path);
         if($template == 'original'){
             $template = 'large';
         }
+
         try{
             $dir     = dirname($path);
             $file    = basename($path);
@@ -74,8 +75,9 @@ class MyStorage
                     \File::makeDirectory($path_create, $mode = 0777, true, true);
                 }
                 $cache   =  $path_create . '/' . $file;
-                $tmp     = config('imagecache.templates.'.$template);
-                \Image::make(MyStorage::getDisk($disk)->readStream($path))->filter(new $tmp)->save($cache);
+                $templateFilter     = config('imagecache.templates.' . $entity . '.templates.' .$template);
+
+                \Image::make(MyStorage::getDisk($disk)->readStream($path))->filter(new $templateFilter)->save($cache);
             }
             return url('/caches/' . $template . '/' . self::pathToLink($path));
         } catch (\Exception $ex){
@@ -183,7 +185,7 @@ class MyStorage
      * @param $options
      * @return string
      */
-    public static function get_image_blog_link($disk, $path, $template = 'original'){
+       public static function get_image_blog_link($disk, $path, $template = 'original'){
         if(in_array($disk, ['blog'])){
             return route('imagecache', ['template' => $template, 'filename' => self::pathToLink($path)]);
         }

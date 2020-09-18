@@ -1,78 +1,14 @@
 $(document).ready(function() {
-
-    // $.summernote.options.keyMap.pc['CTRL+K'] = 'InsertLink.show';
-    // $.summernote.options.keyMap.mac['CMD+K'] = 'InsertLink.show';
-    //
-    // // Define function to open filemanager window
-    // var lfm = function(options, cb) {
-    //     var route_prefix = (options && options.prefix) ? options.prefix : '/media';
-    //     window.open(route_prefix + '?type=' + options.type || 'file', 'FileManager', 'width=900,height=600');
-    //     window.SetUrl = cb;
-    // };
-    //
-    // // Define LFM summernote button
-    // var LFMButton = function(context) {
-    //     var ui = $.summernote.ui;
-    //     var button = ui.button({
-    //         contents: '<i class="note-icon-picture"></i> ',
-    //         tooltip: 'Insert image with filemanager',
-    //         click: function() {
-    //             lfm({type: 'image', prefix: '/media'}, function(lfmItems, path) {
-    //                 context.invoke('insertImage', lfmItems);
-    //                 // lfmItems.forEach(function (lfmItem) {
-    //                 //     context.invoke('insertImage', lfmItem.url);
-    //                 // });
-    //             });
-    //
-    //         }
-    //     });
-    //     return button.render();
-    // };
-
     $('#contentEditor').summernote({
         placeholder: 'Mô tả sản phẩm',
         tabsize: 2,
         height: 500,
-        // lang: 'en-US',
-        // followingToolbar: true,
-        // imageTitle: {
-        //     specificAltField: true,
-        // },
-        // tooltip: true,
-        // prettifyHtml:true,
-        // toolbar: [
-        //     ['style', ['style']],
-        //     ['font', ['bold', 'underline', 'italic', 'clear']],
-        //     ['color', ['color']],
-        //     ['list', ['ul', 'ol']],
-        //     ['para', ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull','outdent','indent']],
-        //     ['table', ['table']],
-        //     ['insert', ['image', 'video']],
-        //     ['view', ['fullscreen']],
-        //     ['highlight', ['highlight']]
-        // ],
-        // buttons: {
-        //     lfm: LFMButton
-        // },
-        // popover: {
-        //     image: [
-        //         ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
-        //         ['float', ['floatLeft', 'floatCenter','floatRight', 'floatNone']],
-        //         ['remove', ['removeMedia']],
-        //         ['custom', ['imageTitle']],
-        //     ],
-        //     link: [
-        //         ['link', ['InsertLink', 'unlink']]
-        //     ],
-        // },
     });
-    // $('[data-original-title="Recent Color"]').attr('data-backcolor','transparent');
-    // $('i.note-recent-color').attr("style", "background-color: transparent");
+
 
 
     var productImage = $('#product-image_id');
-
-    var uploadThumbUrl = '/backend/api/image/store';
+    var uploadThumbUrl = '/backend/api/image/store?entity=product';
     /* jQuery File Upload
 
      -------------------------------------------------- */
@@ -101,25 +37,16 @@ $(document).ready(function() {
     }).bind('fileuploadadded', function (e, data) {
         console.log('fileuploadadded');
 
-
-        //
-        // var response = data;
-        // console.log(typeof data);
-        // console.log(data);
-
         // an khung chon anh
         $('.image-upload').hide();
     }).bind('fileuploaddone', function (e, data) {
         console.log('fileuploaddone.............');
-
         if(data.result.success){
             productImage.val(data.result.image_id);
         }
-
-
     });
 
-
+    console.log('ssss', imageThumbUrl);
 
     // load lấy ảnh đại diện về để hiển thịs
     if(typeof imageThumbUrl != 'undefined'){
@@ -129,12 +56,13 @@ $(document).ready(function() {
             //xhrFields: {withCredentials: true},
             url: imageThumbUrl,
             dataType: 'json',
-            context: $('#post-form')[0]
+            context: $('#ProductForm')[0]
         }).always(function () {
             $(this).removeClass('fileupload-processing');
         }).done(function (result) {
 
             if(result.success){
+                console.log('load image success');
                 $(this).fileupload('option', 'done').call(this, $.Event('done'), {result: result});
                 //$('[data-toggle="popover"]').popover();
                 $('[data-toggle="tooltip"]').tooltip();

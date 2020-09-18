@@ -16,6 +16,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "hieu-le/active": "7.x",
         "intervention/image": "^2.5",
+        "laracasts/utilities": "^3.2",
         "laravel/framework": "^7.24",
         "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.0",

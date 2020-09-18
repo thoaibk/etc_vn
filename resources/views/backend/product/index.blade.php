@@ -16,16 +16,39 @@
             <table class="table table-striped table-bordered">
                 <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Tên danh mục</th>
+                    <th style="width: 60px">ID</th>
+                    <th style="width: 100px">Thumb</th>
+                    <th>Tên</th>
+                    <th>Giá</th>
                     <th style="width: 130px">Trạng thái</th>
                     <th style="width: 130px">Thao tác</th>
                 </tr>
                 </thead>
                 <tbody>
-
+                    @foreach($products as $product)
+                        <tr id="row_{{ $product->id }}">
+                            <td>{{ $product->id }}</td>
+                            <td>
+                                <img src="{{ $product->thumb('small') }}" class="img-fluid" alt="">
+                            </td>
+                            <td>
+                                <a class="text-bold text-decoration-none" href="" target="_blank">{{ $product->name }}</a>
+                            </td>
+                            <td>{{ number_format($product->price) }}</td>
+                            <td>
+                                <span class="pointer" title="{{ $product->statusLable() }}"><i onclick="toggleTableStatus(this, '{{ $product->toggleStatusUrl() }}')"  class="{{ $product->statusStateIcon() }}"></i></span>
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-danger btn-sm" onclick="deleteTableRow('{{ $product->id }}', '{{ $product->deleteUrl() }}')"><i class="fa fa-times"></i></button>
+                                <a href="{{ route('backend.product.edit', ['id' => $product->id]) }}" class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil"></i></a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
+    {{
+    $products->appends([])->links('vendor.pagination.bootstrap-4')
+    }}
 @stop

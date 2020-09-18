@@ -60,25 +60,38 @@ return array(
     */
 
     'templates' => array(
-        'small' => 'App\Core\ImageTemplate\Small',
-        'medium' => 'App\Core\ImageTemplate\Medium',
-        'large' => 'App\Core\ImageTemplate\Large',
-        'cc_small' => 'App\Core\ImageTemplate\CourseCoverSmall',
-        'cc_medium' => 'App\Core\ImageTemplate\CourseCoverMedium',
-        'cc_xs_medium' => 'App\Core\ImageTemplate\CourseCoverXsMedium',
-        'cc_xl_medium' => 'App\Core\ImageTemplate\CourseCoverXlMedium',
-        'cc_large' => 'App\Core\ImageTemplate\CourseCoverLarge',
-        'cc_video_cover' => 'App\Core\ImageTemplate\CourseCoverVideoCover',
-        'ua_small'  => 'App\Core\ImageTemplate\UserAvatarSmall',
-        'ua_medium'  => 'App\Core\ImageTemplate\UserAvatarMedium',
-        'uc_medium' => 'App\Core\ImageTemplate\UserCoverMedium',
-        'blog_large' => 'App\Core\ImageTemplate\BlogCoverLarge',
-        'blog_medium' => 'App\Core\ImageTemplate\BlogCoverMedium',
-        'blog_small' => 'App\Core\ImageTemplate\BlogCoverSmall',
-        'cate_medium' => 'App\Core\ImageTemplate\CategoryAvatarMedium',
-        'p_medium_large' => 'App\Core\ImageTemplate\PostMediumLarge',
-        'p_small_thumb' => 'App\Core\ImageTemplate\PostSmallThumb',
-
+        'default' => [
+            'entity' => 'default',
+            'templates' => [
+                'medium' => 'App\Core\ImageTemplate\Medium',
+                'small' => 'App\Core\ImageTemplate\Small',
+            ]
+        ],
+        'product' => [
+            'entity' => 'product',
+            'templates' => [
+                'medium' => 'App\Core\ImageTemplate\Product\Medium',
+                'small' => 'App\Core\ImageTemplate\Product\Small',
+            ]
+        ],
+//        'small' => 'App\Core\ImageTemplate\Small',
+//        'medium' => 'App\Core\ImageTemplate\Medium',
+//        'large' => 'App\Core\ImageTemplate\Large',
+//        'cc_small' => 'App\Core\ImageTemplate\CourseCoverSmall',
+//        'cc_medium' => 'App\Core\ImageTemplate\CourseCoverMedium',
+//        'cc_xs_medium' => 'App\Core\ImageTemplate\CourseCoverXsMedium',
+//        'cc_xl_medium' => 'App\Core\ImageTemplate\CourseCoverXlMedium',
+//        'cc_large' => 'App\Core\ImageTemplate\CourseCoverLarge',
+//        'cc_video_cover' => 'App\Core\ImageTemplate\CourseCoverVideoCover',
+//        'ua_small'  => 'App\Core\ImageTemplate\UserAvatarSmall',
+//        'ua_medium'  => 'App\Core\ImageTemplate\UserAvatarMedium',
+//        'uc_medium' => 'App\Core\ImageTemplate\UserCoverMedium',
+//        'blog_large' => 'App\Core\ImageTemplate\BlogCoverLarge',
+//        'blog_medium' => 'App\Core\ImageTemplate\BlogCoverMedium',
+//        'blog_small' => 'App\Core\ImageTemplate\BlogCoverSmall',
+//        'cate_medium' => 'App\Core\ImageTemplate\CategoryAvatarMedium',
+//        'p_medium_large' => 'App\Core\ImageTemplate\PostMediumLarge',
+//        'p_small_thumb' => 'App\Core\ImageTemplate\PostSmallThumb',
     ),
 
     /*

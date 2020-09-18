@@ -15264,6 +15264,39 @@
      
 }
 
+    namespace Laracasts\Utilities\JavaScript { 
+            /**
+     * 
+     *
+     */ 
+        class JavaScriptFacade {
+                    /**
+         * Bind the given array of variables to the view.
+         *
+         * @static 
+         */ 
+        public static function put()
+        {
+                        /** @var \Laracasts\Utilities\JavaScript\Transformers\Transformer $instance */
+                        return $instance->put();
+        }
+                    /**
+         * Translate the array of PHP variables to a JavaScript syntax.
+         *
+         * @param array $variables
+         * @return array 
+         * @static 
+         */ 
+        public static function constructJavaScript($variables)
+        {
+                        /** @var \Laracasts\Utilities\JavaScript\Transformers\Transformer $instance */
+                        return $instance->constructJavaScript($variables);
+        }
+         
+    }
+     
+}
+
     namespace Laravel\Socialite\Facades { 
             /**
      * 
@@ -19573,6 +19606,7 @@ namespace  {
             class Image extends \Intervention\Image\Facades\Image {}
             class Flysystem extends \GrahamCampbell\Flysystem\Facades\Flysystem {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
+            class JavaScript extends \Laracasts\Utilities\JavaScript\JavaScriptFacade {}
             class Socialite extends \Laravel\Socialite\Facades\Socialite {}
             class Form extends \Collective\Html\FormFacade {}
             class Html extends \Collective\Html\HtmlFacade {}

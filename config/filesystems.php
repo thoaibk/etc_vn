@@ -42,6 +42,11 @@ return [
     */
 
     'disks' => [
+        'imageCaches' => [
+            'driver' => 'local',
+            'root' => public_path('caches'),
+            'visibility' => 'public',
+        ],
 
         'local' => [
             'driver' => 'local',

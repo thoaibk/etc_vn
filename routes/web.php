@@ -21,3 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 require 'backend/Backend.php';
+
+
+// Frontend route
+require 'Frontend/Product.php';

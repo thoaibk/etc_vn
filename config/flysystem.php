@@ -237,8 +237,8 @@ return [
         'document' => 50*1024*1024,
     ],
     'course_avatar_min_size' => [
-        'width' => '800',
-        'height' => '600',
+        'width' => '700',
+        'height' => '490',
     ],
     'exts' => [
         'video' => ['mp4', 'mpeg4'],

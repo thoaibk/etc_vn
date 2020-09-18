@@ -17,7 +17,8 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Tên danh mục</th>
+                    <th>Tên</th>
+                    <th>Danh mục cha</th>
                     <th style="width: 130px">Trạng thái</th>
                     <th style="width: 130px">Thao tác</th>
                 </tr>
@@ -27,12 +28,13 @@
                     <tr id="row_{{ $category->id }}">
                         <td>{{ $category->id }}</td>
                         <td>{{ $category->name }}</td>
+                        <td>{{ ($category->parent) ? $category->parent->name : '' }}</td>
                         <td>
                             <span class="pointer" title="{{ $category->statusLable() }}"><i onclick="toggleTableStatus(this, '{{ $category->toggleStatusUrl() }}')"  class="{{ $category->statusStateIcon() }}"></i></span>
                         </td>
                         <td>
-                            <a href="{{ $category->editUrl() }}" class="btn btn-info btn-sm" title="Sửa"><i class="fa fa-pencil"></i></a>
-                            <button class="btn btn-danger btn-sm" title="Xóa" onclick="deleteTableRow('{{ $category->id }}', '{{ $category->deleteUrl() }}')"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-outline-danger btn-sm" title="Xóa" onclick="deleteTableRow('{{ $category->id }}', '{{ $category->deleteUrl() }}')"><i class="fa fa-times"></i></button>
+                            <a href="{{ $category->editUrl() }}" class="btn btn-outline-primary btn-sm" title="Sửa"><i class="fa fa-pencil"></i></a>
                         </td>
                     </tr>
                 @endforeach
@@ -40,4 +42,7 @@
             </table>
         </div>
     </div>
+    {{
+    $categories->appends([])->links('vendor.pagination.bootstrap-4')
+    }}
 @stop

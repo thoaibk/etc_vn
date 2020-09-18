@@ -19,13 +19,9 @@ class UserSeeder extends Seeder
         ]);
 
         $admin->syncRoles('admin');
-//        factory(User::class, 100)->create();
-        factory(\App\User::class, 30)->create();
 
-//        for ($i = 1; $i < 30; $i++){
-//            \App\User::create([
-//                'email' => Faceto
-//            ])
-//        }
+        if(\App\User::query()->count() == 1){
+            factory(\App\User::class, 30)->create();
+        }
     }
 }

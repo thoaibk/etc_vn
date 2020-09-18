@@ -25,6 +25,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int|null $parent_id
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereParentId($value)
  */
 class ProductCategory extends Model
 {
@@ -46,12 +48,46 @@ class ProductCategory extends Model
         ];
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function parent(){
+        return $this->belongsTo(ProductCategory::class, 'parent_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function childs(){
+        return $this->hasMany(ProductCategory::class, 'parent_id', 'id');
+    }
+
+    public static function categoryAvailable(){
+        return self::query()
+            ->whereNull('parent_id')
+            ->where('status', self::STATUS_ACTIVE)
+            ->get();
+    }
+
     public function statusLable(){
         return ($this->status === self::STATUS_ACTIVE) ? 'Đang active' : 'Đang tắt';
     }
 
     public function statusStateIcon(){
         return ($this->status === self::STATUS_ACTIVE) ? 'text-info fa-2x fas fa-toggle-on' : 'text-secondary fa-2x fal fa-toggle-off';
+    }
+
+    public static function rootCategories($excludeID = null){
+
+        $query = self::query()
+            ->whereNull('parent_id');
+
+        if($excludeID != null){
+            $query = $query->where('id', '<>', $excludeID);
+        }
+        return $query->get()->mapWithKeys(function ($item){
+            return [$item->id => $item->name];
+        })->toArray();
     }
 
     /**

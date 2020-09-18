@@ -49,10 +49,10 @@
     </div>
 
     {{
-                $users->appends([
-                    'id' => Request::get('id'),
-                    'name' => Request::get('name'),
-                    'email' => Request::get('email')
-                ])->links('vendor.pagination.bootstrap-4')
-            }}
+    $users->appends([
+        'id' => Request::get('id'),
+        'name' => Request::get('name'),
+        'email' => Request::get('email')
+    ])->links('vendor.pagination.bootstrap-4')
+    }}
 @stop

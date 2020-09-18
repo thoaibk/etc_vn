@@ -16,15 +16,6 @@
     <link rel="stylesheet" href="/assets/plugins/toastr/toastr.min.css">
     <link rel="stylesheet" href="/assets/plugins/jquery-confirm/jquery-confirm.css">
 
-{{--    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
-{{--    {!! Html::style('/backend/lte3/css/adminlte.min.css') !!}--}}
-{{--    {!! Html::style('/backend/lte3/css/style.css') !!}--}}
-{{--    {!! Html::style('/plugin/bootstrap-daterangepicker/daterangepicker.css') !!}--}}
-{{--    {!! Html::style('/plugin/select2/dist/css/select2.min.css') !!}--}}
-{{--    {!! Html::style('//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css') !!}--}}
-{{--    {!! Html::style('/plugin/jquery-confirm-v3.3/dist/jquery-confirm.min.css') !!}--}}
-
-{{--    {!! Html::style('/backend/css/crm_style.css') !!}--}}
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     @yield('after-styles-end')
 </head>
@@ -60,16 +51,6 @@
     <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
-<!-- jQuery -->
-{{--{!! Html::script('/js/jquery.min.js') !!}--}}
-{{--{!! Html::script('/plugin/moment/moment.js') !!}--}}
-{{--{!! Html::script('/js/bootstrap.bundle.min.js') !!}--}}
-{{--{!! Html::script('/plugin/jquery-confirm-v3.3/dist/jquery-confirm.min.js') !!}--}}
-{{--{!! Html::script('https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js') !!}--}}
-{{--{!! Html::script('/plugin/bootstrap-daterangepicker/daterangepicker.js') !!}--}}
-{{--{!! Html::script('//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js') !!}--}}
-{{--{!! Html::script('/backend/lte3/js/lte3.js') !!}--}}
 
 @include('includes.partials.params')
 

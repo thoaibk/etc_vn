@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -46,5 +47,69 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Product extends Model
 {
-    //
+    use Sluggable;
+    protected $table = 'products';
+    protected $guarded = ['id'];
+
+    const STATUS_ACTIVE = 'active';
+    const STATUS_INACTIVE = 'inactive';
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function categories(){
+        return $this->belongsToMany(ProductCategory::class, 'product_has_category', 'product_id', 'category_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function image(){
+        return $this->belongsTo(Image::class, 'image_id');
+    }
+
+    public function thumb($template = 'small'){
+        $defautImage = 'assets/img/no-image.jpg';
+        if($this->image){
+            return $this->image->getImageSrc($template);
+        }
+        return $defautImage;
+    }
+
+    public function statusStateIcon(){
+        return ($this->status === self::STATUS_ACTIVE) ? 'text-info fa-2x fas fa-toggle-on' : 'text-secondary fa-2x fal fa-toggle-off';
+    }
+
+    public function statusLable(){
+        return ($this->status === self::STATUS_ACTIVE) ? 'Đang active' : 'Đang tắt';
+    }
+
+
+    /**
+     * @return string
+     */
+    public function toggleStatusUrl(){
+        return route('backend.product.toggle_status', ['id' => $this->id]);
+    }
+
+    /**
+     * @return string
+     */
+    public function deleteUrl(){
+        return route('backend.product.destroy', ['id' => $this->id]);
+    }
+
+    public function publicUrl(){
+        return route('product.detail', ['slug' => $this->slug]);
+    }
 }

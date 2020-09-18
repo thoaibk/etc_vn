@@ -17,6 +17,7 @@ function getPathByDay($root, $time = 'now', $append = '', $create = false, $tz =
     if ($append != '') {
         $path .= DIRECTORY_SEPARATOR . $append;
     }
+
     if ($create && \Illuminate\Support\Facades\File::exists($path)) {
         \Illuminate\Support\Facades\File::makeDirectory($path);
     }

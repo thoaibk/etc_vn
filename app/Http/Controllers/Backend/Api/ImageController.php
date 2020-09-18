@@ -6,82 +6,148 @@ use App\Core\MyStorage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Intervention\Image\Image;
+use League\Flysystem\FileNotFoundException;
 
 class ImageController extends Controller
 {
     public function store(Request $request){
-        // valid file
-        $file_uploaded = $request->file('image_file_upload');
-        $valid_result = MyStorage::defaultValidUploadFile($file_uploaded, 'image');
 
+        $entity = $request->get('entity', 'default');
 
-        if($valid_result['valid'] == false){
-            return response()->json(['success' => false, 'message' => $valid_result['message']]);
-        }
+        $imageEntity = \App\Models\Image::getEntity($entity);
 
-        //save new image
-        $diskName = 'public_image';
-        $disk = MyStorage::getDisk($diskName);
-        $nameSave = md5(auth()->user()->id . time()) . '.' . $request->file('cou_avatar')->getClientOriginalExtension();
-        $path = getPathByDay('cou_avatar','now', $nameSave);
+        try{
+            // valid file
+            $file_uploaded = $request->file('image_file_upload');
+            $valid_result = MyStorage::defaultValidUploadFile($file_uploaded, 'image');
 
+            if($valid_result['valid'] == false){
+                return response()->json(['success' => false, 'message' => $valid_result['message']]);
+            }
 
-        $uploaded_image = \Image::make($request->file('image_file_upload'));
-        // valid min dimension
-        if($uploaded_image->height() < config('flysystem.course_avatar_min_size.height')
-            || $uploaded_image->width() < config('flysystem.course_avatar_min_size.width')){
+            //save new image
+            $diskName = 'public_image';
+            $disk = MyStorage::getDisk($diskName);
+            $nameSave = md5(auth()->user()->id . time()) . '.' . $request->file('image_file_upload')->getClientOriginalExtension();
+            $path = getPathByDay($imageEntity,'now', $nameSave);
+
+            $uploaded_image = \Image::make($request->file('image_file_upload'));
+
+            // valid min dimension
+            if($uploaded_image->height() < config('flysystem.course_avatar_min_size.height')
+                || $uploaded_image->width() < config('flysystem.course_avatar_min_size.width')){
+                return response()->json([
+                    'success' => false,
+                    'message' => trans('validation.image_dimension',[
+                        'height' => config('flysystem.course_avatar_min_size.height'),
+                        'width' => config('flysystem.course_avatar_min_size.width'),
+                    ])
+                ]);
+            }
+
+            $saved = $disk->putStream($path,
+                $uploaded_image->resize(2048, 2048, function ($constraint) {
+                    $constraint->aspectRatio();
+                })
+                    ->encode(null,100)
+                    ->stream()
+                    ->detach());
+
+            if($saved){
+                $image = \App\Models\Image::create([
+                    'entity' => $imageEntity,
+                    'disk' => $diskName,
+                    'path' => $path
+                ]);
+                $data = [
+                    'files' => [
+                        [
+                            'id'            => $image->id,
+                            'title'         => null,
+                            'url'           => $image->getImageSrc('medium'),
+                            'url_thumb'     => $image->getImageSrc('small'),
+                            'delete_url'    => $image->deleteUrl(),
+                            'delete_method' => 'DELETE',
+                        ]
+                    ],
+                    'success' => true,
+                    'image_id' => $image->id,
+                    'msg' => 'success'
+                ];
+
+                return response()->json($data);
+            }
+
             return response()->json([
                 'success' => false,
-                'message' => trans('validation.image_dimension',[
-                    'height' => config('flysystem.course_avatar_min_size.height'),
-                    'width' => config('flysystem.course_avatar_min_size.width'),
-                ])
+                'message' => 'Có lỗi khi lưu ảnh. Vui lòng kiểm tra lại'
+            ]);
+        } catch (\Exception $exception){
+            return response()->json([
+                'success' => false,
+                'message' => $exception->getMessage()
             ]);
         }
+    }
 
-        $saved = $disk->putStream($path,
-            $uploaded_image->resize(2048, 2048, function ($constraint) {
-                $constraint->aspectRatio();
-            })
-                ->encode(null,100)
-                ->stream()
-                ->detach());
-        if($saved){
-            $image = \App\Models\Image::create([
-                'disk' => $disk,
-                'path' => $path
-            ]);
-
-            return
-
-
-            echo "<pre>"; var_dump($saved); echo "</pre>"; die;
-
-
-//            // remove old image
-//            try{
-//                $old_disk = MyStorage::getDisk($course->cover_disk);
-//                if($old_disk && $course->cover_path != '' &&$old_disk->has($course->cover_path)){
-//                    $old_disk->delete($course->cover_path);
-//                }
-//            }catch (FileNotFoundException $e){
-//                // do nothing
-//            }
-//
-////            echo "<pre>"; print_r($name); echo "</pre>"; die;
-//
-//            $saved = $course->update([
-//                'cover_path' => $name,
-//                'cover_disk' => 'public'
-//            ]);
-//
-//            if($saved){
-//                return response()->json(['success' => true]);
-//            }
+    public function show($id, $template = 'small'){
+        $image = \App\Models\Image::find($id);
+        if(!$image){
+            abort(404);
         }
+
+        $data = [
+            'files' => [
+                [
+                    'id'            => $image->id,
+                    'title'         => null,
+                    'url'           => $image->getImageSrc($template),
+                    'url_thumb'     => $image->getImageSrc($template),
+                    'delete_url'    => $image->deleteUrl(),
+                    'delete_method' => 'DELETE',
+                ]
+            ],
+            'success' => true,
+            'image_id' => $image->id,
+            'msg' => 'success'
+        ];
+
+        return response()->json($data);
+
+    }
+
+    public function delete($id){
+        $image = \App\Models\Image::find($id);
+        if(!$image){
+            return response('Ảnh không tồn tại', 404);
+        }
+
+
+        try{
+            $old_disk = MyStorage::getDisk($image->disk);
+            if($old_disk && $image->path != '' && $old_disk->has($image->path)){
+                $old_disk->delete($image->path);
+            }
+
+            $cacheTemplates = config('imagecache.templates.'. $image->entity .'.templates', []);
+
+            foreach ($cacheTemplates as $cacheTemplate => $class){
+                $tamplatePath = $cacheTemplate . '/' . $image->path;
+                \Log::info('Delete: ' . $tamplatePath);
+                if(\Storage::disk('imageCaches')->exists($tamplatePath)){
+                    \Storage::disk('imageCaches')->delete($tamplatePath);
+                }
+            }
+
+        }catch (FileNotFoundException $e){
+            \Log::info('Lỗi Xóa ảnh: ' . $e->getMessage());
+        }
+
+        $image->delete();
 
         return response()->json([
-            'id' => 12
+            'success' => true,
+            'message' => 'Đã xóa'
         ]);
     }
 }

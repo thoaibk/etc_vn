@@ -1,7 +1,7 @@
 @extends('backend.layouts.lte')
 
 @section('title')
-    Thêm danh mục
+    Sửa danh mục
 @stop
 
 @section('content')
@@ -21,6 +21,12 @@
                 <label class="control-label col-sm-2" for="name">Tên danh mục</label>
                 <div class="col-sm-6">
                     {!! Form::input('text', 'name', $category->name, ['class' => 'form-control', 'placeholder' => 'Tên danh mục', 'data-lpignore' =>"true"]) !!}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="name">Danh mục cha</label>
+                <div class="col-sm-6">
+                    {!! Form::select('parent_id', [null => '-- Danh mục gốc --'] + \App\Models\ProductCategory::rootCategories($category->id), $category->parent_id, ['class' => 'form-control']) !!}
                 </div>
             </div>
             <div class="form-group">

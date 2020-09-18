@@ -12,6 +12,8 @@ try {
 
     require('moment');
     require('bootstrap');
+    require('tooltip');
+
 } catch (e) {
     console.log('Error require package on bootstrap.js');
 }
