@@ -72,6 +72,7 @@ return array(
             'templates' => [
                 'medium' => 'App\Core\ImageTemplate\Product\Medium',
                 'small' => 'App\Core\ImageTemplate\Product\Small',
+                'slider' => 'App\Core\ImageTemplate\Product\SliderMedium',
             ]
         ],
 //        'small' => 'App\Core\ImageTemplate\Small',

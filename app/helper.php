@@ -23,3 +23,16 @@ function getPathByDay($root, $time = 'now', $append = '', $create = false, $tz =
     }
     return $path;
 }
+
+function human_money($amount, $empty_text = null, $currency = null){
+    $empty_text = $empty_text === null ? trans('common.free') : $empty_text;
+    $currency = $currency === null ? config('app.currency') : $currency;
+    if($amount == 0 && $empty_text != ''){
+        return $empty_text;
+    }else{
+        return number_format($amount,
+                config('app.decimals'),
+                config('app.dec_point'),
+                config('app.thousands_sep')) . " " . $currency;
+    }
+}

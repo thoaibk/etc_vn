@@ -1,0 +1,121 @@
+#product-detail .product-slide .slide-content {
+  background: #EBEBEB;
+  padding: 20px 35px;
+  border-radius: 4px;
+}
+
+#product-detail .product-slide .slide-content .slick-arrow {
+  position: absolute;
+  top: 50%;
+  height: 38px;
+  width: 38px;
+  font-size: 0;
+  background: url(/images/icon-arrow.png?5f4b516ecff6fb4fe5afd997d97e5230);
+  border: none;
+  outline: none;
+  opacity: 0.6;
+  transform: translate(0, -50%);
+}
+
+#product-detail .product-slide .slide-content .slick-arrow.slick-prev {
+  left: 10px;
+}
+
+#product-detail .product-slide .slide-content .slick-arrow.slick-next {
+  right: 10px;
+  background-position-x: 38px;
+}
+
+#product-detail .product-slide .slider-nav {
+  display: flex;
+  margin: 10px -5px;
+}
+
+#product-detail .product-slide .slider-nav .img-slide-nav {
+  background: #EBEBEB;
+  padding: 1px;
+  margin: 0 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+  border: solid 2px #EBEBEB;
+}
+
+#product-detail .product-slide .slider-nav .img-slide-nav .img-fluid {
+  margin: auto;
+}
+
+#product-detail .product-slide .slider-nav .img-slide-nav.slick-current {
+  border: solid 2px #00BCD4;
+}
+
+#product-detail .product-attr .product-title {
+  color: #3b535f;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+#product-detail .product-attr .price {
+  font-size: 1.6em;
+}
+
+#product-detail .product-attr .price .sale-price {
+  color: #d50b0b;
+  font-weight: 700;
+}
+
+#product-detail .product-attr .btn-add-to-card {
+  background: -webkit-linear-gradient(top, #f59000, #fd6e1d);
+  width: 100%;
+  margin-top: 20px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+#product-detail .product-attr .btn-add-to-card .btn-sub-text {
+  margin: 0;
+  text-transform: initial;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 11px;
+}
+
+#product-detail .section-product-content .product-content img {
+  max-width: 100%;
+}
+
+#product-detail .section-product-content .right-product .tableparameter .parameter {
+  list-style: none;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+  border-top: 1px solid #e4e4e4;
+  margin-top: 15px;
+}
+
+#product-detail .section-product-content .right-product .tableparameter .parameter > li {
+  display: table;
+  background: #fff;
+  width: 100%;
+  border-top: 1px solid #eee;
+  padding: 5px 0;
+}
+
+#product-detail .section-product-content .right-product .tableparameter .parameter > li > span {
+  display: table-cell;
+  width: 40%;
+  vertical-align: top;
+  padding: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+#product-detail .section-product-content .right-product .tableparameter .parameter > li > div {
+  display: table-cell;
+  width: auto;
+  vertical-align: top;
+  padding: 6px 5px;
+  font-size: 14px;
+  color: #333;
+}
+

@@ -25,3 +25,4 @@ require 'backend/Backend.php';
 
 // Frontend route
 require 'Frontend/Product.php';
+require 'Frontend/Cart.php';

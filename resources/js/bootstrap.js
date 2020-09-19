@@ -16,6 +16,33 @@ try {
 }
 
 
+let token = document.head.querySelector('meta[name="_token"]');
+
+if (token) {
+    if ('undefined' !== typeof token.content) {
+        $.ajaxSetup({
+            beforeSend: function(){},
+            headers: {
+                'X-CSRF-TOKEN': token.content
+            }
+        });
+    }
+} else {
+    token = document.head.querySelector('meta[name="csrf-token"]');
+    if (token) {
+        $.ajaxSetup({
+            beforeSend: function(xhr){},
+            headers: {
+                'X-CSRF-TOKEN': token.content
+            }
+        });
+    } else {
+        console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+    }
+}
+
+
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the

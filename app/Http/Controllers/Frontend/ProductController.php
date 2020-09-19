@@ -13,6 +13,9 @@ class ProductController extends Controller
         $product = Product::whereSlug($slug)->first();
         if(!$product)
             abort(404);
-        
+
+
+        return view('frontend.product.detail')
+            ->with('product', $product);
     }
 }

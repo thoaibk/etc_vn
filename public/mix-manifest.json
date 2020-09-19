@@ -2,7 +2,10 @@
     "/assets/backend/js/backend.js": "/assets/backend/js/backend.js",
     "/assets/js/app.js": "/assets/js/app.js",
     "/assets/css/master.css": "/assets/css/master.css",
+    "/assets/frontend/css/product_detail.css": "/assets/frontend/css/product_detail.css",
+    "/assets/frontend/css/cart_index.css": "/assets/frontend/css/cart_index.css",
     "/assets/backend/css/lte.scss": "/assets/backend/css/lte.scss",
+    "/assets/frontend/cart.js": "/assets/frontend/cart.js",
     "/assets/backend/js/common.js": "/assets/backend/js/common.js",
     "/assets/backend/js/editor_summernote.js": "/assets/backend/js/editor_summernote.js"
 }

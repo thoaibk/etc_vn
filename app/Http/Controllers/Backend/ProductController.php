@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Core\MyStorage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\ProductRequest;
+use App\Models\Image;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
@@ -107,7 +109,6 @@ class ProductController extends BackendController
             ->with('product', $product)
             ->with('productCategegories', $productCategegories)
             ->with('categories', $categories);
-
     }
 
     /**
@@ -148,6 +149,150 @@ class ProductController extends BackendController
             return redirect()->back()->withInput($request->all())->withFlashDanger($exception->getMessage());
         }
 
+    }
+
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function images($id, Request $request){
+        $product = Product::find($id);
+        if(!$product)
+            abort(404);
+
+        $images = $product->images()->paginate(10);
+
+        return view('backend.product.image')
+            ->with('product', $product)
+            ->with('images', $images);
+
+    }
+
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function storeImage($id, Request $request){
+        $product = Product::find($id);
+        if(!$product)
+            abort(404);
+
+        $imageEntity = 'product';
+        try{
+            // valid file
+            $file_uploaded = $request->file('image_file_upload');
+            $valid_result = MyStorage::defaultValidUploadFile($file_uploaded, 'image');
+
+            if($valid_result['valid'] == false){
+                return response()->json(['success' => false, 'message' => $valid_result['message']]);
+            }
+
+            //save new image
+            $diskName = 'public_image';
+            $disk = MyStorage::getDisk($diskName);
+            $nameSave = md5(auth()->user()->id . time()) . '.' . $request->file('image_file_upload')->getClientOriginalExtension();
+            $path = getPathByDay($imageEntity,'now', $nameSave);
+
+            $uploaded_image = \Image::make($request->file('image_file_upload'));
+
+            // valid min dimension
+            if($uploaded_image->height() < config('flysystem.course_avatar_min_size.height')
+                || $uploaded_image->width() < config('flysystem.course_avatar_min_size.width')){
+                return response()->json([
+                    'success' => false,
+                    'message' => trans('validation.image_dimension',[
+                        'height' => config('flysystem.course_avatar_min_size.height'),
+                        'width' => config('flysystem.course_avatar_min_size.width'),
+                    ])
+                ]);
+            }
+
+            $saved = $disk->putStream($path,
+                $uploaded_image->resize(2048, 2048, function ($constraint) {
+                    $constraint->aspectRatio();
+                })
+                    ->encode(null,100)
+                    ->stream()
+                    ->detach());
+
+            if($saved){
+                $image = \App\Models\Image::create([
+                    'entity' => $imageEntity,
+                    'disk' => $diskName,
+                    'path' => $path
+                ]);
+
+                $product->images()->attach($image->id);
+
+                $data = [
+                    'files' => [
+                        [
+                            'id'            => $image->id,
+                            'title'         => null,
+                            'url'           => $image->getImageSrc('medium'),
+                            'url_thumb'     => $image->getImageSrc('small'),
+                            'delete_url'    => $image->deleteUrl(),
+                            'delete_method' => 'DELETE',
+                        ]
+                    ],
+                    'success' => true,
+                    'image_id' => $image->id,
+                    'msg' => 'success'
+                ];
+
+                return response()->json($data);
+            }
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Có lỗi khi lưu ảnh. Vui lòng kiểm tra lại'
+            ]);
+        } catch (\Exception $exception){
+            return response()->json([
+                'success' => false,
+                'message' => $exception->getMessage()
+            ]);
+        }
+    }
+
+    public function remoteImage($id, $imageID){
+        $product = Product::find($id);
+        if(!$product)
+            abort(404);
+
+        $deleteImage = $product->images()->find($imageID);
+        if(!$deleteImage){
+            abort(404);
+        }
+
+        try{
+
+            $old_disk = MyStorage::getDisk($deleteImage->disk);
+            if($old_disk && $deleteImage->path != '' && $old_disk->has($deleteImage->path)){
+                $old_disk->delete($deleteImage->path);
+            }
+
+            $cacheTemplates = config('imagecache.templates.'. $deleteImage->entity .'.templates', []);
+
+            foreach ($cacheTemplates as $cacheTemplate => $class){
+                $tamplatePath = $cacheTemplate . '/' . $deleteImage->path;
+                \Log::info('Delete: ' . $tamplatePath);
+                if(\Storage::disk('imageCaches')->exists($tamplatePath)){
+                    \Storage::disk('imageCaches')->delete($tamplatePath);
+                }
+            }
+
+            $deleteImage->delete();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Đã xóa ảnh sản phẩm'
+            ]);
+        } catch (\Exception $exception){
+            return response($exception->getMessage(), 501);
+        }
     }
 
     /**

@@ -1,7 +1,7 @@
 @extends('backend.layouts.lte')
 
 @section('title')
-    Danh mục sản phẩm
+    Danh sách sản phẩm
 @stop
 
 @section('content')
@@ -21,10 +21,11 @@
                     <th>Tên</th>
                     <th>Giá</th>
                     <th style="width: 130px">Trạng thái</th>
-                    <th style="width: 130px">Thao tác</th>
+                    <th style="width: 150px">Thao tác</th>
                 </tr>
                 </thead>
                 <tbody>
+
                     @foreach($products as $product)
                         <tr id="row_{{ $product->id }}">
                             <td>{{ $product->id }}</td>
@@ -41,6 +42,8 @@
                             <td>
                                 <button class="btn btn-outline-danger btn-sm" onclick="deleteTableRow('{{ $product->id }}', '{{ $product->deleteUrl() }}')"><i class="fa fa-times"></i></button>
                                 <a href="{{ route('backend.product.edit', ['id' => $product->id]) }}" class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil"></i></a>
+                                <a href="{{ route('backend.product.images', ['id' => $product->id]) }}" class="btn btn-outline-primary btn-sm"><i class="fa fa-images"></i></a>
+
                             </td>
                         </tr>
                     @endforeach

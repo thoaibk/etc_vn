@@ -7,7 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>
+        @yield('title')
+    </title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -34,6 +36,7 @@
 @yield('script-before')
 <!-- Scripts -->
 <script src="{{ mix('assets/js/app.js') }}"></script>
+<script src="{{ mix('assets/frontend/cart.js') }}"></script>
 
 @yield('script-after')
 

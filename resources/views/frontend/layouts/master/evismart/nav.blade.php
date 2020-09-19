@@ -1,11 +1,14 @@
 <!--Navigation Var-->
 
-<nav id="evi-nav" class="navbar navbar-expand-sm navbar-dark bg-white sticky-top p-0">
+<nav id="evi-nav" class="navbar navbar-expand-sm bg-white sticky-top p-0">
     <div class="container">
         <a class="navbar-brand" href="#">
             <span class="evi">Evi</span><span class="smart">Smart</span>
         </a>
-        <!--Toggle Collapse Button--> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <!--Toggle Collapse Button-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fal fa-bars"></i>
+        </button>
         <!--Division for navbar-->
         <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
             <!--UL for links-->
@@ -232,6 +235,14 @@
                 </li> <!-- Catagory 4-->
             </ul>
 
+        </div>
+        <div class="cart-nav d-none d-sm-block">
+            <div class="cart-nav-inner">
+                <a href="{{ route('cart.index') }}">
+                    <i class="cart-icon fa fa-shopping-cart"></i>
+                    <div class="nav-cart-count badge badge-pill badge-danger"></div>
+                </a>
+            </div>
         </div>
     </div>
 </nav>

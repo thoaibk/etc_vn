@@ -78,6 +78,13 @@ class Product extends Model
         return $this->belongsTo(Image::class, 'image_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function images(){
+        return $this->belongsToMany(Image::class, 'product_has_images', 'product_id', 'image_id');
+    }
+
     public function thumb($template = 'small'){
         $defautImage = 'assets/img/no-image.jpg';
         if($this->image){

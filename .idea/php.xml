@@ -127,6 +127,8 @@
       <path value="$PROJECT_DIR$/vendor/graham-campbell/manager" />
       <path value="$PROJECT_DIR$/vendor/graham-campbell/flysystem" />
       <path value="$PROJECT_DIR$/vendor/laracasts/utilities" />
+      <path value="$PROJECT_DIR$/vendor/davejamesmiller/laravel-breadcrumbs" />
+      <path value="$PROJECT_DIR$/vendor/bumbummen99/shoppingcart" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

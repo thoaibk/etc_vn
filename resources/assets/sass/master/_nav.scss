@@ -137,4 +137,17 @@
     span.navbar-toggler.icon {
         color: black
     }
+    
+    .cart-nav-inner{
+        position: relative;
+        .cart-icon{
+            font-size: 18px;
+            color: #868686;
+        }
+        .nav-cart-count{
+            position: absolute;
+            font-size: 9px;
+            font-weight: 500;
+        }
+    }
 }

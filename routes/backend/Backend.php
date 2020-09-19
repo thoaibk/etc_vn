@@ -23,6 +23,10 @@ Route::prefix('backend')->middleware('permission:view_admin')->group(function(){
         Route::get('/{id}/update', 'Backend\ProductController@edit')->name('backend.product.edit');
         Route::post('/{id}/update', 'Backend\ProductController@update')->name('backend.product.update');
 
+        Route::get('/{id}/images', 'Backend\ProductController@images')->name('backend.product.images');
+        Route::post('/{id}/store-image', 'Backend\ProductController@storeImage')->name('backend.product.store_image');
+        Route::delete('/{id}/remove-image/{imageId}', 'Backend\ProductController@remoteImage')->name('backend.product.remote_image');
+
         Route::post('/{id}/toggle-status', 'Backend\ProductController@toggleStatus')->name('backend.product.toggle_status');
         Route::delete('/{id}/delete', 'Backend\ProductController@destroy')->name('backend.product.destroy');
     });

@@ -15023,6 +15023,697 @@
      
 }
 
+    namespace Gloudemans\Shoppingcart\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class Cart {
+                    /**
+         * Set the current cart instance.
+         *
+         * @param string|null $instance
+         * @return \Gloudemans\Shoppingcart\Cart 
+         * @static 
+         */ 
+        public static function instance($instance = null)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->instance($instance);
+        }
+                    /**
+         * Get the current cart instance.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function currentInstance()
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->currentInstance();
+        }
+                    /**
+         * Add an item to the cart.
+         *
+         * @param mixed $id
+         * @param mixed $name
+         * @param int|float $qty
+         * @param float $price
+         * @param float $weight
+         * @param array $options
+         * @return \Gloudemans\Shoppingcart\CartItem 
+         * @static 
+         */ 
+        public static function add($id, $name = null, $qty = null, $price = null, $weight = 0, $options = [])
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->add($id, $name, $qty, $price, $weight, $options);
+        }
+                    /**
+         * Add an item to the cart.
+         *
+         * @param \Gloudemans\Shoppingcart\CartItem $item Item to add to the Cart
+         * @param bool $keepDiscount Keep the discount rate of the Item
+         * @param bool $keepTax Keep the Tax rate of the Item
+         * @param bool $dispatchEvent
+         * @return \Gloudemans\Shoppingcart\CartItem The CartItem
+         * @static 
+         */ 
+        public static function addCartItem($item, $keepDiscount = false, $keepTax = false, $dispatchEvent = true)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->addCartItem($item, $keepDiscount, $keepTax, $dispatchEvent);
+        }
+                    /**
+         * Update the cart item with the given rowId.
+         *
+         * @param string $rowId
+         * @param mixed $qty
+         * @return \Gloudemans\Shoppingcart\CartItem 
+         * @static 
+         */ 
+        public static function update($rowId, $qty)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->update($rowId, $qty);
+        }
+                    /**
+         * Remove the cart item with the given rowId from the cart.
+         *
+         * @param string $rowId
+         * @return void 
+         * @static 
+         */ 
+        public static function remove($rowId)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        $instance->remove($rowId);
+        }
+                    /**
+         * Get a cart item from the cart by its rowId.
+         *
+         * @param string $rowId
+         * @return \Gloudemans\Shoppingcart\CartItem 
+         * @static 
+         */ 
+        public static function get($rowId)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->get($rowId);
+        }
+                    /**
+         * Destroy the current cart instance.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function destroy()
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        $instance->destroy();
+        }
+                    /**
+         * Get the content of the cart.
+         *
+         * @return \Illuminate\Support\Collection 
+         * @static 
+         */ 
+        public static function content()
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->content();
+        }
+                    /**
+         * Get the number of items in the cart.
+         *
+         * @return int|float 
+         * @static 
+         */ 
+        public static function count()
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->count();
+        }
+                    /**
+         * Get the number of items instances in the cart.
+         *
+         * @return int|float 
+         * @static 
+         */ 
+        public static function countInstances()
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->countInstances();
+        }
+                    /**
+         * Get the total price of the items in the cart.
+         *
+         * @return float 
+         * @static 
+         */ 
+        public static function totalFloat()
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->totalFloat();
+        }
+                    /**
+         * Get the total price of the items in the cart as formatted string.
+         *
+         * @param int $decimals
+         * @param string $decimalPoint
+         * @param string $thousandSeperator
+         * @return string 
+         * @static 
+         */ 
+        public static function total($decimals = null, $decimalPoint = null, $thousandSeperator = null)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->total($decimals, $decimalPoint, $thousandSeperator);
+        }
+                    /**
+         * Get the total tax of the items in the cart.
+         *
+         * @return float 
+         * @static 
+         */ 
+        public static function taxFloat()
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->taxFloat();
+        }
+                    /**
+         * Get the total tax of the items in the cart as formatted string.
+         *
+         * @param int $decimals
+         * @param string $decimalPoint
+         * @param string $thousandSeperator
+         * @return string 
+         * @static 
+         */ 
+        public static function tax($decimals = null, $decimalPoint = null, $thousandSeperator = null)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->tax($decimals, $decimalPoint, $thousandSeperator);
+        }
+                    /**
+         * Get the subtotal (total - tax) of the items in the cart.
+         *
+         * @return float 
+         * @static 
+         */ 
+        public static function subtotalFloat()
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->subtotalFloat();
+        }
+                    /**
+         * Get the subtotal (total - tax) of the items in the cart as formatted string.
+         *
+         * @param int $decimals
+         * @param string $decimalPoint
+         * @param string $thousandSeperator
+         * @return string 
+         * @static 
+         */ 
+        public static function subtotal($decimals = null, $decimalPoint = null, $thousandSeperator = null)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->subtotal($decimals, $decimalPoint, $thousandSeperator);
+        }
+                    /**
+         * Get the discount of the items in the cart.
+         *
+         * @return float 
+         * @static 
+         */ 
+        public static function discountFloat()
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->discountFloat();
+        }
+                    /**
+         * Get the discount of the items in the cart as formatted string.
+         *
+         * @param int $decimals
+         * @param string $decimalPoint
+         * @param string $thousandSeperator
+         * @return string 
+         * @static 
+         */ 
+        public static function discount($decimals = null, $decimalPoint = null, $thousandSeperator = null)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->discount($decimals, $decimalPoint, $thousandSeperator);
+        }
+                    /**
+         * Get the price of the items in the cart (not rounded).
+         *
+         * @return float 
+         * @static 
+         */ 
+        public static function initialFloat()
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->initialFloat();
+        }
+                    /**
+         * Get the price of the items in the cart as formatted string.
+         *
+         * @param int $decimals
+         * @param string $decimalPoint
+         * @param string $thousandSeperator
+         * @return string 
+         * @static 
+         */ 
+        public static function initial($decimals = null, $decimalPoint = null, $thousandSeperator = null)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->initial($decimals, $decimalPoint, $thousandSeperator);
+        }
+                    /**
+         * Get the price of the items in the cart (previously rounded).
+         *
+         * @return float 
+         * @static 
+         */ 
+        public static function priceTotalFloat()
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->priceTotalFloat();
+        }
+                    /**
+         * Get the price of the items in the cart as formatted string.
+         *
+         * @param int $decimals
+         * @param string $decimalPoint
+         * @param string $thousandSeperator
+         * @return string 
+         * @static 
+         */ 
+        public static function priceTotal($decimals = null, $decimalPoint = null, $thousandSeperator = null)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->priceTotal($decimals, $decimalPoint, $thousandSeperator);
+        }
+                    /**
+         * Get the total weight of the items in the cart.
+         *
+         * @return float 
+         * @static 
+         */ 
+        public static function weightFloat()
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->weightFloat();
+        }
+                    /**
+         * Get the total weight of the items in the cart.
+         *
+         * @param int $decimals
+         * @param string $decimalPoint
+         * @param string $thousandSeperator
+         * @return string 
+         * @static 
+         */ 
+        public static function weight($decimals = null, $decimalPoint = null, $thousandSeperator = null)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->weight($decimals, $decimalPoint, $thousandSeperator);
+        }
+                    /**
+         * Search the cart content for a cart item matching the given search closure.
+         *
+         * @param \Closure $search
+         * @return \Illuminate\Support\Collection 
+         * @static 
+         */ 
+        public static function search($search)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->search($search);
+        }
+                    /**
+         * Associate the cart item with the given rowId with the given model.
+         *
+         * @param string $rowId
+         * @param mixed $model
+         * @return void 
+         * @static 
+         */ 
+        public static function associate($rowId, $model)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        $instance->associate($rowId, $model);
+        }
+                    /**
+         * Set the tax rate for the cart item with the given rowId.
+         *
+         * @param string $rowId
+         * @param int|float $taxRate
+         * @return void 
+         * @static 
+         */ 
+        public static function setTax($rowId, $taxRate)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        $instance->setTax($rowId, $taxRate);
+        }
+                    /**
+         * Set the global tax rate for the cart.
+         * 
+         * This will set the tax rate for all items.
+         *
+         * @param float $discount
+         * @static 
+         */ 
+        public static function setGlobalTax($taxRate)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->setGlobalTax($taxRate);
+        }
+                    /**
+         * Set the discount rate for the cart item with the given rowId.
+         *
+         * @param string $rowId
+         * @param int|float $taxRate
+         * @return void 
+         * @static 
+         */ 
+        public static function setDiscount($rowId, $discount)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        $instance->setDiscount($rowId, $discount);
+        }
+                    /**
+         * Set the global discount percentage for the cart.
+         * 
+         * This will set the discount for all cart items.
+         *
+         * @param float $discount
+         * @return void 
+         * @static 
+         */ 
+        public static function setGlobalDiscount($discount)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        $instance->setGlobalDiscount($discount);
+        }
+                    /**
+         * Store an the current instance of the cart.
+         *
+         * @param mixed $identifier
+         * @return void 
+         * @static 
+         */ 
+        public static function store($identifier)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        $instance->store($identifier);
+        }
+                    /**
+         * Restore the cart with the given identifier.
+         *
+         * @param mixed $identifier
+         * @return void 
+         * @static 
+         */ 
+        public static function restore($identifier)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        $instance->restore($identifier);
+        }
+                    /**
+         * Erase the cart with the given identifier.
+         *
+         * @param mixed $identifier
+         * @return void 
+         * @static 
+         */ 
+        public static function erase($identifier)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        $instance->erase($identifier);
+        }
+                    /**
+         * Merges the contents of another cart into this cart.
+         *
+         * @param mixed $identifier Identifier of the Cart to merge with.
+         * @param bool $keepDiscount Keep the discount of the CartItems.
+         * @param bool $keepTax Keep the tax of the CartItems.
+         * @param bool $dispatchAdd Flag to dispatch the add events.
+         * @return bool 
+         * @static 
+         */ 
+        public static function merge($identifier, $keepDiscount = false, $keepTax = false, $dispatchAdd = true)
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->merge($identifier, $keepDiscount, $keepTax, $dispatchAdd);
+        }
+                    /**
+         * Get the creation date of the cart (db context).
+         *
+         * @return \Carbon\Carbon|null 
+         * @static 
+         */ 
+        public static function createdAt()
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->createdAt();
+        }
+                    /**
+         * Get the lats update date of the cart (db context).
+         *
+         * @return \Carbon\Carbon|null 
+         * @static 
+         */ 
+        public static function updatedAt()
+        {
+                        /** @var \Gloudemans\Shoppingcart\Cart $instance */
+                        return $instance->updatedAt();
+        }
+         
+    }
+     
+}
+
+    namespace DaveJamesMiller\Breadcrumbs\Facades { 
+            /**
+     * Breadcrumbs facade - allows easy access to the Manager instance.
+     *
+     * @method static array getCurrentRoute()
+     * @mixin \Illuminate\Support\Traits\Macroable
+     * @see BreadcrumbsManager
+     */ 
+        class Breadcrumbs {
+                    /**
+         * Register a breadcrumb-generating callback for a page.
+         *
+         * @param string $name The name of the page.
+         * @param callable $callback The callback, which should accept a Generator instance as the first parameter and may
+         *     accept additional parameters.
+         * @return void 
+         * @throws \DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException If the given name has already been
+         *     used.
+         * @static 
+         */ 
+        public static function for($name, $callback)
+        {
+                        /** @var \DaveJamesMiller\Breadcrumbs\BreadcrumbsManager $instance */
+                        $instance->for($name, $callback);
+        }
+                    /**
+         * Register a breadcrumb-generating callback for a page.
+         * 
+         * For backwards-compatibility with v5.0.0 and below.
+         *
+         * @param string $name The name of the page.
+         * @param callable $callback The callback, which should accept a Generator instance as the first parameter and may
+         *     accept additional parameters.
+         * @return void 
+         * @throws \DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException If the given name has already been
+         *     used.
+         * @see self::for()
+         * @static 
+         */ 
+        public static function register($name, $callback)
+        {
+                        /** @var \DaveJamesMiller\Breadcrumbs\BreadcrumbsManager $instance */
+                        $instance->register($name, $callback);
+        }
+                    /**
+         * Register a closure to call before generating breadcrumbs for the current page.
+         * 
+         * For example, this can be used to always prepend the homepage without needing to manually add it to each page.
+         *
+         * @param callable $callback The callback, which should accept a Generator instance as the first and only parameter.
+         * @return void 
+         * @static 
+         */ 
+        public static function before($callback)
+        {
+                        /** @var \DaveJamesMiller\Breadcrumbs\BreadcrumbsManager $instance */
+                        $instance->before($callback);
+        }
+                    /**
+         * Register a closure to call after generating breadcrumbs for the current page.
+         * 
+         * For example, this can be used to append the current page number when using pagination.
+         *
+         * @param callable $callback The callback, which should accept a Generator instance as the first and only parameter.
+         * @return void 
+         * @static 
+         */ 
+        public static function after($callback)
+        {
+                        /** @var \DaveJamesMiller\Breadcrumbs\BreadcrumbsManager $instance */
+                        $instance->after($callback);
+        }
+                    /**
+         * Check if a breadcrumb with the given name exists.
+         * 
+         * If no name is given, defaults to the current route name.
+         *
+         * @param string|null $name The page name.
+         * @return bool Whether there is a registered callback with that name.
+         * @static 
+         */ 
+        public static function exists($name = null)
+        {
+                        /** @var \DaveJamesMiller\Breadcrumbs\BreadcrumbsManager $instance */
+                        return $instance->exists($name);
+        }
+                    /**
+         * Generate a set of breadcrumbs for a page.
+         *
+         * @param string|null $name The name of the current page.
+         * @param mixed $params The parameters to pass to the closure for the current page.
+         * @return \Illuminate\Support\Collection The generated breadcrumbs.
+         * @throws \DaveJamesMiller\Breadcrumbs\Exceptions\UnnamedRouteException if no name is given and the current route
+         *     doesn't have an associated name.
+         * @throws \DaveJamesMiller\Breadcrumbs\Exceptions\InvalidBreadcrumbException if the name is (or any ancestor names
+         *     are) not registered.
+         * @static 
+         */ 
+        public static function generate($name = null, ...$params)
+        {
+                        /** @var \DaveJamesMiller\Breadcrumbs\BreadcrumbsManager $instance */
+                        return $instance->generate($name, ...$params);
+        }
+                    /**
+         * Render breadcrumbs for a page with the specified view.
+         *
+         * @param string $view The name of the view to render.
+         * @param string|null $name The name of the current page.
+         * @param mixed $params The parameters to pass to the closure for the current page.
+         * @return \Illuminate\Support\HtmlString The generated HTML.
+         * @throws \DaveJamesMiller\Breadcrumbs\Exceptions\InvalidBreadcrumbException if the name is (or any ancestor names are) not registered.
+         * @throws \DaveJamesMiller\Breadcrumbs\Exceptions\UnnamedRouteException if no name is given and the current route doesn't have an associated name.
+         * @throws \DaveJamesMiller\Breadcrumbs\Exceptions\ViewNotSetException if no view has been set.
+         * @static 
+         */ 
+        public static function view($view, $name = null, ...$params)
+        {
+                        /** @var \DaveJamesMiller\Breadcrumbs\BreadcrumbsManager $instance */
+                        return $instance->view($view, $name, ...$params);
+        }
+                    /**
+         * Render breadcrumbs for a page with the default view.
+         *
+         * @param string|null $name The name of the current page.
+         * @param mixed $params The parameters to pass to the closure for the current page.
+         * @return \Illuminate\Support\HtmlString The generated HTML.
+         * @throws \DaveJamesMiller\Breadcrumbs\Exceptions\InvalidBreadcrumbException if the name is (or any ancestor names are) not registered.
+         * @throws \DaveJamesMiller\Breadcrumbs\Exceptions\UnnamedRouteException if no name is given and the current route doesn't have an associated name.
+         * @throws \DaveJamesMiller\Breadcrumbs\Exceptions\ViewNotSetException if no view has been set.
+         * @static 
+         */ 
+        public static function render($name = null, ...$params)
+        {
+                        /** @var \DaveJamesMiller\Breadcrumbs\BreadcrumbsManager $instance */
+                        return $instance->render($name, ...$params);
+        }
+                    /**
+         * Get the last breadcrumb for the current page.
+         * 
+         * Optionally pass a
+         *
+         * @return \stdClass|null The breadcrumb for the current page.
+         * @throws \DaveJamesMiller\Breadcrumbs\Exceptions\UnnamedRouteException if the current route doesn't have an associated name.
+         * @throws \DaveJamesMiller\Breadcrumbs\Exceptions\InvalidBreadcrumbException if the name is (or any ancestor names are) not registered.
+         * @static 
+         */ 
+        public static function current()
+        {
+                        /** @var \DaveJamesMiller\Breadcrumbs\BreadcrumbsManager $instance */
+                        return $instance->current();
+        }
+                    /**
+         * Set the current route name and parameters to use when calling render() or generate() with no parameters.
+         *
+         * @param string $name The name of the current page.
+         * @param mixed $params The parameters to pass to the closure for the current page.
+         * @return void 
+         * @static 
+         */ 
+        public static function setCurrentRoute($name, ...$params)
+        {
+                        /** @var \DaveJamesMiller\Breadcrumbs\BreadcrumbsManager $instance */
+                        $instance->setCurrentRoute($name, ...$params);
+        }
+                    /**
+         * Clear the previously set route name and parameters to use when calling render() or generate() with no parameters.
+         * 
+         * Next time it will revert to the default behaviour of using the current route from Laravel.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function clearCurrentRoute()
+        {
+                        /** @var \DaveJamesMiller\Breadcrumbs\BreadcrumbsManager $instance */
+                        $instance->clearCurrentRoute();
+        }
+                    /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param object|callable $macro
+         * @return void 
+         * @static 
+         */ 
+        public static function macro($name, $macro)
+        {
+                        \DaveJamesMiller\Breadcrumbs\BreadcrumbsManager::macro($name, $macro);
+        }
+                    /**
+         * Mix another object into the class.
+         *
+         * @param object $mixin
+         * @param bool $replace
+         * @return void 
+         * @throws \ReflectionException
+         * @static 
+         */ 
+        public static function mixin($mixin, $replace = true)
+        {
+                        \DaveJamesMiller\Breadcrumbs\BreadcrumbsManager::mixin($mixin, $replace);
+        }
+                    /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasMacro($name)
+        {
+                        return \DaveJamesMiller\Breadcrumbs\BreadcrumbsManager::hasMacro($name);
+        }
+         
+    }
+     
+}
+
     namespace Facade\Ignition\Facades { 
             /**
      * Class Flare.
@@ -19605,6 +20296,8 @@ namespace  {
             class Debugbar extends \Barryvdh\Debugbar\Facade {}
             class Image extends \Intervention\Image\Facades\Image {}
             class Flysystem extends \GrahamCampbell\Flysystem\Facades\Flysystem {}
+            class Cart extends \Gloudemans\Shoppingcart\Facades\Cart {}
+            class Breadcrumbs extends \DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
             class JavaScript extends \Laracasts\Utilities\JavaScript\JavaScriptFacade {}
             class Socialite extends \Laravel\Socialite\Facades\Socialite {}
