@@ -44,6 +44,14 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereUserId($value)
  * @mixin \Eloquent
+ * @property int|null $image_id
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProductCategory[] $categories
+ * @property-read int|null $categories_count
+ * @property-read \App\Models\Image|null $image
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Image[] $images
+ * @property-read int|null $images_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Product findSimilarSlugs($attribute, $config, $slug)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereImageId($value)
  */
 class Product extends Model
 {

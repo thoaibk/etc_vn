@@ -103,7 +103,7 @@
                 <div class="modal-body">
                     <p>Bạn đã đặt hàng thành công sản phẩm <strong>Cảm biến vân tay</strong></p>
                     <div class="text-center">
-                        <a class="btn btn-info" href=""><i class="fa fa-shopping-cart"></i> Đi đến giỏ hàng</a>
+                        <a class="btn btn-info" href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart"></i> Đi đến giỏ hàng</a>
                     </div>
                 </div>
             </div>

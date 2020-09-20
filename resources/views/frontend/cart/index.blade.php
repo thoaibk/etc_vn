@@ -14,56 +14,59 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="cart-content">
-                        @foreach($cartItems as $cartItem)
-                            <div class="cart-products__product">
-                                <div class="cart-products__inner">
-                                    <div class="cart-products__img">
-                                        <a href="">
-                                            @if($cartItem->options->has('thumb'))
-                                                <img class="img-fluid" src="{{ $cartItem->options->thumb }}" alt="">
-                                            @else
-                                                <img class="img-fluid" src="/assets/img/no-image.jpg" alt="">
-                                            @endif
-                                        </a>
-                                    </div>
-
-                                    <div class="cart-products__content">
-                                        <div class="cart-products__content--inner">
-                                            <div class="cart-products__desc">
-                                                <a class="cart-products__name" href="">{{ $cartItem->name }}</a>
-                                                <div class="clearfix">
-                                                    <button class="btn btn-remove-from-cart btn-outline-secondary">Xóa</button>
-                                                </div>
-                                            </div>
-                                            <div class="cart-products__details">
-                                                <div class="cart-products__pricess">
-                                                    <p class="cart-products__real-prices">1.469.000đ</p>
-                                                </div>
-                                                <div class="cart-products__qty">
-                                                    <div class="input-group mb-3">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text pointer" onclick="Cart.updateItemQuantity('decrement', '5c34cb8bd882bb23fa14386029a25947')" title="Giảm số lượng">-</span>
-                                                        </div>
-                                                        <div class="input-group-prepend item-quantity">
-                                                            <span class="input-group-text quan bg-white">1</span>
-                                                        </div>
-                                                        <div class="input-group-append">
-                                                            <span class="input-group-text pointer" onclick="Cart.updateItemQuantity('increment', '5c34cb8bd882bb23fa14386029a25947')" title="Tăng số lượng">+</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        @endforeach
+                    <div id="cartContentJs" class="cart-content bg-white">
+                        @include('frontend.cart._cart_content')
                     </div>
                 </div>
-                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="orderForm bg-white p-3">
+                        <h3 style="font-size: 1.3em;">Thông tin đặt hàng</h3>
+                        <hr class="m-0">
+                        <br>
+                        {!! Form::open([
+                            'route' => ['cart.order']
+                        ]) !!}
+                        <div class="form-group">
+                            <input name="name" type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" required value="{{ Request::old('name') }}" placeholder="Tên của bạn" aria-describedby="validationName">
+                            @if($errors->has('name'))
+                                <div id="validationName" class="invalid-feedback">
+                                    {{ $errors->first('name') }}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <input name="phone" type="text" class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" value="{{ Request::old('phone') }}" required placeholder="Số điện thoại">
+                            @if($errors->has('phone'))
+                                <div id="validationName" class="invalid-feedback">
+                                    {{ $errors->first('phone') }}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <input name="email" type="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" value="{{ Request::old('email') }}" required placeholder="Email">
+                            @if($errors->has('email'))
+                                <div id="validationName" class="invalid-feedback">
+                                    {{ $errors->first('email') }}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <textarea name="address" class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}" placeholder="Địa chỉ giao hàng" rows="2">{{ Request::old('address') }}</textarea>
+                            @if($errors->has('address'))
+                                <div id="validationName" class="invalid-feedback">
+                                    {{ $errors->first('address') }}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <textarea name="note" class="form-control " placeholder="Ghi chú của bạn" rows="2">{{ Request::old('note') }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn-confirm-order btn" type="submit">Đặt hàng</button>
+                        </div>
+                        {!! Form::close() !!}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

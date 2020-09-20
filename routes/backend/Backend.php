@@ -5,6 +5,13 @@ Route::prefix('backend')->middleware('permission:view_admin')->group(function(){
     require 'Access.php';
     require 'BackendApi.php';
 
+    Route::get('/', 'Backend\DashboardController@index')->name('backend.dashboard');
+
+    Route::prefix('order')->group(function(){
+        Route::get('/', 'Backend\OrderController@index')->name('backend.order.index');
+        Route::get('{id}/view', 'Backend\OrderController@view')->name('backend.order.view');
+    });
+
     Route::prefix('product-category')->group(function(){
         Route::get('/', 'Backend\ProductCategoryController@index')->name('backend.product_category.index');
         Route::get('create', 'Backend\ProductCategoryController@create')->name('backend.product_category.create');

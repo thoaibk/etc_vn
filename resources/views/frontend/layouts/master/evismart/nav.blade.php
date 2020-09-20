@@ -2,7 +2,7 @@
 
 <nav id="evi-nav" class="navbar navbar-expand-sm bg-white sticky-top p-0">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <span class="evi">Evi</span><span class="smart">Smart</span>
         </a>
         <!--Toggle Collapse Button-->
@@ -12,7 +12,7 @@
         <!--Division for navbar-->
         <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
             <!--UL for links-->
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto nav-mega-menu">
                 <!-- Catagory 1-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle catogary" href="#" id="navbarDropdown">
@@ -235,14 +235,45 @@
                 </li> <!-- Catagory 4-->
             </ul>
 
-        </div>
-        <div class="cart-nav d-none d-sm-block">
-            <div class="cart-nav-inner">
-                <a href="{{ route('cart.index') }}">
-                    <i class="cart-icon fa fa-shopping-cart"></i>
-                    <div class="nav-cart-count badge badge-pill badge-danger"></div>
-                </a>
-            </div>
+            <ul class="navbar-nav ml-auto right-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('cart.index') }}">
+                        <i class="cart-icon fa fa-shopping-cart"></i>
+                        <div class="nav-cart-count badge badge-pill badge-danger"></div>
+                    </a>
+                </li>
+                <!-- Authentication Links -->
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href=""><i class="fa fa-user"></i> Đăng nhập</a>
+                    </li>
+                @else
+                    <li class="nav-item dropdown">
+
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <i class="fa fa-user"></i> {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            @if(auth()->user()->can('view_admin'))
+                                <a class="dropdown-item" href="{{ route('backend.dashboard') }}">
+                                    <i class="fad fa-cogs"></i> Admin
+                                </a>
+                            @endif
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                <i class="fal fa-sign-out"></i>
+                                {{ __('Đăng xuất') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
+            </ul>
         </div>
     </div>
 </nav>

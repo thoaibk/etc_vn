@@ -36,7 +36,7 @@
 @yield('script-before')
 <!-- Scripts -->
 <script src="{{ mix('assets/js/app.js') }}"></script>
-<script src="{{ mix('assets/frontend/cart.js') }}"></script>
+<script src="{{ mix('assets/frontend/js/cart.js') }}"></script>
 
 @yield('script-after')
 

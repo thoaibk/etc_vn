@@ -13,8 +13,38 @@ function addToCart(productID) {
     }).fail(function (xhr) {
         console.error(xhr);
     });
+}
 
 
+function updateCartQuantity(action, rowId) {
+    $.ajax({
+        url: '/cart/update-quantity',
+        type: 'POST',
+        data: {action: action, rowId: rowId}
+    }).done(function (res) {
+        updateNavCartCount();
+        updateCartContent(res.cart_content_html);
+    }).fail(function (xhr) {
+
+    })
+}
+
+
+function removeCartItem(rowId) {
+    $.ajax({
+        url: '/cart/remove',
+        type: 'POST',
+        data: {rowId: rowId}
+    }).done(function (res) {
+        updateNavCartCount();
+        updateCartContent(res.cart_content_html);
+    }).fail(function (xhr) {
+
+    })
+}
+
+function updateCartContent(cartContentHtml) {
+    $('#cartContentJs').empty().html(cartContentHtml);
 }
 
 function updateNavCartCount() {

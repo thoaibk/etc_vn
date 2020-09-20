@@ -20,7 +20,7 @@ mix.js('resources/js/app.js', 'public/assets/js')
 mix.sass('resources/assets/frontend/scss/product_detail.scss', 'public/assets/frontend/css')
 mix.sass('resources/assets/frontend/scss/cart_index.scss', 'public/assets/frontend/css')
 
-mix.scripts('resources/assets/frontend/cart.js', 'public/assets/frontend/cart.js')
+mix.scripts('resources/assets/frontend/js/cart.js', 'public/assets/frontend/js/cart.js')
 
 
 //================BACKEND=======================

@@ -27,6 +27,9 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property int|null $parent_id
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereParentId($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|ProductCategory[] $childs
+ * @property-read int|null $childs_count
+ * @property-read ProductCategory|null $parent
  */
 class ProductCategory extends Model
 {

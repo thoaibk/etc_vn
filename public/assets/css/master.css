@@ -10925,126 +10925,6 @@ a.text-dark:focus {
   border-bottom: solid thin #cecdcd;
 }
 
-#evi-nav .dropdown-menu div[class*=col] {
-  margin-bottom: 1rem;
-}
-
-#evi-nav .dropdown-toggle::after {
-  display: none !important;
-}
-
-#evi-nav .dropdown-menu {
-  border: none;
-}
-
-#evi-nav .dropdown-menu .container {
-  display: block !important;
-}
-
-#evi-nav .dropdown-menu .product-menu {
-  padding: 20px;
-  border: solid thin #eceaea;
-  border-radius: 3px;
-  margin-top: 15px;
-}
-
-#evi-nav .dropdown-menu .product-menu .product-title {
-  font-size: 13px;
-  font-weight: bold;
-}
-
-#evi-nav .dropdown-menu .product-menu .product-title .product-link {
-  transition: 0.3s;
-  color: #383837;
-  text-decoration: none;
-}
-
-#evi-nav .dropdown-menu .product-menu:hover .product-title .product-link {
-  color: #0199df;
-}
-
-#evi-nav .navbar {
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-
-#evi-nav .nav-item {
-  padding: 0.5rem 0.5rem;
-  margin: 0 0.25rem;
-}
-
-#evi-nav .nav-item > a.nav-link {
-  color: #545252;
-  font-size: 1.1em;
-  transition: 0.3s;
-}
-
-#evi-nav .nav-item .icon-has-dropdown {
-  font-size: 11px;
-  color: silver;
-}
-
-#evi-nav .nav-item:hover > a.nav-link {
-  color: #098afb;
-}
-
-#evi-nav .nav-item:hover .icon-has-dropdown {
-  color: #098afb;
-}
-
-#evi-nav .dropdown {
-  position: static;
-}
-
-#evi-nav .dropdown-menu {
-  width: 100%;
-  left: 0;
-  right: 0;
-  top: 53px;
-}
-
-#evi-nav .dropdown:hover .dropdown-menu,
-#evi-nav .dropdown .dropdown-menu:hover {
-  display: block !important;
-}
-
-#evi-nav .dropdown-menu {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  background-color: #fff;
-}
-
-#evi-nav a.i {
-  margin-top: -20px;
-  font-weight: 400;
-  color: #2a2828;
-}
-
-#evi-nav a.catogary {
-  margin-left: -20px;
-  color: white;
-}
-
-#evi-nav button.srch {
-  padding: 0px;
-}
-
-@media only screen and (max-width: 1024px) and (min-width: 768px) {
-  #evi-nav input.srch {
-    padding: 0px;
-    width: 100%;
-  }
-}
-
-#evi-nav a.nav-link {
-  color: #2a2828;
-}
-
-#evi-nav a.nav-link.active {
-  font-weight: 700;
-  background-color: #6B5B95;
-  color: #2a2828;
-}
-
 #evi-nav a.navbar-brand {
   color: #2a2828;
   font-size: 1.4em;
@@ -11061,6 +10941,135 @@ a.text-dark:focus {
 
 #evi-nav span.navbar-toggler.icon {
   color: black;
+}
+
+#evi-nav .nav-mega-menu .dropdown-menu div[class*=col] {
+  margin-bottom: 1rem;
+}
+
+#evi-nav .nav-mega-menu .dropdown-toggle::after {
+  display: none !important;
+}
+
+#evi-nav .nav-mega-menu .dropdown-menu {
+  border: none;
+}
+
+#evi-nav .nav-mega-menu .dropdown-menu .container {
+  display: block !important;
+}
+
+#evi-nav .nav-mega-menu .dropdown-menu .product-menu {
+  padding: 20px;
+  border: solid thin #eceaea;
+  border-radius: 3px;
+  margin-top: 15px;
+}
+
+#evi-nav .nav-mega-menu .dropdown-menu .product-menu .product-title {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+#evi-nav .nav-mega-menu .dropdown-menu .product-menu .product-title .product-link {
+  transition: 0.3s;
+  color: #383837;
+  text-decoration: none;
+}
+
+#evi-nav .nav-mega-menu .dropdown-menu .product-menu:hover .product-title .product-link {
+  color: #0199df;
+}
+
+#evi-nav .nav-mega-menu .navbar {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+#evi-nav .nav-mega-menu .nav-item {
+  padding: 0.5rem 0.5rem;
+  margin: 0 0.25rem;
+}
+
+#evi-nav .nav-mega-menu .nav-item > a.nav-link {
+  color: #545252;
+  font-size: 1.1em;
+  transition: 0.3s;
+}
+
+#evi-nav .nav-mega-menu .nav-item .icon-has-dropdown {
+  font-size: 11px;
+  color: silver;
+}
+
+#evi-nav .nav-mega-menu .nav-item:hover > a.nav-link {
+  color: #098afb;
+}
+
+#evi-nav .nav-mega-menu .nav-item:hover .icon-has-dropdown {
+  color: #098afb;
+}
+
+#evi-nav .nav-mega-menu .dropdown {
+  position: static;
+}
+
+#evi-nav .nav-mega-menu .dropdown-menu {
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 53px;
+}
+
+#evi-nav .nav-mega-menu .dropdown:hover .dropdown-menu,
+#evi-nav .nav-mega-menu .dropdown .dropdown-menu:hover {
+  display: block !important;
+}
+
+#evi-nav .nav-mega-menu .dropdown-menu {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+
+#evi-nav .nav-mega-menu a.i {
+  margin-top: -20px;
+  font-weight: 400;
+  color: #2a2828;
+}
+
+#evi-nav .nav-mega-menu a.catogary {
+  margin-left: -20px;
+  color: white;
+}
+
+#evi-nav .nav-mega-menu button.srch {
+  padding: 0px;
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
+  #evi-nav .nav-mega-menu input.srch {
+    padding: 0px;
+    width: 100%;
+  }
+}
+
+#evi-nav .nav-mega-menu a.nav-link {
+  color: #2a2828;
+}
+
+#evi-nav .nav-mega-menu a.nav-link.active {
+  font-weight: 700;
+  background-color: #6B5B95;
+  color: #2a2828;
+}
+
+#evi-nav .right-nav .nav-item {
+  padding: 0.5rem 0.5rem;
+  margin: 0 0.25rem;
+}
+
+#evi-nav .right-nav .nav-item .nav-link {
+  color: #5a5454;
 }
 
 #evi-nav .cart-nav-inner {
