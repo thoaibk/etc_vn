@@ -7,5 +7,6 @@
     "/assets/backend/css/lte.scss": "/assets/backend/css/lte.scss",
     "/assets/frontend/js/cart.js": "/assets/frontend/js/cart.js",
     "/assets/backend/js/common.js": "/assets/backend/js/common.js",
-    "/assets/backend/js/editor_summernote.js": "/assets/backend/js/editor_summernote.js"
+    "/assets/backend/js/editor_summernote.js": "/assets/backend/js/editor_summernote.js",
+    "/assets/backend/js/post_editor.js": "/assets/backend/js/post_editor.js"
 }

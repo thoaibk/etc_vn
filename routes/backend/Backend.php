@@ -37,4 +37,14 @@ Route::prefix('backend')->middleware('permission:view_admin')->group(function(){
         Route::post('/{id}/toggle-status', 'Backend\ProductController@toggleStatus')->name('backend.product.toggle_status');
         Route::delete('/{id}/delete', 'Backend\ProductController@destroy')->name('backend.product.destroy');
     });
+
+    Route::prefix('post')->group(function(){
+        Route::get('/', 'Backend\PostController@index')->name('backend.post.index');
+        Route::get('create', 'Backend\PostController@create')->name('backend.post.create');
+        Route::post('store', 'Backend\PostController@store')->name('backend.post.store');
+        Route::get('/{id}/edit', 'Backend\PostController@edit')->name('backend.post.edit');
+        Route::post('/{id}/update', 'Backend\PostController@update')->name('backend.post.update');
+        Route::post('/{id}/toggle-status', 'Backend\PostController@toggleStatus')->name('backend.post.toggle_status');
+        Route::delete('/{id}/delete', 'Backend\PostController@destroy')->name('backend.post.destroy');
+    });
 });

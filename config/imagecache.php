@@ -75,6 +75,13 @@ return array(
                 'slider' => 'App\Core\ImageTemplate\Product\SliderMedium',
             ]
         ],
+
+        'post' => [
+            'entity' => 'post',
+            'templates' => [
+                'small' => 'App\Core\ImageTemplate\Post\PostThumb',
+            ]
+        ]
 //        'small' => 'App\Core\ImageTemplate\Small',
 //        'medium' => 'App\Core\ImageTemplate\Medium',
 //        'large' => 'App\Core\ImageTemplate\Large',

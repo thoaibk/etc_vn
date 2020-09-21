@@ -24,11 +24,6 @@
 <body>
 <div id="evico-app">
     @include('frontend.layouts.master.evismart.nav')
-    <div id="app-content" class="bg-white">
-        <div class="container">
-
-        </div>
-    </div>
     @yield('content')
     @include('frontend.layouts.master.evismart.footer')
 </div>

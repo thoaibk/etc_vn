@@ -64,7 +64,7 @@ class ImageController extends Controller
                         [
                             'id'            => $image->id,
                             'title'         => null,
-                            'url'           => $image->getImageSrc('medium'),
+                            'url'           => $image->getImageSrc('small'),
                             'url_thumb'     => $image->getImageSrc('small'),
                             'delete_url'    => $image->deleteUrl(),
                             'delete_method' => 'DELETE',

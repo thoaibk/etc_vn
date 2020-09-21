@@ -29,6 +29,7 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property string $hash
  * @method static \Illuminate\Database\Eloquent\Builder|OrderItem whereHash($value)
+ * @property-read \App\Models\Product $product
  */
 class OrderItem extends Model
 {

@@ -53,6 +53,14 @@
                         <p>Danh mục</p>
                     </a>
                 </li>
+
+                <li class="nav-header text-uppercase text-11 pl-3">Quản lý bài viết</li>
+                <li class="nav-item">
+                    <a href="{{ route('backend.post.index') }}" class="nav-link {{ active_class(if_route('backend.post.index')) }}">
+                        <i class="fad fa-th-list"></i>
+                        <p>Danh sách bài viết</p>
+                    </a>
+                </li>
             </ul>
         </nav>
 
