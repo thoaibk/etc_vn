@@ -4,6 +4,7 @@
     "/assets/css/master.css": "/assets/css/master.css",
     "/assets/frontend/css/product_detail.css": "/assets/frontend/css/product_detail.css",
     "/assets/frontend/css/cart_index.css": "/assets/frontend/css/cart_index.css",
+    "/assets/frontend/css/post.css": "/assets/frontend/css/post.css",
     "/assets/backend/css/lte.scss": "/assets/backend/css/lte.scss",
     "/assets/frontend/js/cart.js": "/assets/frontend/js/cart.js",
     "/assets/backend/js/common.js": "/assets/backend/js/common.js",

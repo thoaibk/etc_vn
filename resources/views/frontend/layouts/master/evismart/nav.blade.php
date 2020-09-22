@@ -1,6 +1,6 @@
 <!--Navigation Var-->
 
-<nav id="evi-nav" class="navbar navbar-expand-sm bg-white sticky-top p-0">
+<nav id="evi-nav" class="navbar navbar-expand-lg bg-white sticky-top p-0">
     <div class="container">
         <a class="navbar-brand" href="/">
             <span class="evi">Evi</span><span class="smart">Smart</span>
@@ -245,7 +245,7 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href=""><i class="fa fa-user"></i> Đăng nhập</a>
+                        <a class="nav-link" href="{{ route('login') }}"><i class="fa fa-user"></i> Đăng nhập</a>
                     </li>
                 @else
                     <li class="nav-item dropdown">

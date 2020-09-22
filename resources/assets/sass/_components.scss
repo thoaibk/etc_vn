@@ -2,3 +2,55 @@
     padding: 0;
     background-color: transparent;
 }
+
+.related-post{
+    margin-top: 25px;
+    
+    .related-post-item{
+        padding-left: calc(22px + 240px);
+        min-height: 148px;
+        position: relative;
+        
+        a.related-link{
+            text-decoration: none;
+            color: #0f0e0e;
+        }
+        
+        .post-img{
+            position: absolute;
+            left: 0;
+            border-radius: 4px;
+            overflow: hidden;
+            width: 240px;
+        }
+        .post-meta{
+            .post-tltle{
+                font-size: 1.4em;
+                font-weight: 600;
+                &:hover{
+                    color: #03A9F4;
+                }
+            }
+            .post-excerpt{
+            
+            }
+        }
+        
+        @media (max-width: 768px) {
+            padding-left: calc(22px + 90px);
+            min-height: 55px;
+            .post-img{
+                width: 100px;
+            }
+    
+            .post-meta{
+                .post-tltle{
+                    font-size: 1em;
+                }
+                .post-excerpt{
+                    display: none;
+                }
+            }
+        }
+    }
+}

@@ -80,6 +80,7 @@ return array(
             'entity' => 'post',
             'templates' => [
                 'small' => 'App\Core\ImageTemplate\Post\PostThumb',
+                'medium' => 'App\Core\ImageTemplate\Post\Medium',
             ]
         ]
 //        'small' => 'App\Core\ImageTemplate\Small',

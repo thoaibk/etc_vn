@@ -17,8 +17,9 @@ mix.copy('resources/assets/img', 'public/assets/img');
 mix.js('resources/js/app.js', 'public/assets/js')
     .sass('resources/assets/sass/master.scss', 'public/assets/css');
 
-mix.sass('resources/assets/frontend/scss/product_detail.scss', 'public/assets/frontend/css')
-mix.sass('resources/assets/frontend/scss/cart_index.scss', 'public/assets/frontend/css')
+mix.sass('resources/assets/frontend/scss/product_detail.scss', 'public/assets/frontend/css');
+mix.sass('resources/assets/frontend/scss/cart_index.scss', 'public/assets/frontend/css');
+mix.sass('resources/assets/frontend/scss/post.scss', 'public/assets/frontend/css');
 
 mix.scripts('resources/assets/frontend/js/cart.js', 'public/assets/frontend/js/cart.js')
 

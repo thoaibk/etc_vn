@@ -3,6 +3,10 @@
     {{ $post->title  }}
 @stop
 
+@section('styles')
+    {{ Html::style(mix('assets/frontend/css/post.css')) }}
+@stop
+
 @section('content')
     <div id="post-detail" class="bg-white pt-5">
         <div class="container">

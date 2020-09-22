@@ -10920,6 +10920,57 @@ a.text-dark:focus {
   background-color: transparent;
 }
 
+.related-post {
+  margin-top: 25px;
+}
+
+.related-post .related-post-item {
+  padding-left: calc(22px + 240px);
+  min-height: 148px;
+  position: relative;
+}
+
+.related-post .related-post-item a.related-link {
+  text-decoration: none;
+  color: #0f0e0e;
+}
+
+.related-post .related-post-item .post-img {
+  position: absolute;
+  left: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 240px;
+}
+
+.related-post .related-post-item .post-meta .post-tltle {
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.related-post .related-post-item .post-meta .post-tltle:hover {
+  color: #03A9F4;
+}
+
+@media (max-width: 768px) {
+  .related-post .related-post-item {
+    padding-left: calc(22px + 90px);
+    min-height: 55px;
+  }
+
+  .related-post .related-post-item .post-img {
+    width: 100px;
+  }
+
+  .related-post .related-post-item .post-meta .post-tltle {
+    font-size: 1em;
+  }
+
+  .related-post .related-post-item .post-meta .post-excerpt {
+    display: none;
+  }
+}
+
 #evi-nav {
   box-shadow: 0px 2px 4px #dedbdb;
   border-bottom: solid thin #cecdcd;

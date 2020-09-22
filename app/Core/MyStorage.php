@@ -75,7 +75,9 @@ class MyStorage
                     \File::makeDirectory($path_create, $mode = 0777, true, true);
                 }
                 $cache   =  $path_create . '/' . $file;
-                $templateFilter     = config('imagecache.templates.' . $entity . '.templates.' .$template);
+
+                $defaultTemplateFilter = config('imagecache.templates.default.templates.medium');
+                $templateFilter     = config('imagecache.templates.' . $entity . '.templates.' .$template, $defaultTemplateFilter);
 
                 \Image::make(MyStorage::getDisk($disk)->readStream($path))->filter(new $templateFilter)->save($cache);
             }
