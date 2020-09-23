@@ -61,6 +61,15 @@
                         <p>Danh sách bài viết</p>
                     </a>
                 </li>
+
+                <li class="nav-header text-uppercase text-11 pl-3">Cấu hình</li>
+                <li class="nav-item">
+                    <a href="{{ route('backend.menu') }}" class="nav-link {{ active_class(if_route('backend.menu')) }}">
+                        <i class="fad fa-th-list"></i>
+                        <p>Menu hiển thị</p>
+                    </a>
+                </li>
+
             </ul>
         </nav>
 

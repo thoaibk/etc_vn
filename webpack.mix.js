@@ -38,6 +38,9 @@ mix.scripts('resources/assets/backend/js/editor_summernote.js', 'public/assets/b
 
 mix.scripts('resources/assets/backend/js/post_editor.js', 'public/assets/backend/js/post_editor.js');
 
+// Vue js
+mix.js('resources/assets/backend/js/menu_management.js', 'public/assets/backend/js/menu_management.js');
+
 if(mix.inProduction()){
     mix.version();
 }

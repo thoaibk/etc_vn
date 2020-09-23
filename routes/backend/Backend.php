@@ -47,4 +47,9 @@ Route::prefix('backend')->middleware('permission:view_admin')->group(function(){
         Route::post('/{id}/toggle-status', 'Backend\PostController@toggleStatus')->name('backend.post.toggle_status');
         Route::delete('/{id}/delete', 'Backend\PostController@destroy')->name('backend.post.destroy');
     });
+
+
+    Route::prefix('configs')->group(function (){
+        Route::get('menu', 'Backend\MenuController@index')->name('backend.menu');
+    });
 });

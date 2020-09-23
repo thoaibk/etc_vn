@@ -43,6 +43,11 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereViewCount($value)
  * @mixin \Eloquent
+ * @property int|null $image_id
+ * @property-read \App\Models\Image|null $image
+ * @property-read User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|Post findSimilarSlugs($attribute, $config, $slug)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereImageId($value)
  */
 class Post extends Model
 {
