@@ -112,4 +112,8 @@ class ProductCategory extends Model
     public function deleteUrl(){
         return route('backend.product_category.destroy', ['id' => $this->id]);
     }
+
+    public function publicUrl(){
+        return route('product.category', ['id' => $this->id, 'slug' => $this->slug]);
+    }
 }

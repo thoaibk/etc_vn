@@ -24,7 +24,7 @@ Breadcrumbs::for('post', function ($trail, $post) {
 
 // Home > Blog > [Category]
 Breadcrumbs::for('category', function ($trail, $category) {
-    $trail->parent('blog');
-    $trail->push($category->title, route('category', $category->id));
+    $trail->parent('home');
+    $trail->push($category->name, $category->publicUrl());
 });
 

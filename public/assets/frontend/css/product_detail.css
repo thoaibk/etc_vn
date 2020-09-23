@@ -119,3 +119,9 @@
   color: #333;
 }
 
+#product-category .section-top {
+  background: url(/images/technology-abstract.jpg?949a44d0057c801aa3eb16e4beaa22cf);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
