@@ -50,7 +50,8 @@ class ProductController extends BackendController
 
         \DB::beginTransaction();
         try{
-            $product = Product::create([
+            Product::create([
+                'category_id' => $request->get('cate'),
                 'name' => $request->get('name'),
                 'content' => $request->get('content'),
                 'price' => $request->get('price'),
@@ -60,10 +61,6 @@ class ProductController extends BackendController
                 'seo_keywords' => $request->get('seo_keywords'),
             ]);
 
-            $cates = $request->get('cate', []);
-            foreach ($cates as $cateID){
-                $product->categories()->attach($cateID);
-            }
             \DB::commit();
             return redirect(route('backend.product.index'))->withFlashSuccess('Thêm sản phẩm thành công');
         } catch (\Exception $exception){
@@ -128,6 +125,7 @@ class ProductController extends BackendController
         \DB::beginTransaction();
         try{
             $product->update([
+                'category_id' => $request->get('cate'),
                 'name' => $request->get('name'),
                 'content' => $request->get('content'),
                 'price' => $request->get('price'),
@@ -137,11 +135,11 @@ class ProductController extends BackendController
                 'seo_keywords' => $request->get('seo_keywords'),
             ]);
 
-            $product->categories()->detach();
-            $cates = $request->get('cate', []);
-            foreach ($cates as $cateID){
-                $product->categories()->attach($cateID);
-            }
+//            $product->categories()->detach();
+//            $cates = $request->get('cate', []);
+//            foreach ($cates as $cateID){
+//                $product->categories()->attach($cateID);
+//            }
             \DB::commit();
 
             return redirect(route('backend.product.index'))->withFlashSuccess('Cập nhật sản phẩm thành công');

@@ -33,16 +33,18 @@ class ImageController extends Controller
 
             $uploaded_image = \Image::make($request->file('image_file_upload'));
 
-            // valid min dimension
-            if($uploaded_image->height() < config('flysystem.course_avatar_min_size.height')
-                || $uploaded_image->width() < config('flysystem.course_avatar_min_size.width')){
-                return response()->json([
-                    'success' => false,
-                    'message' => trans('validation.image_dimension',[
-                        'height' => config('flysystem.course_avatar_min_size.height'),
-                        'width' => config('flysystem.course_avatar_min_size.width'),
-                    ])
-                ]);
+            // valid min dimension product
+            if($entity == 'product'){
+                if($uploaded_image->height() < config('flysystem.product_thumb.height')
+                    || $uploaded_image->width() < config('flysystem.product_thumb.width')){
+                    return response()->json([
+                        'success' => false,
+                        'message' => trans('validation.image_dimension',[
+                            'height' => config('flysystem.product_thumb.height'),
+                            'width' => config('flysystem.product_thumb.width'),
+                        ])
+                    ]);
+                }
             }
 
             $saved = $disk->putStream($path,

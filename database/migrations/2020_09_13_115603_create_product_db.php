@@ -33,7 +33,7 @@ class CreateProductDb extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('name',255);
             $table->string('slug',255);
-
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->integer('origin_price')->nullable();
             $table->integer('price')->nullable();
             $table->longText('content')->nullable();
@@ -47,6 +47,7 @@ class CreateProductDb extends Migration
             $table->softDeletes();
 
             $table->foreign('user_id', 'product_user_id_foreign')->references('id')->on('users')->nullOnDelete();
+            $table->foreign('category_id', 'product_category_id_foreign')->references('id')->on('product_categories')->nullOnDelete();
             $table->foreign('image_id', 'products_image_id_foreign')->references('id')->on('images')->nullOnDelete();
 
             $table->index('status');
@@ -60,13 +61,13 @@ class CreateProductDb extends Migration
             $table->foreign('image_id', 'product_has_images_image_id_foreign')->references('id')->on('images')->cascadeOnDelete();
         });
 
-        Schema::create('product_has_category', function (Blueprint $table){
-            $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('category_id');
-
-            $table->foreign('product_id', 'product_has_category_product_id_foreign')->references('id')->on('products')->cascadeOnDelete();
-            $table->foreign('category_id', 'product_has_category_category_id_foreign')->references('id')->on('product_categories')->cascadeOnDelete();
-        });
+//        Schema::create('product_has_category', function (Blueprint $table){
+//            $table->unsignedBigInteger('product_id');
+//            $table->unsignedBigInteger('category_id');
+//
+//            $table->foreign('product_id', 'product_has_category_product_id_foreign')->references('id')->on('products')->cascadeOnDelete();
+//            $table->foreign('category_id', 'product_has_category_category_id_foreign')->references('id')->on('product_categories')->cascadeOnDelete();
+//        });
     }
 
     /**
@@ -76,7 +77,7 @@ class CreateProductDb extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_has_category');
+//        Schema::dropIfExists('product_has_category');
         Schema::dropIfExists('product_has_images');
         Schema::dropIfExists('products');
         Schema::dropIfExists('product_categories');

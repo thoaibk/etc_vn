@@ -61,12 +61,12 @@
                             <div class="attr-body">
                                 @foreach($categories as $cate)
                                     <div class="form-check">
-                                        <input id="cate_{{ $cate->id }}"  name="cate[]" value="{{ $cate->id }}" class="form-check-input" type="checkbox">
+                                        <input id="cate_{{ $cate->id }}"  name="cate" value="{{ $cate->id }}" class="form-check-input" type="radio">
                                         <label for="cate_{{ $cate->id }}" class="form-check-label">{{ $cate->name }}</label>
                                         <div class="child-cate">
                                             @foreach($cate->childs as $child)
                                                 <div class="form-check">
-                                                    <input id="cate_{{ $child->id }}" name="cate[]" value="{{ $child->id }}" class="form-check-input" type="checkbox">
+                                                    <input id="cate_{{ $child->id }}" name="cate" value="{{ $child->id }}" class="form-check-input" type="radio">
                                                     <label for="cate_{{ $child->id }}" class="form-check-label">{{ $child->name }}</label>
                                                 </div>
                                             @endforeach

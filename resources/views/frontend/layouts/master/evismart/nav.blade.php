@@ -15,7 +15,7 @@
             <ul class="navbar-nav mr-auto nav-mega-menu">
                 <!-- Catagory 1-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle catogary" href="#" id="navbarDropdown">
+                    <a class="nav-link dropdown-toggle catogary" href="{{ route('product.category', ['id' => 1, 'slug' => 'slug-category']) }}" id="navbarDropdown">
                         <span class="text-uppercase"> Thiết bị nhà thông minh </span> <i class="icon-has-dropdown fal fa-chevron-down"></i>
                     </a>
                     <!--Div for catogary 1-->

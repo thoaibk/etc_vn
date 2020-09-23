@@ -236,9 +236,9 @@ return [
         'image' => 5*1024*1024,
         'document' => 50*1024*1024,
     ],
-    'course_avatar_min_size' => [
-        'width' => '700',
-        'height' => '490',
+    'product_thumb' => [
+        'width' => '294',
+        'height' => '300',
     ],
     'exts' => [
         'video' => ['mp4', 'mpeg4'],
