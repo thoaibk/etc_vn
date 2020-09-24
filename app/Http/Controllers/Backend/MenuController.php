@@ -16,9 +16,6 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $parentCategories = ProductCategory::whereParentId(0)
-        ->get();
-
         $menuOption = AppOption::whereKey(AppOption::APP_MENU)->first();
         $menuData = [];
         if(!empty($menuOption)){
@@ -26,10 +23,11 @@ class MenuController extends Controller
         }
 
         return view('backend.options.menu.index')
-            ->with('categories', $parentCategories)
             ->with('menuData', $menuData);
 
     }
+
+
 
     /**
      * Show the form for creating a new resource.
