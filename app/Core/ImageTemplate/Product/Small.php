@@ -11,6 +11,6 @@ class Small implements FilterInterface
 {
     public function applyFilter(Image $image)
     {
-        return $image->fit(294, 300);
+        return $image->fit(300, 185);
     }
 }

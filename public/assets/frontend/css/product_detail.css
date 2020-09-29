@@ -26,13 +26,7 @@
   margin: 10px -5px;
 }
 
-#product-detail .product-slide .slider-nav .slick-track {
-  width: 100% !important;
-  transform: none !important;
-}
-
 #product-detail .product-slide .slider-nav .img-slide-nav {
-  width: 100px !important;
   background: #EBEBEB;
   padding: 1px;
   margin: 0 5px;

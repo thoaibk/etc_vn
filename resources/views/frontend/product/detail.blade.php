@@ -115,10 +115,10 @@
 
         var slide = $('.img-slide-nav').length;
         $('.slider-nav').slick({
-            slidesToShow: 1,
-            infinite: false,
-            // slidesToScroll: 1,
-            variableWidth: false,
+            slidesToShow: slide > 5 ? 5 : slide - 1 > 0 ? slide - 1 : 1,
+            // infinite: false,
+            slidesToScroll: 1,
+            // variableWidth: false,
             speed: 500,
             arrows: false,
             fade: false,

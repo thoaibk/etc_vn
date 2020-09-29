@@ -1,7 +1,7 @@
 @extends('backend.layouts.lte')
 
 @section('title')
-    Danh mục sản phẩm
+    Hình ảnh sản phẩm
 @stop
 
 @section('before-styles-end')
@@ -57,7 +57,7 @@
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Ảnh sản phẩm</h3>
+                        <h3 class="card-title">Ảnh sản phẩm (ít nhất 5 ảnh )</h3>
                     </div>
                     <div class="card-body">
                         <div class="row">
