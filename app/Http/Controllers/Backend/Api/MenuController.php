@@ -15,6 +15,8 @@ class MenuController extends Controller
         $parentCategories = ProductCategory::whereNull('parent_id')
             ->get();
 
+        $menuParents = Menu
+
 
 
         return response()->json([
