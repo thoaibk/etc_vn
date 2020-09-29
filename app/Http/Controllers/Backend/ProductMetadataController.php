@@ -15,10 +15,40 @@ class ProductMetadataController extends Controller
             abort(404);
         }
 
-        $productMetadatas = ProductMetadata::whereProductId($product_id)->get();
+        $productMetadata = ProductMetadata::whereProductId($product_id)
+            ->get()
+            ->mapWithKeys(function ($item){
+                return [$item->key => $item->value];
+            })
+            ->toArray();
 
-        return view('backend.product-metadata.create')
+        return view('backend.product.metadata')
             ->with('product', $product)
-            ->with('productMetadatas', $productMetadatas);
+            ->with('productMetadata', $productMetadata);
+    }
+
+
+    public function store($product_id, Request $request){
+
+        $product = Product::find($product_id);
+        if(!$product){
+            abort(404);
+        }
+
+        try{
+            $productMetas = config('product.metadata');
+            foreach ($productMetas as $productMeta){
+                if($request->has($productMeta['key'])){
+                    $product->metadatas()->updateOrCreate([
+                        'key' => $productMeta['key']
+                    ], [
+                        'value' => $request->get($productMeta['key'])
+                    ]);
+                }
+            }
+            return redirect(route('backend.product.metadata', ['product_id' => $product->id]))->withFlashSuccess('Đã lưu thuộc tính');
+        } catch (\Exception $exception){
+            return redirect()->back()->withFlashDanger($exception->getMessage());
+        }
     }
 }

@@ -15,7 +15,9 @@
 
 @section('content')
 
-<div class="">
+@include('backend.includes._product_nav')
+
+<div class="mt-4">
     {!! Form::open([
         'route' => ['backend.product.update', ['id' => $product->id]],
         'id' => 'ProductForm'

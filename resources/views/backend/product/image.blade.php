@@ -25,55 +25,61 @@
 @stop
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-4">
-            {!! Form::open([
-                'id' => 'productImageForm'
-            ]) !!}
 
-            @include('backend.includes._image_thumb_upload_require')
-            <div id="upload-grid">
-                <div class="files row"></div>
-            </div>
+    @include('backend.includes._product_nav')
 
-            <div class="image-upload">
-                <br/>
-                <div id="image-upload-box" class="text-center">
-                    <span class="btn btn-sm fileinput-button margin0">
-                        <i class="fa fa-camera"></i> Chọn ảnh
-                        <input class="form-control" type="file" name="image_file_upload" multiple />
-                    </span>
+    <div class="mt-4">
+
+        <div class="row">
+            <div class="col-lg-4">
+                {!! Form::open([
+                    'id' => 'productImageForm'
+                ]) !!}
+
+                @include('backend.includes._image_thumb_upload_require')
+                <div id="upload-grid">
+                    <div class="files row"></div>
                 </div>
-                <br/>
-            </div>
 
-            {!! Form::close() !!}
-        </div>
-        <div class="col-lg-8">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Ảnh sản phẩm</h3>
+                <div class="image-upload">
+                    <br/>
+                    <div id="image-upload-box" class="text-center">
+                        <span class="btn btn-sm fileinput-button margin0">
+                            <i class="fa fa-camera"></i> Chọn ảnh
+                            <input class="form-control" type="file" name="image_file_upload" multiple />
+                        </span>
+                    </div>
+                    <br/>
                 </div>
-                <div class="card-body">
-                    <div class="row">
-                        @if(count($images) > 0)
-                            @foreach($images as $image)
-                                <div id="image_{{ $image->id }}" class="col-md-2">
-                                    <div class="image-item">
-                                        <img class="img-fluid img-rounded img-bordered" src="{{ $image->getImageSrc('medium') }}" alt="">
-                                        <button class="btn-delete btn btn-danger btn-sm" title="Xóa"
-                                                onclick="deleteImage('{{ $image->id }}', '{{ route('backend.product.remote_image', ['id' => $product->id, 'imageId' => $image->id]) }}')"
-                                        >
-                                            <i class="fa fa-times"></i>
-                                        </button>
+
+                {!! Form::close() !!}
+            </div>
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Ảnh sản phẩm</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            @if(count($images) > 0)
+                                @foreach($images as $image)
+                                    <div id="image_{{ $image->id }}" class="col-md-2">
+                                        <div class="image-item">
+                                            <img class="img-fluid img-rounded img-bordered" src="{{ $image->getImageSrc('medium') }}" alt="">
+                                            <button class="btn-delete btn btn-danger btn-sm" title="Xóa"
+                                                    onclick="deleteImage('{{ $image->id }}', '{{ route('backend.product.remote_image', ['id' => $product->id, 'imageId' => $image->id]) }}')"
+                                            >
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </div>
                                     </div>
+                                @endforeach
+                            @else
+                                <div class="col-lg-12">
+                                    <p class=""><i>Sản phẩm chưa có ảnh nào</i></p>
                                 </div>
-                            @endforeach
-                        @else
-                            <div class="col-lg-12">
-                                <p class=""><i>Sản phẩm chưa có ảnh nào</i></p>
-                            </div>
-                        @endif
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

@@ -38,6 +38,7 @@ Route::prefix('backend')->middleware('permission:view_admin')->group(function(){
         Route::delete('/{id}/delete', 'Backend\ProductController@destroy')->name('backend.product.destroy');
 
         Route::get('/{product_id}/metadata', 'Backend\ProductMetadataController@create')->name('backend.product.metadata');
+        Route::post('/{product_id}/metadata', 'Backend\ProductMetadataController@store')->name('backend.product.metadata');
     });
 
 

@@ -6,6 +6,10 @@ return [
             'name' => 'Thương hiệu'
         ],
         [
+            'key' => 'made_in',
+            'name' => 'Xuất xứ'
+        ],
+        [
             'key' => 'weight',
             'name' => 'Cân nặng'
         ],
