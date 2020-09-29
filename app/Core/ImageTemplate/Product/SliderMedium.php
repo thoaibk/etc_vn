@@ -11,6 +11,6 @@ class SliderMedium implements FilterInterface
 {
     public function applyFilter(Image $image)
     {
-        return $image->fit(700, 385);
+        return $image->fit(700, 420);
     }
 }
