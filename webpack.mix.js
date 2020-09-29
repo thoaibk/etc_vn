@@ -27,7 +27,7 @@ mix.scripts('resources/assets/frontend/js/cart.js', 'public/assets/frontend/js/c
 //================BACKEND=======================
 mix.js('resources/assets/backend/js/backend.js', 'public/assets/backend/js/backend.js');
 
-mix.sass('resources/assets/backend/sass/lte.scss', 'public/assets/backend/css/lte.scss');
+mix.sass('resources/assets/backend/sass/lte.scss', 'public/assets/backend/css/lte.css');
 
 mix.copy('node_modules/overlayscrollbars/css', 'public/assets/plugins/overlayscrollbars/css');
 mix.copy('node_modules/overlayscrollbars/js', 'public/assets/plugins/overlayscrollbars/js');

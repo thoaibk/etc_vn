@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="/assets/plugins/awesome/css/all.min.css">
     <link rel="stylesheet" href="/assets/plugins/overlayscrollbars/css/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="{{ mix('assets/backend/css/lte.scss') }}">
+    <link rel="stylesheet" href="{{ mix('assets/backend/css/lte.css') }}">
 
     <link rel="stylesheet" href="/assets/plugins/toastr/toastr.min.css">
     <link rel="stylesheet" href="/assets/plugins/jquery-confirm/jquery-confirm.css">
