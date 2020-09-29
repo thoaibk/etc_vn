@@ -48,7 +48,7 @@ class ImageController extends Controller
             }
 
             $saved = $disk->putStream($path,
-                $uploaded_image->resize(2048, 2048, function ($constraint) {
+                $uploaded_image->resize(600, 600, function ($constraint) {
                     $constraint->aspectRatio();
                 })
                     ->encode(null,100)
