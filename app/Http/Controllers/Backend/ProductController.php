@@ -93,7 +93,6 @@ class ProductController extends BackendController
             abort(404);
         }
 
-        $productCategegories = $product->categories()->get(['id', 'name'])->keyBy('id')->toArray();
         $categories = ProductCategory::categoryAvailable();
 
         if($product->image){
@@ -104,7 +103,6 @@ class ProductController extends BackendController
 
         return  view('backend.product.edit')
             ->with('product', $product)
-            ->with('productCategegories', $productCategegories)
             ->with('categories', $categories);
     }
 
