@@ -3,7 +3,7 @@
 <nav id="evi-nav" class="navbar navbar-expand-lg bg-white sticky-top p-0">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <span class="evi">Evi</span><span class="smart">Smart</span>
+            <img src="/image/evismart_logo.png" alt="">
         </a>
         <!--Toggle Collapse Button-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

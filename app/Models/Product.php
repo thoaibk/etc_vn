@@ -80,6 +80,13 @@ class Product extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function metadatas(){
+        return $this->hasMany(ProductMetadata::class, 'product_id');
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function image(){

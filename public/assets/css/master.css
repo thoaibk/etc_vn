@@ -11006,18 +11006,8 @@ a.text-dark:focus {
   border-bottom: solid thin #cecdcd;
 }
 
-#evi-nav a.navbar-brand {
-  color: #2a2828;
-  font-size: 1.4em;
-}
-
-#evi-nav a.navbar-brand .evi {
-  color: #03A9F4;
-}
-
-#evi-nav a.navbar-brand .smart {
-  color: #c61212;
-  font-weight: bold;
+#evi-nav a.navbar-brand img {
+  height: 62px;
 }
 
 #evi-nav span.navbar-toggler.icon {

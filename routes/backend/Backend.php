@@ -36,7 +36,10 @@ Route::prefix('backend')->middleware('permission:view_admin')->group(function(){
 
         Route::post('/{id}/toggle-status', 'Backend\ProductController@toggleStatus')->name('backend.product.toggle_status');
         Route::delete('/{id}/delete', 'Backend\ProductController@destroy')->name('backend.product.destroy');
+
+        Route::get('/{product_id}/metadata', 'Backend\ProductMetadataController@create')->name('backend.product.metadata');
     });
+
 
     Route::prefix('post')->group(function(){
         Route::get('/', 'Backend\PostController@index')->name('backend.post.index');
