@@ -61,12 +61,12 @@
                             <div class="attr-body">
                                 @foreach($categories as $cate)
                                     <div class="form-check">
-                                        <input id="cate_{{ $cate->id }}"  name="cate[]" value="{{ $cate->id }}" {{ isset($productCategegories[$cate->id]) ? 'checked' : '' }} class="form-check-input" type="checkbox">
+                                        <input id="cate_{{ $cate->id }}"  name="cate" value="{{ $cate->id }}" {{ ($product->category_id == $cate->id) ? 'checked' : '' }} class="form-check-input" type="radio">
                                         <label for="cate_{{ $cate->id }}" class="form-check-label">{{ $cate->name }}</label>
                                         <div class="child-cate">
                                             @foreach($cate->childs as $child)
                                                 <div class="form-check">
-                                                    <input id="cate_{{ $child->id }}" name="cate[]" value="{{ $child->id }}" {{ isset($productCategegories[$child->id]) ? 'checked' : '' }} class="form-check-input" type="checkbox">
+                                                    <input id="cate_{{ $child->id }}" name="cate" value="{{ $child->id }}" {{ ($product->category_id == $child->id) ? 'checked' : '' }} class="form-check-input" type="radio">
                                                     <label for="cate_{{ $child->id }}" class="form-check-label">{{ $child->name }}</label>
                                                 </div>
                                             @endforeach
@@ -90,7 +90,7 @@
                                         <br/>
                                         <div id="image-upload-box" class="text-center">
                                         <span class="btn btn-material-teal-500 btn-sm fileinput-button margin0">
-                                            <i class="fa fa-camera"></i> Ảnh đại diện (300px x 400px)
+                                            <i class="fa fa-camera"></i> Ảnh sản phẩm
                                             <input class="form-control" type="file" name="image_file_upload" multiple />
                                         </span>
                                         </div>
