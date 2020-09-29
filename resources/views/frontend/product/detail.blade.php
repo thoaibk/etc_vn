@@ -61,26 +61,14 @@
                     <div class="col-md-4">
                         <div class="right-product">
                             <div class="tableparameter">
-                                <h2>Thông số kỹ thuật</h2>
+                                <h2>Thông số chi tiết</h2>
                                 <ul class="parameter ">
-                                    <li class="p210653 g6459_79_77">
-                                        <span>Màn hình:</span>
-                                        <div><a href="" target="_blank">OLED</a>, 6.5", <a href="" target="_blank">Super Retina XDR</a></div></li>
-                                    <li class="p210653 g72"><span>Hệ điều hành:</span><div><a href="" >iOS 13</a></div></li>
-                                    <li class="p210653 g27"><span>Camera sau:</span><div>3 camera 12 MP</div></li>
-                                    <li class="p210653 g29"><span>Camera trước:</span><div>12 MP</div></li>
-                                    <li class="p210653 g6059"><span>CPU:</span><div><a href="" target="_blank">Apple A13 Bionic 6 nhân</a></div></li>
-                                    <li class="p210653 g50"><span>RAM:</span><div>4 GB</div></li>
-                                    <li class="p210653 g49"><span>Bộ nhớ trong:</span><div>256 GB</div></li>
-                                    <li class="g6339_6463">
-                                        <span>Thẻ SIM:</span>
-                                        <div class="isim"><a href="" target="_blank">1 eSIM &amp; 1 Nano SIM</a>, <a href="" target="_blank">Hỗ trợ 4G</a></div>
-                                        <div class="ibsim"><b class="h">HOT</b><a href="">SIM VNMB Siêu sim (5GB/ngày)</a></div>
-                                    </li>
-                                    <li class="p210653 g84_10882">
-                                        <span>Dung lượng pin:</span>
-                                        <div>3969 mAh, có sạc nhanh</div>
-                                    </li>
+                                    @foreach(config('product.metadata') as $meta)
+                                        <li class="">
+                                            <span>{{ $meta['name'] }}</span>
+                                            <div>{{ isset($productMetadata[$meta['key']]) ? $productMetadata[$meta['key']] : '' }}</div>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

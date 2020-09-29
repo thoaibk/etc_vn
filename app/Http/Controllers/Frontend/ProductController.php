@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ProductMetadata;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -36,7 +37,14 @@ class ProductController extends Controller
             abort(404);
 
 
+        $productMetadata = ProductMetadata::whereProductId($product->id)
+            ->get()
+            ->mapWithKeys(function ($item){
+                return [$item->key => $item->value];
+            })
+            ->toArray();
         return view('frontend.product.detail')
-            ->with('product', $product);
+            ->with('product', $product)
+            ->with('productMetadata', $productMetadata);
     }
 }
