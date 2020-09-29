@@ -20,8 +20,8 @@ class UserSeeder extends Seeder
 
         $admin->syncRoles('admin');
 
-        if(\App\User::query()->count() == 1){
-            factory(\App\User::class, 30)->create();
-        }
+//        if(\App\User::query()->count() == 1){
+//            factory(\App\User::class, 30)->create();
+//        }
     }
 }
