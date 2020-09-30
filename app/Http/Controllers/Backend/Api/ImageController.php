@@ -12,7 +12,7 @@ class ImageController extends Controller
 {
     public function store(Request $request){
 
-        $entity = $request->get('entity', 'default');
+        $entity = $request->get('entity', 'default_entity');
 
         $imageEntity = \App\Models\Image::getEntity($entity);
 
@@ -33,22 +33,35 @@ class ImageController extends Controller
 
             $uploaded_image = \Image::make($request->file('image_file_upload'));
 
-            // valid min dimension product
-            if($entity == 'product'){
-                if($uploaded_image->height() < config('flysystem.product_thumb.height')
-                    || $uploaded_image->width() < config('flysystem.product_thumb.width')){
-                    return response()->json([
-                        'success' => false,
-                        'message' => trans('validation.image_dimension',[
-                            'height' => config('flysystem.product_thumb.height'),
-                            'width' => config('flysystem.product_thumb.width'),
-                        ])
-                    ]);
-                }
+
+            $width = config('flysystem.'. $entity .'.width');
+            $height = config('flysystem.'. $entity .'.height');
+
+//            // valid min dimension product
+//            if($entity == 'product'){
+//                if($uploaded_image->width() < $width || $uploaded_image->height() < $height ){
+//                    return response()->json([
+//                        'success' => false,
+//                        'message' => trans('validation.image_dimension',[
+//                            'width' => $width,
+//                            'height' => $height,
+//                        ])
+//                    ]);
+//                }
+//            }
+
+            if($uploaded_image->width() < $width || $uploaded_image->height() < $height ){
+                return response()->json([
+                    'success' => false,
+                    'message' => trans('validation.image_dimension',[
+                        'width' => $width,
+                        'height' => $height,
+                    ])
+                ]);
             }
 
             $saved = $disk->putStream($path,
-                $uploaded_image->resize(600, 600, function ($constraint) {
+                $uploaded_image->resize($width, $height, function ($constraint) {
                     $constraint->aspectRatio();
                 })
                     ->encode(null,100)

@@ -236,9 +236,17 @@ return [
         'image' => 5*1024*1024,
         'document' => 50*1024*1024,
     ],
-    'product_thumb' => [
-        'width' => '294',
-        'height' => '300',
+    'default_entity' => [
+        'width' => '400',
+        'height' => '280',
+    ],
+    'product' => [
+        'width' => '800',
+        'height' => '600',
+    ],
+    'banner' => [
+        'width' => '1920',
+        'height' => '600',
     ],
     'exts' => [
         'video' => ['mp4', 'mpeg4'],

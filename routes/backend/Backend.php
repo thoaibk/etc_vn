@@ -55,5 +55,12 @@ Route::prefix('backend')->middleware('permission:view_admin')->group(function(){
 
     Route::prefix('configs')->group(function (){
         Route::get('menu', 'Backend\MenuController@index')->name('backend.menu');
+
+        Route::get('banner', 'Backend\BannerController@index')->name('backend.banner.index');
+        Route::get('banner/create', 'Backend\BannerController@create')->name('backend.banner.create');
+        Route::post('banner/store', 'Backend\BannerController@store')->name('backend.banner.store');
+        Route::get('banner/{id}/edit', 'Backend\BannerController@edit')->name('backend.banner.edit');
+        Route::post('banner/{id}/update', 'Backend\BannerController@update')->name('backend.banner.update');
+        Route::delete('banner/{id}/delete', 'Backend\BannerController@delete')->name('backend.banner.delete');
     });
 });

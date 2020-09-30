@@ -1,7 +1,6 @@
 @extends('backend.layouts.lte')
-
 @section('title')
-    Hình ảnh sản phẩm
+    Banner
 @stop
 
 @section('before-styles-end')
@@ -25,67 +24,51 @@
 @stop
 
 @section('content')
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Cài đặt banner</h3>
+        </div>
+        <div class="card-body">
+            {!! Form::open([
+                'route' => isset($banner) ? ['backend.banner.update', ['id' => $banner_id]] : ['backend.banner.store'],
+                'id' => 'bannerForm'
+            ]) !!}
 
-    @include('backend.includes._product_nav')
+            <div class="form-group">
+                <div class="attr-body">
+                    <div class="image-upload-form">
+                        {!! Form::hidden('image_id', isset($banner) ? $banner['image_id'] : null , ['id' => 'image_id']) !!}
+                        @include('backend.includes._image_thumb_upload_require')
+                        <div id="upload-grid">
+                            <div class="files row"></div>
+                        </div>
 
-    <div class="mt-4">
-
-        <div class="row">
-            <div class="col-lg-4">
-                {!! Form::open([
-                    'id' => 'productImageForm'
-                ]) !!}
-
-                @include('backend.includes._image_thumb_upload_require')
-                <div id="upload-grid">
-                    <div class="files row"></div>
-                </div>
-
-                <div class="image-upload">
-                    <br/>
-                    <div id="image-upload-box" class="text-center">
-                        <span class="btn btn-sm fileinput-button margin0">
-                            <i class="fa fa-camera"></i> Chọn ảnh
-                            <input class="form-control" type="file" name="image_file_upload" multiple />
-                        </span>
-                    </div>
-                    <br/>
-                </div>
-
-                {!! Form::close() !!}
-            </div>
-            <div class="col-lg-8">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Ảnh sản phẩm (ít nhất 5 ảnh )</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            @if(count($images) > 0)
-                                @foreach($images as $image)
-                                    <div id="image_{{ $image->id }}" class="col-md-2">
-                                        <div class="image-item">
-                                            <img class="img-fluid img-rounded img-bordered" src="{{ $image->getImageSrc('medium') }}" alt="">
-                                            <button class="btn-delete btn btn-danger btn-sm" title="Xóa"
-                                                    onclick="deleteImage('{{ $image->id }}', '{{ route('backend.product.remote_image', ['id' => $product->id, 'imageId' => $image->id]) }}')"
-                                            >
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            @else
-                                <div class="col-lg-12">
-                                    <p class=""><i>Sản phẩm chưa có ảnh nào</i></p>
-                                </div>
-                            @endif
+                        <div class="image-upload">
+                            <br/>
+                            <div id="image-upload-box" class="text-center">
+                                        <span class="btn btn-material-teal-500 btn-sm fileinput-button margin0">
+                                            <i class="fa fa-camera"></i> Chọn ảnh
+                                            <input class="form-control" type="file" name="image_file_upload" multiple />
+                                        </span>
+                            </div>
+                            <br/>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="form-group">
+                <label for="">Link</label>
+                <textarea name="link" id="" rows="2" class="form-control">{{ isset($banner) ? $banner['link'] : null }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary text-uppercase"> Lưu banner</button>
+            </div>
+
+            {!! Form::close() !!}
         </div>
     </div>
-
 @stop
 
 @section('after-scripts-end')
@@ -106,16 +89,17 @@
     <script>
         $(function () {
 
-            var uploadThumbUrl = '{{ route('backend.product.store_image', ['id' => $product->id]) }}';
+            var Image = $('#image_id');
+            var uploadThumbUrl = '/backend/api/image/store?entity=banner';
             /* jQuery File Upload
              -------------------------------------------------- */
-            $('#productImageForm').fileupload({
+            $('#bannerForm').fileupload({
                 // Uncomment the following to send cross-domain cookies:
                 //xhrFields: {withCredentials: true},
                 url: uploadThumbUrl,
                 autoUpload: true,
-                previewMaxWidth: 120,
-                previewMaxHeight: 100,
+                previewMaxWidth: 345,
+                previewMaxHeight: 108,
 
                 acceptFileTypes: /(\.|\/)(gif|jpe?g|png|bmp)$/i,
                 maxFileSize: 10*1024*1024, // 10 MB
@@ -139,10 +123,40 @@
             }).bind('fileuploaddone', function (e, data) {
                 console.log('fileuploaddone.............');
                 if(data.result.success){
-                    location.reload();
+                    notifiMessage('Upload thành công', 'success')
+                    Image.val(data.result.image_id);
+                } else {
+                    notifiMessage(data.result.message, 'danger')
                 }
+
             });
-        })
+
+
+            // load lấy ảnh đại diện về để hiển thịs
+            if(typeof imageThumbUrl != 'undefined'){
+
+                console.log('ssss', imageThumbUrl);
+                $.ajax({
+                    // Uncomment the following to send cross-domain cookies:
+                    //xhrFields: {withCredentials: true},
+                    url: imageThumbUrl,
+                    dataType: 'json',
+                    context: $('#bannerForm')[0]
+                }).always(function () {
+                    $(this).removeClass('fileupload-processing');
+                }).done(function (result) {
+
+                    if(result.success){
+                        console.log('load image success');
+                        $(this).fileupload('option', 'done').call(this, $.Event('done'), {result: result});
+                        //$('[data-toggle="popover"]').popover();
+                        $('[data-toggle="tooltip"]').tooltip();
+                        $('.image-upload').hide();
+                    }
+                });
+            }
+
+        });
 
 
         function deleteImage(imageId, removeUrl) {

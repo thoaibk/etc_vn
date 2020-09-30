@@ -82,6 +82,12 @@ return array(
                 'small' => 'App\Core\ImageTemplate\Post\PostThumb',
                 'medium' => 'App\Core\ImageTemplate\Post\Medium',
             ]
+        ],
+        'banner' => [
+            'entity' => 'banner',
+            'templates' => [
+                'small' => 'App\Core\ImageTemplate\Banner\BannerThumb',
+            ]
         ]
 //        'small' => 'App\Core\ImageTemplate\Small',
 //        'medium' => 'App\Core\ImageTemplate\Medium',
