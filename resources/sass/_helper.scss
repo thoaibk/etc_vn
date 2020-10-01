@@ -11,3 +11,9 @@
 .text-decoration-none{
     text-decoration: none;
 }
+
+.p-xlg-5{
+    @media (min-width: 992px) {
+        padding: 7rem!important;
+    }
+}

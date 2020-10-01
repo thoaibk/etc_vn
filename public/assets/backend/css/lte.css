@@ -43531,6 +43531,12 @@ a.text-muted:hover {
   text-decoration: none;
 }
 
+@media (min-width: 992px) {
+  .p-xlg-5 {
+    padding: 7rem !important;
+  }
+}
+
 /*==========Image upload template===============*/
 
 .template-download {
