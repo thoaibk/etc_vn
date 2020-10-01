@@ -43537,6 +43537,10 @@ a.text-muted:hover {
   }
 }
 
+.flex-content-between {
+  justify-content: space-between;
+}
+
 /*==========Image upload template===============*/
 
 .template-download {

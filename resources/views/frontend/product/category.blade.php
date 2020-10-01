@@ -29,21 +29,25 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="row">
-                            @foreach($products as $product)
-                                <div class="col-md-3 p-1">
-                                    <a class="card product-card text-decoration-none text-dark" href="{{ $product->publicUrl() }}">
-                                        <div class="product-thumb">
-                                            <img class="img-fluid" src="{{ $product->thumb('medium') }}" alt="{{ $product->name }}">
-                                        </div>
-                                        <div class="mt-4 product-info text-center pt-3">
-                                            <p class="price mb-0">{{ human_money($product->price) }}</p>
-                                            <h2 class="product-name text-dark text-decoration-none">{{ $product->name }}</h2>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endforeach
-                        </div>
+                        @if(count($products) > 0)
+                            <div class="row">
+                                @foreach($products as $product)
+                                    <div class="col-md-3 p-1">
+                                        <a class="card product-card text-decoration-none text-dark" href="{{ $product->publicUrl() }}">
+                                            <div class="product-thumb">
+                                                <img class="img-fluid" src="{{ $product->thumb('medium') }}" alt="{{ $product->name }}">
+                                            </div>
+                                            <div class="mt-4 product-info text-center pt-3">
+                                                <p class="price mb-0">{{ human_money($product->price) }}</p>
+                                                <h2 class="product-name text-dark text-decoration-none">{{ $product->name }}</h2>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @else
+                            <h4 class="my-4">Không có sản phẩm nào trong danh mục</h4>
+                        @endif
                     </div>
                 </div>
             </div>

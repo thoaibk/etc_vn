@@ -36,3 +36,7 @@ function human_money($amount, $empty_text = null, $currency = null){
                 config('app.thousands_sep')) . " " . $currency;
     }
 }
+
+function pathToLink($path){
+    return str_replace('\\', '/', $path);
+}

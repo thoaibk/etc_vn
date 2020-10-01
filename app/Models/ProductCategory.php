@@ -65,6 +65,13 @@ class ProductCategory extends Model
         return $this->hasMany(ProductCategory::class, 'parent_id', 'id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function products(){
+        return $this->hasMany(Product::class, 'category_id');
+    }
+
     public static function categoryAvailable(){
         return self::query()
             ->whereNull('parent_id')
@@ -92,6 +99,21 @@ class ProductCategory extends Model
             return [$item->id => $item->name];
         })->toArray();
     }
+
+
+    public function getCacheProducts(){
+        $rememberSecond = 60*60*24;
+        $products = \Cache::remember('cate_' . $this->id, $rememberSecond, function (){
+            return \DB::table('products')
+                ->where('category_id', $this->id)
+                ->where('status', Product::STATUS_ACTIVE)
+                ->limit(6)
+                ->get(['id', 'name', 'slug', 'image_id']);
+        });
+
+        return $products;
+    }
+
 
     /**
      * @return string

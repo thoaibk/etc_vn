@@ -51,7 +51,9 @@ class BannerController extends Controller
             'banner_image_disk' => $bannerImage->disk,
             'banner_image_path' => $bannerImage->path,
             'thumb' => $bannerImage->getImageSrc('small'),
-            'link' => $request->get('link')
+            'link' => $request->get('link'),
+            'text1' => $request->get('text1'),
+            'text2' => $request->get('text2'),
         ];
 
         AppOption::updateOrCreate([
@@ -117,6 +119,8 @@ class BannerController extends Controller
         $banner['banner_image_path']    = $bannerImage->path;
         $banner['thumb']                = $bannerImage->getImageSrc('small');
         $banner['link']                 = $request->get('link');
+        $banner['text1']                 = $request->get('text1');
+        $banner['text2']                 = $request->get('text2');
 
         $bannerConfig[$id] = $banner;
 

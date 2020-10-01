@@ -10921,6 +10921,10 @@ a.text-dark:focus {
   }
 }
 
+.flex-content-between {
+  justify-content: space-between;
+}
+
 .my-breadcrumb {
   padding: 0;
   background-color: transparent;
@@ -11012,11 +11016,47 @@ a.text-dark:focus {
   border-bottom: solid thin #cecdcd;
 }
 
-#evi-nav a.navbar-brand img {
-  height: 62px;
+#evi-nav a.navbar-brand {
+  padding: 0;
 }
 
-#evi-nav span.navbar-toggler.icon {
+#evi-nav a.navbar-brand img {
+  height: 57px;
+}
+
+@media (max-width: 992px) {
+  #evi-nav a.navbar-brand {
+    padding: 3px;
+  }
+
+  #evi-nav a.navbar-brand img {
+    height: 47px;
+  }
+}
+
+#evi-nav .nav-mobile {
+  flex-direction: row;
+}
+
+#evi-nav .nav-mobile .nav-item .nav-link {
+  padding: 0.5rem 1rem;
+}
+
+#evi-nav .nav-auth-login {
+  background: #e6463a;
+  color: white !important;
+  border-radius: 28px;
+  padding: 3px 10px;
+  line-height: 25px;
+  font-size: 1em;
+  margin-top: 4px;
+}
+
+#evi-nav .navbar-toggler:focus {
+  outline: none;
+}
+
+#evi-nav .navbar-toggler.icon {
   color: black;
 }
 
@@ -11140,6 +11180,13 @@ a.text-dark:focus {
   color: #2a2828;
 }
 
+@media (max-width: 992px) {
+  #evi-nav .nav-mega-menu .dropdown:hover .dropdown-menu,
+  #evi-nav .nav-mega-menu .dropdown .dropdown-menu:hover {
+    display: none !important;
+  }
+}
+
 #evi-nav .right-nav .nav-item {
   padding: 0.5rem 0.5rem;
   margin: 0 0.25rem;
@@ -11213,7 +11260,7 @@ a.text-dark:focus {
 }
 
 .card-auth .card-header {
-  background-color: #378ec4;
+  background-color: #55a6d8;
 }
 
 .card-auth .btn-auth {

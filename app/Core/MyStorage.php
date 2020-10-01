@@ -102,65 +102,6 @@ class MyStorage
         return $default;
     }
 
-    /**
-     * @todo finish it !!!
-     * @param $disk
-     * @param $path
-     * @param $options
-     * @return string
-     */
-    public static function get_video_stream_link($disk, $path, $options){
-        $version = array_get($options, 'version', 'origin');
-        if(app()->environment() == 'production' || app()->environment() == 'dev'){
-            $storage_stream_config = config('flysystem.connections.' . $disk);
-            if(!array_get($storage_stream_config, 'video_streaming_support', false)){
-                return [];
-            }else{
-                try{
-                    $closure = array_get($storage_stream_config, 'get_video_stream_closure');
-                    $stream = call_user_func($closure,  $path, null, null );
-                    if($version == 'hd'){
-                        $stream['rel'] = '720';
-                        $stream['label'] = 'HD';
-                        $stream['title'] = 'HD';
-                    }elseif($version == 'sd'){
-                        $stream['rel'] = '360';
-                        $stream['label'] = 'SD';
-                        $stream['title'] = 'SD';
-                    }else{
-                        $stream['rel'] = '1000';
-                        $stream['label'] = 'Origin';
-                        $stream['title'] = 'Origin';
-                    }
-
-                    return $stream;
-                }catch (\Exception $ex){
-                    return [];
-                }
-
-            }
-        }elseif(in_array($disk, ['public', 'tmp', 'local'])){
-            $stream = [
-                'src' => route('api.video.stream',['id' => $options['id'], 'version' => $version]),
-                'type' => 'video/mp4',
-                'label' => strtoupper($version),
-                'title' => strtoupper($version),
-            ];
-            return $stream;
-        }
-        return "";
-    }
-
-    /**
-     * @todo finish it !!!
-     * @param $disk
-     * @param $path
-     * @param $options
-     * @return string
-     */
-    public static function get_audio_stream_link($disk, $path, $options){
-        return "";
-    }
 
     /**
      * @todo finish it !!!

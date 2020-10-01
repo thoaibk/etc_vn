@@ -61,6 +61,14 @@
                 <label for="">Link</label>
                 <textarea name="link" id="" rows="2" class="form-control">{{ isset($banner) ? $banner['link'] : null }}</textarea>
             </div>
+            <div class="form-group">
+                <label for="">Banner text line 1</label>
+                {!! Form::text('text1', isset($banner) ? $banner['text1'] : null, ['class' => 'form-control', 'placeholder' => 'Banner text line 1']) !!}
+            </div>
+            <div class="form-group">
+                <label for="">Banner text line 2</label>
+                {!! Form::text('text2', isset($banner) ? $banner['text2'] : null, ['class' => 'form-control', 'placeholder' => 'Banner text line 2']) !!}
+            </div>
 
             <div class="form-group">
                 <button class="btn btn-primary text-uppercase"> Lưu banner</button>

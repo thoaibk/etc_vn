@@ -2,7 +2,7 @@
 @section('title', 'Đăng nhập')
 @section('content')
 
-<div class="container p-xlg-5 p-md-4">
+<div class="container p-xlg-5 p-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card card-auth">
@@ -61,11 +61,17 @@
                                     {{ __('Đăng nhập') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="mt-2 btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Bạn quên mật khẩu?') }}
+                                <div class="d-flex flex-content-between">
+
+                                    @if (Route::has('password.request'))
+                                        <a class="mt-2 btn-link" href="{{ route('password.request') }}">
+                                            {{ __('Bạn quên mật khẩu?') }}
+                                        </a>
+                                    @endif
+                                    <a class="mt-2 btn-link" href="{{ route('register') }}">
+                                        {{ __('Đăng ký ') }}
                                     </a>
-                                @endif
+                                </div>
                             </div>
                         </div>
                     </form>

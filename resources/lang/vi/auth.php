@@ -13,7 +13,7 @@ return [
 	|
 	*/
 
-	'failed' => 'Những dấu hiệu này không phù hợp với các bản ghi của chúng tôi.',
+	'failed' => 'Sai email đăng nhập hoặc mật khẩu. Vui lòng thử lại',
 	'throttle' => 'Qúa nhiều lần đăng nhập lỗi. Hãy thử lại sau :seconds giây.',
 	'loginfalse' => 'Thông tin đăng nhâp không chính xác, Vui lòng kiểm tra lại <b>Email</b> hoặc <b>Password</b>',
 	'deactivated' => 'Tài khoản của bạn chưa được kích hoạt',
