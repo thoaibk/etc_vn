@@ -21,6 +21,13 @@ class UserController extends BackendController
 
     }
 
+    public function create(){
+        $roles = Role::all();
+
+        return view('backend.access.user.create')
+            ->with('roles', $roles);
+    }
+
     /**
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

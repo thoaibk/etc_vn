@@ -64,9 +64,9 @@
 
                 <li class="nav-header text-uppercase text-11 pl-3">Cấu hình</li>
                 <li class="nav-item">
-                    <a href="{{ route('backend.menu') }}" class="nav-link {{ active_class(if_route('backend.menu')) }}">
+                    <a href="{{ route('backend.banner.index') }}" class="nav-link {{ active_class(if_route('backend.banner.index')) }}">
                         <i class="fad fa-th-list"></i>
-                        <p>Menu hiển thị</p>
+                        <p>Banner</p>
                     </a>
                 </li>
 
