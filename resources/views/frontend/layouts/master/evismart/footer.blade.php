@@ -1,18 +1,16 @@
 <div id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="footer-1">
-                            <h3 class="footer1-title text-white mb-3">Sản phẩm</h3>
-                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Tủ điện cao thế</a></p>
-                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Tủ điện trung thế</a></p>
-                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Tủ điện hạ thế</a></p>
-                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Thiết bị nhà thông minh</a></p>
-                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Phụ kiện thông minh</a></p>
-                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Camera </a></p>
-                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Thiết bị đeo</a></p>
+                            <h3 class="footer1-title text-white mb-3">EVISMART</h3>
+                            <p class="mb-1 text-white">Call: 024 6 6868 168</p>
+                            <p class="mb-1 text-white">Hotline: 0935 86 99 86</p>
+                            <p class="mb-1 text-white">Địa chỉ: ĐN2 , CT3, KĐTM Trung Văn, P. Trung Văn, Q. Nam Từ Liêm, TP. Hà Nội</p>
+                            <p class="mb-1 text-white">Email: <a href="mailto:EviSmarthome@gmail.com">EviSmarthome@gmail.com</a></p>
+                            <p class="mb-1 text-white">Web: <a href="http://evismart.com.vn">evismart.com.vn</a></p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -40,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <div class="footer2">
                     <h3 class="footer1-title text-white mb-3">Kết nối với chúng tôi</h3>
                     <div class="social-connect d-flex">
@@ -51,7 +49,7 @@
                             <a class="social-link facebook" href=""><i class="fab fa-facebook-f"></i></a>
                         </div>
                         <div class="social-item">
-                            <a class="social-link facebook" href=""><i class="fab fa-facebook-messenger"></i></a>
+                            <a class="social-link facebook" href=""><i class="fab fa-skype"></i></a>
                         </div>
 
                         <div class="social-item">
