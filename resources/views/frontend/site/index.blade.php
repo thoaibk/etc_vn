@@ -1,7 +1,8 @@
 @extends('frontend.layouts.master')
 
 @section('styles')
-
+    <link rel="stylesheet" href="/plugins/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/plugins/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
 @stop
 
 @section('content')
@@ -51,7 +52,31 @@
 @stop
 
 @section('script-after')
+    <script defer  src="/plugins/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script>
 
+        $(function () {
+            $('.owl-carousel').owlCarousel({
+                loop:true,
+                margin:10,
+                autoplay:true,
+                autoplayTimeout: 5000,
+                autoplaySpeed: 1000,
+                responsiveClass:true,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:2
+                    },
+                    1000:{
+                        items:3
+                    }
+                }
+            })
+        })
+    </script>
 @stop
 
 
