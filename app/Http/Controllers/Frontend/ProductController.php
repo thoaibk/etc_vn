@@ -18,6 +18,10 @@ class ProductController extends Controller
         if(!$category)
             abort(404);
 
+        \SEOMeta::setTitle($category->name);
+        \OpenGraph::setTitle($category->name);
+        \OpenGraph::addImage(config('app.url') . '/image/graph-evismart.png',['height' => 1200, 'width' => 630]);
+
         $categoryIds = [$category->id];
 
 
@@ -35,6 +39,15 @@ class ProductController extends Controller
         $product = Product::whereSlug($slug)->first();
         if(!$product)
             abort(404);
+
+
+        \SEOMeta::setTitle($product->getTitle());
+        \SEOMeta::setDescription($product->getDescription());
+        \SEOMeta::setKeywords($product->getKeywords());
+
+        \OpenGraph::setTitle($product->getTitle());
+        \OpenGraph::setDescription($product->getDescription());
+        \OpenGraph::addImage($product->thumb('social'),['height' => 600, 'width' => 315]);
 
 
         $productMetadata = ProductMetadata::whereProductId($product->id)

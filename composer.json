@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
+        "artesaos/seotools": "^0.19.0",
         "bumbummen99/shoppingcart": "^2.10",
         "cviebrock/eloquent-sluggable": "^7.0",
         "davejamesmiller/laravel-breadcrumbs": "5.x",
@@ -24,6 +25,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.4",
         "laravelcollective/html": "^6.2",
+        "laravelium/sitemap": "7.0.1",
         "spatie/laravel-permission": "^3.16"
     },
     "require-dev": {

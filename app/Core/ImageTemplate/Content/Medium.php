@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Core\ImageTemplate\Product;
+namespace App\Core\ImageTemplate\Content;
 
 
 use Intervention\Image\Filters\FilterInterface;
@@ -11,7 +11,6 @@ class Medium implements FilterInterface
 {
     public function applyFilter(Image $image)
     {
-//        return $image->fit(372, 331);
-        return $image->fit(351, 256);
+        return $image->fit(756, 466);
     }
 }

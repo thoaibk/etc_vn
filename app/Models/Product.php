@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 /**
  * App\Models\Product
@@ -73,10 +74,10 @@ class Product extends Model
 
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function categories(){
-        return $this->belongsToMany(ProductCategory::class, 'product_has_category', 'product_id', 'category_id');
+    public function category(){
+        return $this->belongsTo(ProductCategory::class, 'category_id');
     }
 
     /**
@@ -133,5 +134,17 @@ class Product extends Model
 
     public function publicUrl(){
         return route('product.detail', ['slug' => $this->slug]);
+    }
+
+    public function getTitle(){
+        return !empty($this->seo_title) ? $this->seo_title : $this->name;
+    }
+
+    public function getDescription(){
+        return !empty($this->seo_description) ? $this->seo_description : Str::words(strip_tags($this->content), 65);
+    }
+
+    public function getKeywords(){
+        return $this->seo_keywords;
     }
 }

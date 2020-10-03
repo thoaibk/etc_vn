@@ -3,7 +3,6 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle catogary" href="{{ $cate->publicUrl() }}" id="navbarDropdown">
                 <span class="text-uppercase"> {{ $cate->name }} </span>
-                <i class="icon-has-dropdown fal fa-chevron-down d-block d-sm-none"></i>
             </a>
 
             <?php $products = $cate->products()->limit(6)->get() ?>

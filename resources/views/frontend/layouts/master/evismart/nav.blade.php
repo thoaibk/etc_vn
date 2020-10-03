@@ -3,7 +3,7 @@
 <nav id="evi-nav" class="navbar navbar-expand-lg bg-white sticky-top p-0">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <img src="/image/evismart_logo.png" alt="">
+            <img src="/image/evismart_logo.png?v=1.0.0" alt="">
         </a>
 
         <ul class="navbar-nav ml-auto nav-mobile d-lg-none d-flex flex">
@@ -15,7 +15,7 @@
             </li>
             <!-- Authentication Links -->
             @guest
-                <li class="nav-item">
+                <li class="nav-item ml-2">
                     <a class="nav-link nav-auth-login" href="{{ route('login') }}"><i class="fa fa-user"></i> Đăng nhập</a>
                 </li>
             @else
@@ -55,7 +55,7 @@
 
             <x-category-nav></x-category-nav>
 
-            <ul class="navbar-nav ml-auto right-nav d-block d-sm-none d-lg-flex">
+            <ul class="navbar-nav ml-auto right-nav d-none d-lg-flex">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('cart.index') }}">
                         <i class="cart-icon fa fa-shopping-cart"></i>

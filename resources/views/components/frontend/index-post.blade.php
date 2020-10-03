@@ -31,7 +31,7 @@
                             </ul>
                         </div>
                         <div class="latest-post-excerpt">
-                            <p>{{ $post->excerpt }}</p>
+                            <p>{!! $post->excerpt !!} </p>
                         </div>
                         <div class="latest-post-entry-footer">
                         </div>

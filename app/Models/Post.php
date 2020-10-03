@@ -102,4 +102,16 @@ class Post extends Model
         return route('post.detail', ['id' => $this->id, 'slug' => $this->slug]);
     }
 
+    public function getTitle(){
+        return !empty($this->seo_title) ? $this->seo_title : $this->name;
+    }
+
+    public function getDescription(){
+        return !empty($this->seo_description) ? $this->seo_description : $this->excerpt;
+    }
+
+    public function getKeywords(){
+        return $this->seo_keywords;
+    }
+
 }

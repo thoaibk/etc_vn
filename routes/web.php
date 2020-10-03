@@ -27,3 +27,5 @@ require 'backend/Backend.php';
 require 'Frontend/Product.php';
 require 'Frontend/Cart.php';
 require 'Frontend/Post.php';
+
+require 'sitemap/sitemap.php';

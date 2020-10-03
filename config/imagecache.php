@@ -70,19 +70,29 @@ return array(
         'product' => [
             'entity' => 'product',
             'templates' => [
-                'medium' => 'App\Core\ImageTemplate\Product\Medium',
-                'small' => 'App\Core\ImageTemplate\Product\Small',
-                'slider' => 'App\Core\ImageTemplate\Product\SliderMedium',
+                'social'     => 'App\Core\ImageTemplate\Social',
+                'medium'    => 'App\Core\ImageTemplate\Product\Medium',
+                'small'     => 'App\Core\ImageTemplate\Product\Small',
+                'slider'    => 'App\Core\ImageTemplate\Product\SliderMedium',
             ]
         ],
 
         'post' => [
             'entity' => 'post',
             'templates' => [
-                'small' => 'App\Core\ImageTemplate\Post\PostThumb',
+                'social'     => 'App\Core\ImageTemplate\Social',
                 'medium' => 'App\Core\ImageTemplate\Post\Medium',
+                'small' => 'App\Core\ImageTemplate\Post\PostThumb'
             ]
         ],
+        'content' => [
+            'entity' => 'content',
+            'templates' => [
+                'medium' => 'App\Core\ImageTemplate\Content\Medium',
+            ]
+        ],
+
+
         'banner' => [
             'entity' => 'banner',
             'templates' => [

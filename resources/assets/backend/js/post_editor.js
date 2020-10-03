@@ -1,11 +1,4 @@
 $(document).ready(function() {
-    $('#contentEditor').summernote({
-        placeholder: 'Mô tả',
-        tabsize: 2,
-        height: 500,
-    });
-
-
 
     var Image = $('#image_id');
     var uploadThumbUrl = '/backend/api/image/store?entity=post';
@@ -42,8 +35,12 @@ $(document).ready(function() {
     }).bind('fileuploaddone', function (e, data) {
         console.log('fileuploaddone.............');
         if(data.result.success){
+            notifiMessage('Upload ảnh thành công', 'success');
             Image.val(data.result.image_id);
+        } else {
+            notifiMessage(data.result.message, 'danger')
         }
+
     });
 
     // load lấy ảnh đại diện về để hiển thịs

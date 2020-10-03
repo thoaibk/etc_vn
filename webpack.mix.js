@@ -32,9 +32,10 @@ mix.sass('resources/assets/backend/sass/lte.scss', 'public/assets/backend/css/lt
 mix.copy('node_modules/overlayscrollbars/css', 'public/assets/plugins/overlayscrollbars/css');
 mix.copy('node_modules/overlayscrollbars/js', 'public/assets/plugins/overlayscrollbars/js');
 
-mix.scripts('resources/assets/backend/js/common.js', 'public/assets/backend/js/common.js');
+mix.scripts('resources/assets/backend/js/content_editor.js', 'public/assets/backend/js/content_editor.js');
 
-mix.scripts('resources/assets/backend/js/editor_summernote.js', 'public/assets/backend/js/editor_summernote.js');
+mix.scripts('resources/assets/backend/js/common.js', 'public/assets/backend/js/common.js');
+mix.scripts('resources/assets/backend/js/product_editor.js', 'public/assets/backend/js/product_editor.js');
 
 mix.scripts('resources/assets/backend/js/post_editor.js', 'public/assets/backend/js/post_editor.js');
 

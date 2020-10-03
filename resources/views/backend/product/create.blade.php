@@ -90,7 +90,7 @@
                                         <br/>
                                         <div id="image-upload-box" class="text-center">
                                         <span class="btn btn-material-teal-500 btn-sm fileinput-button margin0">
-                                            <i class="fa fa-camera"></i> Ảnh đại diện (300px x 400px)
+                                            <i class="fa fa-camera"></i> Ảnh đại diện
                                             <input class="form-control" type="file" name="image_file_upload" multiple />
                                         </span>
                                         </div>
@@ -129,6 +129,7 @@
     {!! Html::script('/assets/plugins/blueimp/jquery.file.upload/js/jquery.fileupload-ui.js') !!}
     {!! Html::script('/assets/plugins/blueimp/jquery.file.upload/js/cors/jquery.xdr-transport.js') !!}
 
-    {!! Html::script('assets/backend/js/editor_summernote.js') !!}
+    {!! Html::script(mix('assets/backend/js/content_editor.js')) !!}
+    {!! Html::script(mix('assets/backend/js/product_editor.js')) !!}
 
 @stop

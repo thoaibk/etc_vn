@@ -184,7 +184,8 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        \Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class
+        \Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
+        \Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class
     ],
 
     /*
@@ -240,6 +241,12 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Flysystem' => GrahamCampbell\Flysystem\Facades\Flysystem::class,
+
+        'SEOMeta'       => Artesaos\SEOTools\Facades\SEOMeta::class,
+        'OpenGraph'     => Artesaos\SEOTools\Facades\OpenGraph::class,
+        'Twitter'       => Artesaos\SEOTools\Facades\TwitterCard::class,
+        'JsonLd'        => Artesaos\SEOTools\Facades\JsonLd::class,
+        'JsonLdMulti'   => Artesaos\SEOTools\Facades\JsonLdMulti::class,
     ],
 
 ];

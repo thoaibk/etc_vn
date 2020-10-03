@@ -104,6 +104,7 @@
     {!! Html::script('/assets/plugins/blueimp/jquery.file.upload/js/jquery.fileupload-ui.js') !!}
     {!! Html::script('/assets/plugins/blueimp/jquery.file.upload/js/cors/jquery.xdr-transport.js') !!}
 
-    {!! Html::script('assets/backend/js/post_editor.js') !!}
+    {!! Html::script(mix('assets/backend/js/content_editor.js')) !!}
+    {!! Html::script(mix('assets/backend/js/post_editor.js')) !!}
 
 @stop

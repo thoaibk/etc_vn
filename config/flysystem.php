@@ -237,12 +237,24 @@ return [
         'document' => 50*1024*1024,
     ],
     'default_entity' => [
-        'width' => '400',
-        'height' => '280',
+        'width' => '600',
+        'height' => '315',
     ],
     'product' => [
-        'width' => '800',
-        'height' => '600',
+        'width' => '600',
+        'height' => '315',
+    ],
+    'product_side' => [
+        'width' => '700',
+        'height' => '420',
+    ],
+    'post' => [
+        'width' => '600',
+        'height' => '315',
+    ],
+    'content' => [
+        'width' => '756',
+        'height' => '466',
     ],
     'banner' => [
         'width' => '1920',

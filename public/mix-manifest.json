@@ -8,7 +8,8 @@
     "/assets/frontend/css/post.css": "/assets/frontend/css/post.css",
     "/assets/backend/css/lte.css": "/assets/backend/css/lte.css",
     "/assets/frontend/js/cart.js": "/assets/frontend/js/cart.js",
+    "/assets/backend/js/content_editor.js": "/assets/backend/js/content_editor.js",
     "/assets/backend/js/common.js": "/assets/backend/js/common.js",
-    "/assets/backend/js/editor_summernote.js": "/assets/backend/js/editor_summernote.js",
+    "/assets/backend/js/product_editor.js": "/assets/backend/js/product_editor.js",
     "/assets/backend/js/post_editor.js": "/assets/backend/js/post_editor.js"
 }

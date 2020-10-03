@@ -13,6 +13,15 @@ class PostController extends Controller
         if(!$post)
             abort(404);
 
+        \SEOMeta::setTitle($post->getTitle());
+        \SEOMeta::setDescription($post->getDescription());
+        \SEOMeta::setKeywords($post->getKeywords());
+
+        \OpenGraph::setTitle($post->getTitle());
+        \OpenGraph::setDescription($post->getDescription());
+        \OpenGraph::addImage($post->thumb('social'),['height' => 600, 'width' => 315]);
+
+
         return view('frontend.post.detail')
             ->with('post', $post);
     }

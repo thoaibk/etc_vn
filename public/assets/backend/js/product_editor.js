@@ -1,11 +1,10 @@
 $(document).ready(function() {
-
-    var Image = $('#image_id');
-    var uploadThumbUrl = '/backend/api/image/store?entity=post';
+    var productImage = $('#product-image_id');
+    var uploadThumbUrl = '/backend/api/image/store?entity=product';
     /* jQuery File Upload
 
      -------------------------------------------------- */
-    $('#PostForm').fileupload({
+    $('#ProductForm').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
         url: uploadThumbUrl,
@@ -36,23 +35,23 @@ $(document).ready(function() {
         console.log('fileuploaddone.............');
         if(data.result.success){
             notifiMessage('Upload ảnh thành công', 'success');
-            Image.val(data.result.image_id);
+            productImage.val(data.result.image_id);
         } else {
             notifiMessage(data.result.message, 'danger')
         }
-
     });
+
+    console.log('ssss', imageThumbUrl);
 
     // load lấy ảnh đại diện về để hiển thịs
     if(typeof imageThumbUrl != 'undefined'){
 
-        console.log('ssss', imageThumbUrl);
         $.ajax({
             // Uncomment the following to send cross-domain cookies:
             //xhrFields: {withCredentials: true},
             url: imageThumbUrl,
             dataType: 'json',
-            context: $('#PostForm')[0]
+            context: $('#ProductForm')[0]
         }).always(function () {
             $(this).removeClass('fileupload-processing');
         }).done(function (result) {

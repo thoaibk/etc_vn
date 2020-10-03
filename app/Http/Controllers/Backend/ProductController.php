@@ -175,7 +175,7 @@ class ProductController extends BackendController
         if(!$product)
             abort(404);
 
-        $imageEntity = 'product';
+        $imageEntity = 'product_slide';
         try{
             // valid file
             $file_uploaded = $request->file('image_file_upload');
@@ -193,20 +193,23 @@ class ProductController extends BackendController
 
             $uploaded_image = \Image::make($request->file('image_file_upload'));
 
+
+            $width = config('flysystem.product_side.width');
+            $height = config('flysystem.product_side.height');
+
             // valid min dimension
-            if($uploaded_image->height() < config('flysystem.course_avatar_min_size.height')
-                || $uploaded_image->width() < config('flysystem.course_avatar_min_size.width')){
+            if($uploaded_image->width() < $width || $uploaded_image->height() < $height){
                 return response()->json([
                     'success' => false,
                     'message' => trans('validation.image_dimension',[
-                        'height' => config('flysystem.course_avatar_min_size.height'),
-                        'width' => config('flysystem.course_avatar_min_size.width'),
+                        'width' => $width,
+                        'height' => $height
                     ])
                 ]);
             }
 
             $saved = $disk->putStream($path,
-                $uploaded_image->resize(2048, 2048, function ($constraint) {
+                $uploaded_image->resize($width, $height, function ($constraint) {
                     $constraint->aspectRatio();
                 })
                     ->encode(null,100)

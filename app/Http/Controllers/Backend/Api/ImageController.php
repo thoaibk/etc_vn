@@ -13,6 +13,7 @@ class ImageController extends Controller
     public function store(Request $request){
 
         $entity = $request->get('entity', 'default_entity');
+        $template = $request->get('temp', 'small');
 
         $imageEntity = \App\Models\Image::getEntity($entity);
 
@@ -33,22 +34,8 @@ class ImageController extends Controller
 
             $uploaded_image = \Image::make($request->file('image_file_upload'));
 
-
             $width = config('flysystem.'. $entity .'.width');
             $height = config('flysystem.'. $entity .'.height');
-
-//            // valid min dimension product
-//            if($entity == 'product'){
-//                if($uploaded_image->width() < $width || $uploaded_image->height() < $height ){
-//                    return response()->json([
-//                        'success' => false,
-//                        'message' => trans('validation.image_dimension',[
-//                            'width' => $width,
-//                            'height' => $height,
-//                        ])
-//                    ]);
-//                }
-//            }
 
             if($uploaded_image->width() < $width || $uploaded_image->height() < $height ){
                 return response()->json([
@@ -79,8 +66,8 @@ class ImageController extends Controller
                         [
                             'id'            => $image->id,
                             'title'         => null,
-                            'url'           => $image->getImageSrc('small'),
-                            'url_thumb'     => $image->getImageSrc('small'),
+                            'url'           => $image->getImageSrc($template),
+                            'url_thumb'     => $image->getImageSrc($template),
                             'delete_url'    => $image->deleteUrl(),
                             'delete_method' => 'DELETE',
                         ]
@@ -104,6 +91,7 @@ class ImageController extends Controller
             ]);
         }
     }
+
 
     public function show($id, $template = 'small'){
         $image = \App\Models\Image::find($id);
