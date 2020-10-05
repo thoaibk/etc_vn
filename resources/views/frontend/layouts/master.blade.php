@@ -36,17 +36,20 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+
     <!-- Styles -->
     <link href="{{ mix('assets/css/master.css') }}" rel="stylesheet">
+    <link href="{{ mix('/assets/frontend/css/evico.css') }}" rel="stylesheet">
+
     <link href="{{ asset('assets/plugins/awesome/css/all.min.css') }}" rel="stylesheet">
 
     @yield('styles')
 </head>
 <body>
 <div id="evico-app">
-    @include('frontend.layouts.master.evismart.nav')
+    @include('frontend.layouts.master.nav')
     @yield('content')
-    @include('frontend.layouts.master.evismart.footer')
+    @include('frontend.layouts.master.footer')
 </div>
 
 @yield('script-before')

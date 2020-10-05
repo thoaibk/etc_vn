@@ -1,44 +1,76 @@
-<div id="app-footer">
+<div id="footer" class="pt-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <div class="footer1 mt-4">
-                    <h2 class="footer-title-1 text-uppercase app-color">Evico</h2>
-                    <p class="mb-1">Theo dõi chúng tôi</p>
-                    <div class="d-flex flow-me">
-                        <a class="mr-3" href=""><i class="fab fa-facebook"></i></a>
-                        <a class="mr-3"href=""><i class="fab fa-twitter-square"></i></a>
-                        <a href=""><i class="fab fa-google-plus-square"></i></a>
+            <div class="col-md-5">
+                <div class="footer2">
+                    <div>
+                        <a class="footer-brand p-2" href="#">
+                            <img style="height: 35px" src="/image/evico-logo.png" alt="">
+                        </a>
+                    </div>
+
+                    <div class="social-connect d-flex">
+                        <div class="social-item mr-3">
+                            <a class="social-link pl-0 youtube" href=""><i class="fab fa-youtube"></i></a>
+                        </div>
+                        <div class="social-item mr-3">
+                            <a class="social-link facebook" href=""><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                        <div class="social-item mr-3">
+                            <a class="social-link facebook" href=""><i class="fab fa-facebook-messenger"></i></a>
+                        </div>
+
+                        <div class="social-item mr-3">
+                            <a class="social-link email" href=""><i class="fal fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="mt-4">
-                            <h3 class="footer-title-2">Sản phẩm</h3>
-                            <p class="mb-1"><a class="text-decoration-none text-body" href="">Tủ điện cao thế</a></p>
-                            <p class="mb-1"><a class="text-decoration-none text-body" href="">Tủ điện hạ thế</a></p>
-                            <p class="mb-1"><a class="text-decoration-none text-body" href="">Thiết bị nhà thông minh smart home</a></p>
-                            <p class="mb-1"><a class="text-decoration-none text-body" href="">Thi công công trình điện</a></p>
+                        <div class="footer-1">
+                            <h3 class="footer-title mb-3">Sản phẩm</h3>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Tủ điện cao thế</a></p>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Tủ điện trung thế</a></p>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Tủ điện hạ thế</a></p>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Thiết bị nhà thông minh</a></p>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Phụ kiện thông minh</a></p>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Camera </a></p>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Thiết bị đeo</a></p>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="mt-4">
-                            <h3 class="footer-title-2">Hỗ trợ</h3>
-                            <p class="mb-1"><a class="text-decoration-none text-body" href="">Hướng dẫn mua hàng</a></p>
-                            <p class="mb-1"><a class="text-decoration-none text-body" href="">Chính sách bảo mật</a></p>
-                            <p class="mb-1"><a class="text-decoration-none text-body" href="">Chính sách đổi trả hàng hóa</a></p>
-                            <p class="mb-1"><a class="text-decoration-none text-body" href="">Quy định bào hành sản phẩm</a></p>
+                        <div class="footer-1">
+                            <h3 class="footer-title mb-3">Công ty</h3>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Giới thiệu</a></p>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Liên hệ </a></p>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Bài viết - tin tức</a></p>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Đối tác</a></p>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Tuyển dụng</a></p>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Chính sách </a></p>
                         </div>
+
                     </div>
                     <div class="col-md-4">
-                        <div class="mt-4">
-                            <h3 class="footer-title-2">Giới thiệu</h3>
-                            <p class="mb-1"><a class="text-decoration-none text-body" href="">Về chúng tôi</a></p>
-                            <p class="mb-1"><a class="text-decoration-none text-body" href="">Liên hệ</a></p>
+                        <div class="footer-1">
+                            <h3 class="footer-title mb-3">Support</h3>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Câu hỏi thường gặp</a></p>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Hỏi đáp về sản phẩm</a></p>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Chính sách bán hàng</a></p>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Quy định bảo hành</a></p>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Chính sách lắp đặt</a></p>
+                            <p class="mb-1"><a class="footer-link text-decoration-none" href="#">Bảo hành tại nhà</a></p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="coppy-right">
+                    <p class="">Copyright © 2020&nbsp; <a class="footer-link" href="#" target="_blank">Evico jsc</a></p>
                 </div>
             </div>
         </div>

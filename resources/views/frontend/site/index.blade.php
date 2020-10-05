@@ -7,46 +7,208 @@
 
 @section('content')
 
-    <x-banner></x-banner>
+{{--    <x-banner></x-banner>--}}
 
-    <div class="container">
-        <div>
-            <div class="my-4 text-center ">
-                <h2 class="section-title text-uppercase">Sản phẩm nổi bật</h2>
-            </div>
-        </div>
-        <div class="row">
-            @foreach($hotProducts as $hotProduct)
-                <div class="col-md-4 p-1">
-                    <div class="hot-priduct-wrapper">
-                        <a href="{{ $hotProduct->publicUrl() }}">
-                            <div class="hot-product-inner">
-                                <img class="thumb" src="{{ $hotProduct->thumb('medium') }}" alt="">
-                                <div class="inner-content">
-                                    <h4 class="inner-text text-white text-uppercase">{{ $hotProduct->name }}</h4>
-                                </div>
-                            </div>
-                        </a>
+    @include('frontend.site._evico_carousel')
+
+    <div id="out-services" class="bg-white">
+        <div class="container">
+            <h2 class="section-title">Sản phẩm & dịch vụ</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card service-item">
+                        <div class="card-header">
+
+                        </div>
+                        <div class="card-body">
+
+                        </div>
                     </div>
                 </div>
-            @endforeach
+            </div>
         </div>
     </div>
 
-
-    <div id="lastet-post">
+    <div id="section-hot-product" class="py-5">
         <div class="container">
-            <div class="mt-5">
-                <div class="my-4 text-center">
-                    <h2 class="section-title text-uppercase">Bài viết - Tin tức</h2>
-                </div>
-            </div>
+            <h2 class="section-title">Sản phẩm nổi bật</h2>
             <div class="row">
-                <div class="col-lg-12 px-1">
-                    <x-index-post />
+                <div class="col-md-4">
+                    <div class="hot-product bg-white p-3">
+                        <div class="thumb">
+                            <a href="#">
+                                <img src="/image/sp01.png" class="img-fluid">
+                            </a>
+                        </div>
+                        <hr>
+                        <div class="product-meta mt-3">
+                            <h3 class="product-title">
+                                <a class="product-link text-decoration-none" href="">Tủ điện trung thế</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="hot-product bg-white p-3">
+                        <div class="thumb">
+                            <a href="#">
+                                <img src="/image/sp2.png" class="img-fluid">
+                            </a>
+                        </div>
+                        <hr>
+                        <div class="product-meta mt-3">
+                            <h3 class="product-title">
+                                <a class="product-link text-decoration-none" href="">Tụ bù trung thế</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="hot-product bg-white p-3">
+                        <div class="thumb">
+                            <a href="#">
+                                <img src="/image/sp3.png" class="img-fluid">
+                            </a>
+                        </div>
+                        <hr>
+                        <div class="product-meta mt-3">
+                            <h3 class="product-title">
+                                <a class="product-link text-decoration-none" href="">Máy cắt Recloser</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="hot-product bg-white p-3">
+                        <div class="thumb">
+                            <a href="#">
+                                <img src="/image/sp6.png" class="img-fluid">
+                            </a>
+                        </div>
+                        <hr>
+                        <div class="product-meta mt-3">
+                            <h3 class="product-title">
+                                <a class="product-link text-decoration-none" href="">Máy phát điện</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="hot-product bg-white p-3">
+                        <div class="thumb">
+                            <a href="#">
+                                <img src="/image/cau-chi-tu-roi.png" class="img-fluid">
+                            </a>
+                        </div>
+                        <hr>
+                        <div class="product-meta mt-3">
+                            <h3 class="product-title">
+                                <a class="product-link text-decoration-none" href="">Cầu chì tự rơi</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="hot-product bg-white p-3">
+                        <div class="thumb">
+                            <a href="#">
+                                <img src="/image/may-bien-dong-trung-the.png" class="img-fluid">
+                            </a>
+                        </div>
+                        <hr>
+                        <div class="product-meta mt-3">
+                            <h3 class="product-title">
+                                <a class="product-link text-decoration-none" href="">Máy biến dòng trung thế</a>
+                            </h3>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
 
+    <div id="section-news" class="bg-white pb-5">
+        <div class="container">
+            <h2 class="section-title">Bài viết mới nhất</h2>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="news-block">
+
+                        <div class="img-box">
+                            <a href="/news/duis-autem-vel-eum-iriure-0" hreflang="en">
+                                <img src="/image/new2.png">
+                            </a>
+                            <div class="overlay">
+                                <a data-fancybox="" href="/news/duis-autem-vel-eum-iriure-0" class="play-button"><i class="flaticon-unlink"></i></a>
+                            </div>
+
+                        </div>
+
+                        <div class="news-text">
+                            <div class="date"><time datetime="2019-03-25T12:00:00Z">25 Mar 2019</time>
+                            </div>
+                            <h3 class="news-title">
+                                <a class="text-decoration-none" href="" >Thi công hệ thống điện tại khu công nghiệp Sóng Thần</a>
+                            </h3>
+                            <div class="description">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 news-block">
+                    <div class="news-block">
+
+                        <div class="img-box">
+                            <a href="/news/duis-autem-vel-eum-iriure-0" hreflang="en">
+                                <img src="/image/new1.png">
+                            </a>
+
+
+                            <div class="overlay">
+                                <a data-fancybox="" href="/news/placerat-facer-possim-assum" class="play-button"><i class="flaticon-unlink"></i></a>
+                            </div>
+
+                        </div>
+
+                        <div class="news-text">
+                            <div class="date"><time datetime="2019-03-24T12:00:00Z">24 Mar 2019</time>
+                            </div>
+                            <h3 class="news-title">
+                                <a class="text-decoration-none" href="" >An toàn thi công lưới điện tại evico</a>
+                            </h3>
+                            <div class="description">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum nibh euismod</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 news-block">
+                    <div class="news-block">
+
+                        <div class="img-box">
+                            <a href="/news/duis-autem-vel-eum-iriure-0" hreflang="en">
+                                <img src="/image/32.jpg">
+                            </a>
+
+
+                            <div class="overlay">
+                                <a data-fancybox="" href="/news/imperdiet-doming-id-quod-mazim" class="play-button"><i class="flaticon-unlink"></i></a>
+                            </div>
+
+                        </div>
+
+                        <div class="news-text">
+                            <div class="date"><time datetime="2019-03-23T12:00:00Z">23 Mar 2019</time>
+                            </div>
+                            <h3 class="news-title">
+                                <a class="text-decoration-none" href="" >Evico hỗ trợ khách hàng 24/7</a>
+                            </h3>
+                            <div class="description">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
     </div>
 @stop

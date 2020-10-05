@@ -1,0 +1,150 @@
+@import "../../../../sass/style_variables";
+
+#product-detail{
+    .product-slide{
+        .slide-content{
+            //background: #EBEBEB;
+            //padding: 20px 35px;
+            //border-radius: 4px;
+            
+            .slick-arrow{
+                position: absolute;
+                top: 50%;
+                height: 38px;
+                width: 38px;
+                font-size: 0;
+                background: url('../../../img/icon-arrow.png');
+                border: none;
+                outline: none;
+                opacity: 0.6;
+                transform: translate(0, -50%);
+                z-index: 10;
+                
+                &.slick-prev{
+                    left: 10px;
+                }
+                
+                &.slick-next{
+                    right: 39px;
+                    background-position-x: 38px;
+                }
+            }
+        }
+        
+        .slider-nav{
+            display: flex;
+            margin: 10px -5px;
+    
+            .slick-track{
+                //width: 100%!important;
+                //transform: none!important;
+            }
+            .img-slide-nav{
+                //width: 100px!important;
+                background: #EBEBEB;
+                padding: 01px;
+                margin: 0 5px;
+                border-radius: 3px;
+                cursor: pointer;
+                outline: none;
+                border: solid 2px #EBEBEB;
+                
+                .img-fluid{
+                    margin: auto;
+                }
+                
+                &.slick-current{
+                    border: solid 2px #00BCD4;
+                }
+            }
+        }
+    }
+    
+    .product-attr{
+        .product-title{
+            color: #3b535f;
+            font-size: 2em;
+            font-weight: 600;
+        }
+        .price{
+            font-size: 1.6em;
+            .sale-price{
+                color: #d50b0b;
+                font-weight: 700;
+            }
+        }
+        
+        .btn-add-to-card{
+            background: -webkit-linear-gradient(top,#f59000,#fd6e1d);
+            width: 100%;
+            margin-top: 20px;
+            padding: 5px;
+            font-weight: bold;
+            
+            .btn-sub-text{
+                margin: 0;
+                text-transform: initial;
+                font-weight: 300;
+                font-style: italic;
+                font-size: 11px;
+            }
+        }
+        
+    }
+    
+    .section-product-content{
+        .product-content{
+            img{
+                max-width: 100%;
+            }
+        }
+        
+        .right-product{
+            .tableparameter{
+                .parameter{
+                    list-style: none;
+                    padding: 0;
+                    display: block;
+                    overflow: hidden;
+                    border-top: 1px solid #e4e4e4;
+                    margin-top: 15px;
+                    >li{
+                        display: table;
+                        background: #fff;
+                        width: 100%;
+                        border-top: 1px solid #eee;
+                        padding: 5px 0;
+                        
+                        >span{
+                            display: table-cell;
+                            width: 40%;
+                            vertical-align: top;
+                            padding: 5px 0;
+                            font-size: 14px;
+                            color: #666;
+                        }
+                        >div{
+                            display: table-cell;
+                            width: auto;
+                            vertical-align: top;
+                            padding: 6px 5px;
+                            font-size: 14px;
+                            color: #333;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#product-category{
+    .section-top{
+        background: url("../../../img/technology-abstract.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        
+        
+    }
+}
+
