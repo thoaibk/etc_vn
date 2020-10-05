@@ -223,7 +223,6 @@ return [
     /**
      * Other config
      */
-
     'max_upload_size' => 200*1024*1024,
     'upload_exts_default' => ['mp4', 'mpeg4',
         'pdf', //'doc', 'docx', 'ppt', 'pptx', 'txt',
