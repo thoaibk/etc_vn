@@ -81,7 +81,7 @@ class MyStorage
 
                 \Image::make(MyStorage::getDisk($disk)->readStream($path))->filter(new $templateFilter)->save($cache);
             }
-            return url('/caches/' . $template . '/' . self::pathToLink($path));
+            return url('/caches/' . $template . '/' . self::pathToLink($path)) . '?v=1.0';
         } catch (\Exception $ex){
 //            \Log::error($ex->getMessage());
 //            \Log::error($ex->getFile());
