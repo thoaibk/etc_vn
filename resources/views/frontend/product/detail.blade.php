@@ -3,7 +3,6 @@
 
 @section('styles')
     {!! Html::style('/assets/plugins/slick-1.8.1/slick/slick.css') !!}
-    {!! Html::style(mix('assets/frontend/css/product_detail.css')) !!}
 @stop
 
 @section('content')

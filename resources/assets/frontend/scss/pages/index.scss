@@ -1,0 +1,117 @@
+
+$text-color: #012754;
+
+.carousel-image{
+    width: 100%;
+}
+
+.section-title{
+    text-align: center;
+    position: relative;
+    margin: 40px 0;
+    font-size: 1.4em;
+    text-transform: uppercase;
+    &:before{
+        content: '';
+        width: 62px;
+        height: 3px;
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        margin-left: -31px;
+        background: #95b1d2;
+    }
+}
+
+#out-services{
+    padding-top: 50px;
+    padding-bottom: 40px;
+    background: #f8fafc;
+    
+    .service-block{
+        margin-bottom: 45px;
+        .icon{
+            float: left;
+            border-right: 1px solid #e3e3e3;
+            padding: 0 15px 10px 0;
+            margin: 0 15px 0;
+            color: #117a8b;
+            font-size: 36px;
+            line-height: 36px;
+        }
+        .service-title{
+            font-size: 19px;
+            color: #1f7e8e;
+        }
+    }
+}
+
+#section-hot-product{
+    background: #f0f0f0;
+    .hot-product{
+        margin-bottom: 15px;
+        border-radius: 6px;
+        box-shadow: 0 2px 5px 0 rgba(183,183,183,0.4);
+        background-color: var(--light-background);
+        overflow: hidden;
+        
+        .product-title{
+            font-size: 1.3em;
+            .product-link{
+                color: #167b8b;
+                transition: .3s;
+                &:hover{
+                    color: #004a56;
+                }
+            }
+        }
+        
+    }
+}
+
+
+#section-news{
+    padding-top: 50px;
+    .news-block{
+        .img-box{
+            overflow: hidden;
+            position: relative;
+            margin: 0 0 12px;
+            img{
+                transition: all .4s ease-in-out;
+            }
+            
+            .overlay{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                opacity: 0;
+                transform: scale(0.5);
+                background: rgb(1 39 84 / 24%);
+                transition: .5s;
+            }
+        }
+        .news-text{
+            .news-title{
+                a{
+                    color: $text-color;
+                }
+            }
+        }
+        &:hover{
+            .img-box{
+                img{
+                    transform: scale3D(1.1,1.1,1);
+                }
+                
+                .overlay{
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+}
