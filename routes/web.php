@@ -22,6 +22,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 require 'backend/Backend.php';
 
+Route::get('/detail', function (){
+    return view('frontend.site.detail');
+});
+
 
 // Frontend route
 require 'Frontend/Product.php';

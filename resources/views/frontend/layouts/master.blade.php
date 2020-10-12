@@ -7,10 +7,6 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-{{--    <title>--}}
-{{--        @yield('title')--}}
-{{--    </title>--}}
-
     {!! SEOMeta::generate() !!}
     {!! OpenGraph::generate() !!}
 
@@ -44,15 +40,14 @@
 </head>
 <body>
 <div id="evico-app">
-    @include('frontend.layouts.master.evismart.nav')
+    @include('frontend.layouts.master.nav')
     @yield('content')
-    @include('frontend.layouts.master.evismart.footer')
+    @include('frontend.layouts.master.footer')
 </div>
 
 @yield('script-before')
 <!-- Scripts -->
 <script src="{{ mix('assets/js/app.js') }}"></script>
-<script src="{{ mix('assets/frontend/js/cart.js') }}"></script>
 
 @yield('script-after')
 
