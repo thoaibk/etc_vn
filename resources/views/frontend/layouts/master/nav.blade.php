@@ -2,7 +2,7 @@
 
 <nav id="evico-nav" class="navbar navbar-expand-sm bg-white sticky-top p-0">
     <div class="container">
-        <a class="navbar-brand p-2" href="#">
+        <a class="navbar-brand p-2" href="/">
             <img style="height: 28px" src="/image/evico.jpg" alt="">
         </a>
         <!--Toggle Collapse Button--> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>

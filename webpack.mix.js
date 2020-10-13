@@ -18,6 +18,10 @@ mix.js('resources/js/app.js', 'public/assets/js')
     .sass('resources/assets/sass/master.scss', 'public/assets/css');
 
 mix.sass('resources/assets/frontend/scss/evico.scss', 'public/assets/frontend/css');
+
+// page
+mix.sass('resources/assets/frontend/scss/pages/category.scss', 'public/assets/frontend/css')
+
 mix.scripts('resources/assets/frontend/js/cart.js', 'public/assets/frontend/js/cart.js')
 
 

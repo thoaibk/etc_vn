@@ -11,8 +11,8 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
 
-    public function category($id, $slug){
-        $category = ProductCategory::whereId($id)
+    public function category($slug){
+        $category = ProductCategory::whereSlug($slug)
             ->where('status', ProductCategory::STATUS_ACTIVE)
             ->first();
         if(!$category)
@@ -20,15 +20,14 @@ class ProductController extends Controller
 
         \SEOMeta::setTitle($category->name);
         \OpenGraph::setTitle($category->name);
-        \OpenGraph::addImage(config('app.url') . '/image/graph-evismart.png',['height' => 1200, 'width' => 630]);
+        \OpenGraph::addImage($category->thumb('social'),['height' => 600, 'width' => 315]);
 
         $categoryIds = [$category->id];
 
 
         $products = Product::where('products.status', Product::STATUS_ACTIVE)
             ->whereIn('category_id', $categoryIds)
-            ->paginate(10);
-
+            ->paginate(9);
 
         return view('frontend.product.category')
             ->with('category', $category)

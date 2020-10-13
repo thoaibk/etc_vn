@@ -66,6 +66,13 @@ class ProductCategory extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+    public function image(){
+        return $this->belongsTo(Image::class, 'image_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function parent(){
         return $this->belongsTo(ProductCategory::class, 'parent_id');
     }
@@ -126,6 +133,14 @@ class ProductCategory extends Model
         return $products;
     }
 
+    public function thumb($template = 'medium'){
+        $defautImage = 'assets/img/no-image.jpg';
+        if($this->image){
+            return $this->image->getImageSrc($template);
+        }
+        return $defautImage;
+    }
+
 
     /**
      * @return string
@@ -148,6 +163,9 @@ class ProductCategory extends Model
     }
 
     public function publicUrl(){
-        return route('product.category', ['id' => $this->id, 'slug' => $this->slug]);
+        if($this->id == config('app.cate_evismart_id')){
+            return 'http://evismart.com.vn';
+        }
+        return route('product.category', ['slug' => $this->slug]);
     }
 }

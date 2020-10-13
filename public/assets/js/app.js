@@ -37279,6 +37279,17 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/assets/frontend/scss/pages/category.scss":
+/*!************************************************************!*\
+  !*** ./resources/assets/frontend/scss/pages/category.scss ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/assets/sass/master.scss":
 /*!*******************************************!*\
   !*** ./resources/assets/sass/master.scss ***!
@@ -37400,16 +37411,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ }),
 
 /***/ 0:
-/*!************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/assets/sass/master.scss ./resources/assets/frontend/scss/evico.scss ./resources/assets/backend/sass/lte.scss ***!
-  \************************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/assets/sass/master.scss ./resources/assets/frontend/scss/evico.scss ./resources/assets/frontend/scss/pages/category.scss ./resources/assets/backend/sass/lte.scss ***!
+  \*****************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\MyProjects\PTO\evico.com\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\MyProjects\PTO\evico.com\resources\assets\sass\master.scss */"./resources/assets/sass/master.scss");
-__webpack_require__(/*! D:\MyProjects\PTO\evico.com\resources\assets\frontend\scss\evico.scss */"./resources/assets/frontend/scss/evico.scss");
-module.exports = __webpack_require__(/*! D:\MyProjects\PTO\evico.com\resources\assets\backend\sass\lte.scss */"./resources/assets/backend/sass/lte.scss");
+__webpack_require__(/*! F:\MyProjects\PTO\evico.com\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! F:\MyProjects\PTO\evico.com\resources\assets\sass\master.scss */"./resources/assets/sass/master.scss");
+__webpack_require__(/*! F:\MyProjects\PTO\evico.com\resources\assets\frontend\scss\evico.scss */"./resources/assets/frontend/scss/evico.scss");
+__webpack_require__(/*! F:\MyProjects\PTO\evico.com\resources\assets\frontend\scss\pages\category.scss */"./resources/assets/frontend/scss/pages/category.scss");
+module.exports = __webpack_require__(/*! F:\MyProjects\PTO\evico.com\resources\assets\backend\sass\lte.scss */"./resources/assets/backend/sass/lte.scss");
 
 
 /***/ })

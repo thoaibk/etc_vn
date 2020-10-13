@@ -55,7 +55,6 @@ class ProductController extends BackendController
                 'name' => $request->get('name'),
                 'short_desc' => $request->get('short_desc'),
                 'content' => $request->get('content'),
-                'price' => $request->get('price'),
                 'image_id' => $request->get('image_id'),
                 'seo_title' => $request->get('seo_title'),
                 'seo_description' => $request->get('seo_description'),
@@ -128,18 +127,12 @@ class ProductController extends BackendController
                 'name' => $request->get('name'),
                 'short_desc' => $request->get('short_desc'),
                 'content' => $request->get('content'),
-                'price' => $request->get('price'),
                 'image_id' => $request->get('image_id'),
                 'seo_title' => $request->get('seo_title'),
                 'seo_description' => $request->get('seo_description'),
                 'seo_keywords' => $request->get('seo_keywords'),
             ]);
 
-//            $product->categories()->detach();
-//            $cates = $request->get('cate', []);
-//            foreach ($cates as $cateID){
-//                $product->categories()->attach($cateID);
-//            }
             \DB::commit();
 
             return redirect(route('backend.product.index'))->withFlashSuccess('Cập nhật sản phẩm thành công');

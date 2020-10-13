@@ -12,87 +12,9 @@
     <div id="out-services" class="bg-white">
         <div class="container">
             <h2 class="section-title">Sản phẩm và dịch vụ</h2>
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="card service-card">
-                        <div class="card-body">
-                            <div class="service-image">
-                                <a href="#">
-                                    <img src="/image/sv/sp01.png" class="img-fluid" alt="">
-                                </a>
-                            </div>
-                            <div class="service-meta mt-2 text-center">
-                                <h4 class="service-name"><a class="service-link" href="#">Cung cấp vật tư, thiết bị điện</a></h4>
-                                <p>Cung cấp các loại vật tư về điện, thiết bị điện cho các công trình từ lớn đến nhỏ. </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="card service-card">
-                        <div class="card-body">
-                            <div class="service-image">
-                                <a href="#">
-                                    <img src="/image/sv/sp03.jpg" class="img-fluid" alt="">
-                                </a>
-                            </div>
-                            <div class="service-meta mt-2 text-center">
-                                <h4 class="service-name"><a class="service-link" href="#">Thi công đường dây và trạm biến áp đến 220kV</a></h4>
-                                <p>Cung cấp các loại vật tư về điện, thiết bị điện cho các công trình từ lớn đến nhỏ. </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="card service-card">
-                        <div class="card-body">
-                            <div class="service-image">
-                                <a href="http://evismart.com.vn" target="_blank">
-                                    <img src="/image/sv/evismart.png" class="img-fluid" alt="">
-                                </a>
-                            </div>
-                            <div class="service-meta mt-2 text-center">
-                                <h4 class="service-name"><a class="service-link" href="http://evismart.com.vn" target="_blank">Sản xuất và cung cấp thiết bị smart home - Evismart</a></h4>
-                                <p>Cung cấp các loại vật tư về điện, thiết bị điện cho các công trình từ lớn đến nhỏ. </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-xs-12 col-sm-6 col-md-2"></div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="card service-card">
-                        <div class="card-body">
-                            <div class="service-image">
-                                <a href="#">
-                                    <img src="/image/sv/sp04.jpg" class="img-fluid" alt="">
-                                </a>
-                            </div>
-                            <div class="service-meta mt-2 text-center">
-                                <h4 class="service-name"><a class="service-link" href="#"> Thi công công trình dân dụng, hạ tầng kỹ thuật</a></h4>
-                                <p>Cung cấp các loại vật tư về điện, thiết bị điện cho các công trình từ lớn đến nhỏ. </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="card service-card">
-                        <div class="card-body">
-                            <div class="service-image">
-                                <a href="#">
-                                    <img src="/image/sv/sp05.jpg" class="img-fluid" alt="">
-                                </a>
-                            </div>
-                            <div class="service-meta mt-2 text-center">
-                                <h4 class="service-name"><a class="service-link" href="#">Thi công, chuyển giao hệ thống năng lượng tái tạo: Solar, điện gió</a></h4>
-                                <p>Cung cấp các loại vật tư về điện, thiết bị điện cho các công trình từ lớn đến nhỏ. </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <x-category1></x-category1>
+            <x-category2></x-category2>
         </div>
     </div>
 

@@ -48,6 +48,7 @@ class ProductCategoryController extends BackendController
         ProductCategory::create([
             'name' => $request->get('name'),
             'short_desc' => $request->get('short_desc'),
+            'image_id' => $request->get('image_id')
         ]);
 
         return redirect(route('backend.product_category.index'))->withFlashSuccess('Thêm thành công');
@@ -77,6 +78,12 @@ class ProductCategoryController extends BackendController
             abort(404);
         }
 
+        if($category->image){
+            \JavaScript::put([
+                'imageThumbUrl' => route('backend.api.image.show', ['id' => $category->image->id, 'template' => 'small'])
+            ]);
+        }
+
         return  view('backend.product-category.edit')
             ->with('category', $category);
     }
@@ -95,10 +102,12 @@ class ProductCategoryController extends BackendController
             abort(404);
         }
         $category->name = $request->get('name');
-        $category->parent_id = $request->get('parent_id');
+        $category->short_desc = $request->get('short_desc');
+        $category->image_id = $request->get('image_id');
+
         $category->update();
 
-        return redirect(route('backend.product_category.index'))->withFlashSuccess('Sửa danh mục thành công');
+        return redirect(route('backend.product_category.index'))->withFlashSuccess('Sửa thành công');
     }
 
     /**

@@ -31,7 +31,7 @@
 
                 <div class="form-group">
                     <label>Mô tả ngắn</label>
-                    {!! Form::textarea('short_desc', null, ['class' => 'form-control', 'rows' => 3, 'placeholder' => 'Mô tả ngắn ']) !!}
+                    {!! Form::textarea('short_desc', $product->short_desc, ['class' => 'form-control', 'rows' => 3, 'placeholder' => 'Mô tả ngắn ']) !!}
                 </div>
 
                 <div class="form-group">
@@ -65,7 +65,7 @@
                         </div>
                         <hr>
                         <div class="attr-section mb-2">
-                            <h3 class="attr-title">Danh mục</h3>
+                            <h3 class="attr-title">Lĩnh vực hoạt động</h3>
                             <div class="attr-body">
                                 @foreach($categories as $cate)
                                     <div class="form-check">

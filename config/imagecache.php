@@ -67,6 +67,16 @@ return array(
                 'small' => 'App\Core\ImageTemplate\Small',
             ]
         ],
+
+        'category' => [
+            'entity' => 'category',
+            'templates' => [
+                'social'     => 'App\Core\ImageTemplate\Social',
+                'medium'    => 'App\Core\ImageTemplate\Category\Medium',
+                'small'     => 'App\Core\ImageTemplate\Product\Small',
+            ]
+        ],
+
         'product' => [
             'entity' => 'product',
             'templates' => [
@@ -91,7 +101,6 @@ return array(
                 'medium' => 'App\Core\ImageTemplate\Content\Medium',
             ]
         ],
-
 
         'banner' => [
             'entity' => 'banner',

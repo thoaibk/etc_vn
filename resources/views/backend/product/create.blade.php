@@ -55,13 +55,8 @@
                         <h3 class="card-title">Thuộc tính</h3>
                     </div>
                     <div class="card-body">
-                        <div class="form-group">
-                            <label >Giá</label>
-                            {!! Form::number('price', Request::old('price'), ['class' => 'form-control', 'placeholder' => 'Giá', 'autocomplete' => 'off']) !!}
-                        </div>
-                        <hr>
                         <div class="attr-section mb-2">
-                            <h3 class="attr-title">Danh mục</h3>
+                            <h3 class="attr-title">Lĩnh vực hoạt động</h3>
                             <div class="attr-body">
                                 @foreach($categories as $cate)
                                     <div class="form-check">

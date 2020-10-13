@@ -69,20 +69,10 @@
         transition: .3s;
     }
     .product-info{
-        .price{
-            color: #616160;
-        }
         .product-name{
             font-size: 1.2em;
+            font-weight: bold;
+            color: $main-color;
         }
-    }
-    
-    &:hover{
-        box-shadow: 0 0 38px 0 rgba(0,0,0,.42);
-        transform: translate(0,-10px);
-        .product-thumb{
-            transform: scale(1.05);
-        }
-        
     }
 }

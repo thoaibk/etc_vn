@@ -5,8 +5,6 @@
 @stop
 
 @section('before-styles-end')
-    {!! Html::style('https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css') !!}
-
     {!! Html::style('/assets/plugins/blueimp/jquery.gallery/css/blueimp-gallery.min.css') !!}
     {!! Html::style('/assets/plugins/blueimp/jquery.file.upload/css/jquery.fileupload.css') !!}
     {!! Html::style('/assets/plugins/blueimp/jquery.file.upload/css/jquery.fileupload-ui.css') !!}
@@ -30,20 +28,20 @@
             <div class="form-group">
                 <label class="control-label col-sm-2" for="name">Tên danh mục</label>
                 <div class="col-sm-6">
-                    {!! Form::input('text', 'name', $category->name, ['class' => 'form-control', 'placeholder' => 'Tên danh mục', 'data-lpignore' =>"true"]) !!}
+                    {!! Form::input('text', 'name', $category->name, ['class' => 'form-control', 'placeholder' => 'Lĩnh vực hoạt động', 'data-lpignore' =>"true"]) !!}
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-2" for="name">Danh mục cha</label>
+                <label class="control-label col-sm-2" for="name">Mô tả </label>
                 <div class="col-sm-6">
-                    {!! Form::select('parent_id', [null => '-- Danh mục gốc --'] + \App\Models\ProductCategory::rootCategories($category->id), $category->parent_id, ['class' => 'form-control']) !!}
+                    {!! Form::textarea('short_desc', $category->short_desc, ['class' => 'form-control', 'rows' => 4]) !!}
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-sm-6">
                     <div class="image-upload-form">
-                        {!! Form::hidden('image_id', $category->image_id, ['id' => 'category-image_id']) !!}
+                        {!! Form::hidden('image_id', $category->image_id, ['id' => 'image_id']) !!}
                         @include('backend.includes._image_thumb_upload_require')
                         <div id="upload-grid">
                             <div class="files row"></div>
@@ -52,10 +50,10 @@
                         <div class="image-upload">
                             <br/>
                             <div id="image-upload-box" class="text-center">
-                                            <span class="btn btn-material-teal-500 btn-sm fileinput-button margin0">
-                                                <i class="fa fa-camera"></i> Ảnh hiển thị
-                                                <input class="form-control" type="file" name="image_file_upload" multiple />
-                                            </span>
+                                <span class="btn btn-material-teal-500 btn-sm fileinput-button margin0">
+                                    <i class="fa fa-camera"></i> Ảnh hiển thị
+                                    <input class="form-control" type="file" name="image_file_upload" multiple />
+                                </span>
                             </div>
                             <br/>
                         </div>
@@ -93,11 +91,9 @@
     {!! Html::script('/assets/plugins/blueimp/jquery.file.upload/js/jquery.fileupload-ui.js') !!}
     {!! Html::script('/assets/plugins/blueimp/jquery.file.upload/js/cors/jquery.xdr-transport.js') !!}
 
-    {!! Html::script(mix('assets/backend/js/content_editor.js')) !!}
-
     <script>
         $(document).ready(function() {
-            var ImageId = $('#category-image_id');
+            var ImageId = $('#image_id');
             var uploadThumbUrl = '/backend/api/image/store?entity=category';
             /* jQuery File Upload
 
@@ -149,7 +145,7 @@
                     //xhrFields: {withCredentials: true},
                     url: imageThumbUrl,
                     dataType: 'json',
-                    context: $('#ProductForm')[0]
+                    context: $('#categoryForm')[0]
                 }).always(function () {
                     $(this).removeClass('fileupload-processing');
                 }).done(function (result) {

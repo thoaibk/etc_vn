@@ -56,6 +56,8 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'cate_evismart_id' => env('EVI_SMART_ID'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
