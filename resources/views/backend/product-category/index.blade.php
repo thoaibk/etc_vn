@@ -7,7 +7,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Danh mục sản phẩm</h3>
+            <h3 class="card-title">Lĩnh vực hoạt động</h3>
             <div class="card-tools">
                 <a class="btn btn-outline-primary btn-sm" href="{{ route('backend.product_category.create') }}"><i class="fa fa-plus"></i> Thêm danh mục</a>
             </div>
@@ -18,8 +18,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Tên</th>
-                    <th>Danh mục cha</th>
-                    <th style="width: 130px">Trạng thái</th>
+{{--                    <th style="width: 130px">Trạng thái</th>--}}
                     <th style="width: 130px">Thao tác</th>
                 </tr>
                 </thead>
@@ -28,10 +27,9 @@
                     <tr id="row_{{ $category->id }}">
                         <td>{{ $category->id }}</td>
                         <td>{{ $category->name }}</td>
-                        <td>{{ ($category->parent) ? $category->parent->name : '' }}</td>
-                        <td>
-                            <span class="pointer" title="{{ $category->statusLable() }}"><i onclick="toggleTableStatus(this, '{{ $category->toggleStatusUrl() }}')"  class="{{ $category->statusStateIcon() }}"></i></span>
-                        </td>
+{{--                        <td>--}}
+{{--                            <span class="pointer" title="{{ $category->statusLable() }}"><i onclick="toggleTableStatus(this, '{{ $category->toggleStatusUrl() }}')"  class="{{ $category->statusStateIcon() }}"></i></span>--}}
+{{--                        </td>--}}
                         <td>
                             <button class="btn btn-outline-danger btn-sm" title="Xóa" onclick="deleteTableRow('{{ $category->id }}', '{{ $category->deleteUrl() }}')"><i class="fa fa-times"></i></button>
                             <a href="{{ $category->editUrl() }}" class="btn btn-outline-primary btn-sm" title="Sửa"><i class="fa fa-pencil"></i></a>

@@ -53,6 +53,9 @@ use Illuminate\Support\Str;
  * @property-read int|null $images_count
  * @method static \Illuminate\Database\Eloquent\Builder|Product findSimilarSlugs($attribute, $config, $slug)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereImageId($value)
+ * @property-read \App\Models\ProductCategory|null $category
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProductMetadata[] $metadatas
+ * @property-read int|null $metadatas_count
  */
 class Product extends Model
 {

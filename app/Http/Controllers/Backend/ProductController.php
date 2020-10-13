@@ -53,6 +53,7 @@ class ProductController extends BackendController
             Product::create([
                 'category_id' => $request->get('cate'),
                 'name' => $request->get('name'),
+                'short_desc' => $request->get('short_desc'),
                 'content' => $request->get('content'),
                 'price' => $request->get('price'),
                 'image_id' => $request->get('image_id'),
@@ -125,6 +126,7 @@ class ProductController extends BackendController
             $product->update([
                 'category_id' => $request->get('cate'),
                 'name' => $request->get('name'),
+                'short_desc' => $request->get('short_desc'),
                 'content' => $request->get('content'),
                 'price' => $request->get('price'),
                 'image_id' => $request->get('image_id'),

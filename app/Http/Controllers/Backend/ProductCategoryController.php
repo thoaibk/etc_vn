@@ -47,10 +47,10 @@ class ProductCategoryController extends BackendController
     {
         ProductCategory::create([
             'name' => $request->get('name'),
-            'parent_id' => $request->get('parent_id')
+            'short_desc' => $request->get('short_desc'),
         ]);
 
-        return redirect(route('backend.product_category.index'))->withFlashSuccess('Thêm danh mục thành công');
+        return redirect(route('backend.product_category.index'))->withFlashSuccess('Thêm thành công');
     }
 
     /**

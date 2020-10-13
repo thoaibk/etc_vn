@@ -27,8 +27,12 @@
                     {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Tên sản phẩm', 'autocomplete' => 'off']) !!}
                 </div>
                 <div class="form-group">
-                    <label>Mô tả sản phẩm</label>
-                    {!! Form::textarea('content', null, ['class' => 'form-control','id' => 'contentEditor','placeholder' => 'Mô tả sản phẩm']) !!}
+                    <label>Mô tả ngắn</label>
+                    {!! Form::textarea('short_desc', null, ['class' => 'form-control', 'rows' => 3, 'placeholder' => 'Mô tả ngắn']) !!}
+                </div>
+                <div class="form-group">
+                    <label>Mô tả chi tiết</label>
+                    {!! Form::textarea('content', null, ['class' => 'form-control','id' => 'contentEditor','placeholder' => 'Mô tả chi tiết sản phẩm']) !!}
                 </div>
 
                 <div class="form-group">

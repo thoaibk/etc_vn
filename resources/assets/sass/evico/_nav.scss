@@ -2,7 +2,7 @@ $nav-text:#012754;
 $nav-text-hover:#b1b7bc;
 
 #evico-nav{
-    border-top: solid 4px #0175b2;
+    //border-top: solid 4px #0175b2;
     box-shadow: 0px 2px 4px #2196f31a;
     border-bottom: solid thin #cecdcd54;
     
@@ -51,5 +51,7 @@ $nav-text-hover:#b1b7bc;
     @media (max-width: 1024px) {
         padding: 0;
     }
+    
+    
 }
 

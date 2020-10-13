@@ -30,6 +30,18 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Illuminate\Database\Eloquent\Collection|ProductCategory[] $childs
  * @property-read int|null $childs_count
  * @property-read ProductCategory|null $parent
+ * @property string|null $short_desc
+ * @property int|null $image_id
+ * @property string|null $seo_title
+ * @property string|null $seo_description
+ * @property string|null $seo_keywords
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Product[] $products
+ * @property-read int|null $products_count
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereImageId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereSeoDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereSeoKeywords($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereSeoTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereShortDesc($value)
  */
 class ProductCategory extends Model
 {

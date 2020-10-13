@@ -239,6 +239,10 @@ return [
         'width' => '600',
         'height' => '315',
     ],
+    'category' => [
+        'width' => '600',
+        'height' => '315',
+    ],
     'product' => [
         'width' => '600',
         'height' => '315',
