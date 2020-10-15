@@ -87,10 +87,11 @@ $text-color: #012754;
     padding-top: 50px;
     .news-block{
         .img-box{
+            display: inline-block;
             overflow: hidden;
             position: relative;
             margin: 0 0 12px;
-            img{
+            .post-thumb{
                 transition: all .4s ease-in-out;
             }
             
@@ -109,6 +110,8 @@ $text-color: #012754;
         }
         .news-text{
             .news-title{
+                font-size: 1.1em;
+                font-weight: bold;
                 a{
                     color: $text-color;
                 }
@@ -116,7 +119,8 @@ $text-color: #012754;
         }
         &:hover{
             .img-box{
-                img{
+                
+                .post-thumb{
                     transform: scale3D(1.1,1.1,1);
                 }
                 
@@ -125,6 +129,7 @@ $text-color: #012754;
                     transform: scale(1);
                 }
             }
+            
         }
     }
 }

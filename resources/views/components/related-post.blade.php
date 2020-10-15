@@ -4,12 +4,14 @@
     <div class="related-post-inner">
         @foreach($posts as $post)
             <div class="related-post-item mb-4">
-                <a class="related-link" href="">
+                <a class="related-link" href="{{ $post->publicUrl() }}">
                     <div class="post-img">
                         <img class="img-fluid" src="{{ $post->thumb('small') }}" alt="{{ $post->title }}">
                     </div>
                     <div class="post-meta">
-                        <h3 class="post-tltle">{{ $post->title }}</h3>
+                        <h3 class="post-tltle">
+                            {{ $post->title }}
+                        </h3>
                         <div class="post-excerpt">
                             {!! \Illuminate\Support\Str::limit($post->excerpt, 260) !!}
                         </div>

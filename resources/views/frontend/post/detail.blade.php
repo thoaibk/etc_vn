@@ -4,7 +4,7 @@
 @stop
 
 @section('styles')
-    {{ Html::style(mix('assets/frontend/css/post.css')) }}
+
 @stop
 
 @section('content')

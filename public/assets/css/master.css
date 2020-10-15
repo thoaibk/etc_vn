@@ -11204,12 +11204,13 @@ a.text-dark:focus {
 }
 
 #section-news .news-block .img-box {
+  display: inline-block;
   overflow: hidden;
   position: relative;
   margin: 0 0 12px;
 }
 
-#section-news .news-block .img-box img {
+#section-news .news-block .img-box .post-thumb {
   transition: all 0.4s ease-in-out;
 }
 
@@ -11226,11 +11227,16 @@ a.text-dark:focus {
   transition: 0.5s;
 }
 
+#section-news .news-block .news-text .news-title {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
 #section-news .news-block .news-text .news-title a {
   color: #012754;
 }
 
-#section-news .news-block:hover .img-box img {
+#section-news .news-block:hover .img-box .post-thumb {
   transform: scale3D(1.1, 1.1, 1);
 }
 
