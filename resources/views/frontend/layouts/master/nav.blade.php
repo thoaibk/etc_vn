@@ -24,7 +24,7 @@
 
                 </li> <!-- Catagory 2-->
                 <li class="nav-item dropdown mr-3">
-                    <a class="nav-link category" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link category" href="{{ route('post.index') }}">
                         <span class="nav-text"> Tin tức</span>
                     </a>
                     <!--Div for catogary 2-->

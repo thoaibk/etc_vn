@@ -8,6 +8,22 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
+    public function index(){
+        $posts = Post::query()
+            ->paginate(10);
+
+        $title = 'Tin tức Evico';
+        $desc = '';
+        \SEOMeta::setTitle($title);
+        \SEOMeta::setDescription($desc);
+        \OpenGraph::setTitle($title);
+        \OpenGraph::setDescription($desc);
+//        \OpenGraph::addImage($post->thumb('social'),['height' => 600, 'width' => 315]);
+
+        return view('frontend.post.index')
+            ->with('posts');
+    }
     public function detail($id, $slug, Request $request){
         $post = Post::find($id);
         if(!$post)
