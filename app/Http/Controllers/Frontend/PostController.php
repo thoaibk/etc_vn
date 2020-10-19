@@ -22,7 +22,7 @@ class PostController extends Controller
 //        \OpenGraph::addImage($post->thumb('social'),['height' => 600, 'width' => 315]);
 
         return view('frontend.post.index')
-            ->with('posts');
+            ->with('posts', $posts);
     }
     public function detail($id, $slug, Request $request){
         $post = Post::find($id);

@@ -10,7 +10,7 @@
 @section('content')
     <div id="post-detail" class="bg-white pt-5">
         <div class="container">
-            {{ Breadcrumbs::render('post', $post) }}
+            {{ Breadcrumbs::render('post_detail', $post) }}
         </div>
         <div class="container mb-5">
             <div class="row">

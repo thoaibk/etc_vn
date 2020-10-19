@@ -11,18 +11,7 @@
             <ul class="nav navbar-nav mr-auto"></ul>
             <!--UL for links-->
             <ul class="nav navbar-nav navbar-right">
-                <!-- Catagory 1-->
-                <li class="nav-item dropdown mr-3">
-                    <a class="nav-link category dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown">
-                        <span class="nav-text"> Sản phẩm </span>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Tủ điện trung thế</a>
-                        <a class="dropdown-item" href="#">Máy biến áp - máy phát điện</a>
-                        <a class="dropdown-item" href="#">Sản phẩm evismart</a>
-                    </div>
-
-                </li> <!-- Catagory 2-->
+                <x-category-nav></x-category-nav>
                 <li class="nav-item dropdown mr-3">
                     <a class="nav-link category" href="{{ route('post.index') }}">
                         <span class="nav-text"> Tin tức</span>

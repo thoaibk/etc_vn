@@ -16,10 +16,15 @@ Breadcrumbs::for('cart', function ($trail) {
     $trail->parent('home');
     $trail->push('Giỏ hàng thanh toán', route('cart.index'));
 });
-
 // Home > Post
-Breadcrumbs::for('post', function ($trail, $post) {
+Breadcrumbs::for('post', function ($trail) {
     $trail->parent('home');
+    $trail->push('Tin tức', route('post.index'));
+});
+// Home > Post > detail
+Breadcrumbs::for('post_detail', function ($trail, $post) {
+    $trail->parent('home');
+    $trail->push('Tin tức', route('post.index'));
     $trail->push($post->title, $post->publicUrl());
 });
 

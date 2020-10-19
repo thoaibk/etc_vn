@@ -111,6 +111,29 @@
   transform: scale(1);
 }
 
+#news-index .article-item {
+  margin-bottom: 20px;
+}
+
+#news-index .article-item .article-title {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+#news-index .article-item .article-title a {
+  color: #255389;
+}
+
+#news-index .article-item .article-title a:hover {
+  text-decoration: none;
+}
+
+#news-index .article-item .article-publish-date {
+  color: #3490dc;
+  font-weight: 700;
+  font-size: 13px;
+}
+
 #post-detail .post-content span {
   max-width: 100% !important;
 }

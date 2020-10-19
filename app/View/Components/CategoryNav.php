@@ -25,7 +25,6 @@ class CategoryNav extends Component
     public function render()
     {
         $categorys = ProductCategory::whereStatus(ProductCategory::STATUS_ACTIVE)
-            ->limit(3)
             ->get(['id', 'name', 'slug']);
 
         return view('components.category-nav')
