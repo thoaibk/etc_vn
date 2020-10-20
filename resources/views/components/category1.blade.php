@@ -8,9 +8,9 @@
                             <img src="{{ $cate->thumb() }}" class="img-fluid" alt="{{ $cate->name }}">
                         </a>
                     </div>
-                    <div class="service-meta mt-2 text-center">
+                    <div class="service-meta mt-2">
                         <h4 class="service-name"><a class="service-link" href="{{ $cate->publicUrl() }}">{{ $cate->name }}</a></h4>
-                        <p>{{ $cate->short_desc }}</p>
+                        <p>{{ \Illuminate\Support\Str::limit($cate->short_desc, 76) }}</p>
                     </div>
                 </div>
             </div>
