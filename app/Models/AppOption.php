@@ -29,6 +29,9 @@ class AppOption extends Model
 
     const APP_MENU = 'app_menu';
     const APP_BANNER = 'banner';
+    const APP_TITLE = 'title';
+    const APP_DESC = 'description';
+    const APP_KEYWORDS = 'keywords';
 
 
     /**

@@ -62,5 +62,7 @@ Route::prefix('backend')->middleware('permission:view_admin')->group(function(){
         Route::get('banner/{id}/edit', 'Backend\BannerController@edit')->name('backend.banner.edit');
         Route::post('banner/{id}/update', 'Backend\BannerController@update')->name('backend.banner.update');
         Route::delete('banner/{id}/delete', 'Backend\BannerController@delete')->name('backend.banner.delete');
+
+        Route::match(['get', 'post'], 'meta', 'Backend\ConfigController@meta')->name('backend.config.meta');
     });
 });

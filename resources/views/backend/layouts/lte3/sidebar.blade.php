@@ -64,6 +64,12 @@
 
                 <li class="nav-header text-uppercase text-11 pl-3">Cấu hình</li>
                 <li class="nav-item">
+                    <a href="{{ route('backend.config.meta') }}" class="nav-link {{ active_class(if_route('backend.config.meta')) }}">
+                        <i class="fad fa-th-list"></i>
+                        <p>Hiển thị</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('backend.banner.index') }}" class="nav-link {{ active_class(if_route('backend.banner.index')) }}">
                         <i class="fad fa-th-list"></i>
                         <p>Banner</p>
