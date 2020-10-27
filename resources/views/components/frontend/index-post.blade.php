@@ -6,7 +6,7 @@
                 <div class="col-xs-12 col-sm-6 col-md-4">
                     <div class="news-block">
                         <a class="img-box" href="{{ $post->publicUrl() }}">
-                            <img src="{{ $post->thumb('medium') }}" class="post-thumb">
+                            <img src="{{ $post->thumb('medium') }}" class="post-thumb img-fluid">
                             <div class="overlay">
                             </div>
                         </a>

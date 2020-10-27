@@ -1,13 +1,16 @@
 <!--Navigation Var-->
 
-<nav id="evico-nav" class="navbar navbar-expand-sm bg-white sticky-top p-0">
+<nav id="evico-nav" class="navbar navbar-expand-lg bg-white sticky-top p-0">
     <div class="container">
         <a class="navbar-brand p-2" href="/">
             <img style="height: 28px" src="/image/evico.jpg" alt="">
         </a>
-        <!--Toggle Collapse Button--> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <!--Toggle Collapse Button-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fad fa-bars"></i>
+        </button>
         <!--Division for navbar-->
-        <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav mr-auto"></ul>
             <!--UL for links-->
             <ul class="nav navbar-nav navbar-right">
@@ -16,19 +19,15 @@
                     <a class="nav-link category" href="{{ route('post.index') }}">
                         <span class="nav-text"> Tin tức</span>
                     </a>
-                    <!--Div for catogary 2-->
-
-                </li> <!-- Catagory 3-->
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link category" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="nav-text"> Giới thiệu</span>
                     </a>
-                    <!--Div for catogary 3-->
-                </li> <!-- Catagory 4-->
-
+                </li>
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link nav-auth-login" href="{{ route('login') }}"><i class="fad fa-user-alt"></i> Đăng nhập</a>
+                        <a class="nav-link nav-auth-login " href="{{ route('login') }}"><i class="fad fa-user-alt"></i> Đăng nhập</a>
                     </li>
                 @else
                     <li class="nav-item dropdown">
