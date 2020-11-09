@@ -53,9 +53,9 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
+    'logo' => env('APP_LOGO'),
 
     'asset_url' => env('ASSET_URL', null),
-
     'cate_evismart_id' => env('EVI_SMART_ID'),
 
     /*

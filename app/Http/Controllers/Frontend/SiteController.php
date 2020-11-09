@@ -9,8 +9,16 @@ use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
-    public function index(){
 
+    public function testEmail(){
+        \Mail::send('emails.test', [], function ($message){
+            $subject = 'V/v - Mật khẩu của bạn đã được cập nhật';
+            $message->to('thoai.bk@gmail.com', 'thoaivan')->subject($subject);
+        });
+        echo "<pre>"; print_r(111); echo "</pre>"; die;
+    }
+
+    public function index(){
         $title = AppOption::where('key', AppOption::APP_TITLE)->first(['key', 'value']);
         $desc = AppOption::where('key', AppOption::APP_DESC)->first(['key', 'value']);
         $keywords = AppOption::where('key', AppOption::APP_KEYWORDS)->first(['key', 'value']);
