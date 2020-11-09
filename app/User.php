@@ -70,4 +70,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function sendPasswordResetNotification($token)
+    {
+        $user = $this;
+        $emailData = [
+            'token' => $token,
+            'user_name' => $this->name,
+        ];
+        \Mail::send('emails.auth.reset_password', $emailData, function ($message) use ($user){
+            $subject = config('common.email_subjects.reset_password');
+            $message->to($user->email, $user->name)->subject($subject);
+        });
+    }
 }

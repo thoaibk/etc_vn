@@ -14,6 +14,7 @@ return [
 	*/
 
 	'password' => 'Mật khẩu tối thiểu 6 ký tự và nhập 2 lần giống nhau.',
+    'throttled' => 'Bạn đã yêu cầu đặt lại mật khẩu liên tục. Vui lòng đợi trước khi thử lại',
 	'reset' => 'Mật khẩu của bạn đã được đặt lại!',
 	'sent' => 'Chúng tôi đã gửi cho bạn mật khẩu mới qua email!',
 	'token' => 'Mã xác thực đặt lại mật khẩu không hợp lệ.',
