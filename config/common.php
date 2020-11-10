@@ -1,12 +1,11 @@
 <?php
 return [
-    'name' => env('COMMON_NAME'),
-
+    'name' => 'Công ty TNHH EVICO',
     'contact' => [
-        'email' => env('COMMON_CONTACT_EMAIL'),
-        'phone' => env('COMMON_CONTACT_PHONE'),
-        'phone_display' => env('COMMON_CONTACT_PHONE_DISPLAY'),
-        'address' => env('COMMON_CONTACT_ADDRESS')
+        'email' => 'contact@evico.com.vn',
+        'phone' => '0935 86 99 86',
+        'phone_display' => '0935 86 99 86',
+        'address' => 'ĐN2 , CT3, KĐTM Trung Văn, P. Trung Văn, Q. Nam Từ Liêm, TP. Hà Nội'
     ],
 
     'email_subjects' => [
