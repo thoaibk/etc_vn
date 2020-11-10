@@ -5,7 +5,7 @@
     <br>
     <p>Bạn vừa yêu cầu đặt lại mật khẩu cho tài khoản của bạn tại Evico</p>
     <div style="text-align: center">
-        <a href="{{ url('password/reset', $token) }}" style="    box-sizing: border-box;
+        <a href="" style="    box-sizing: border-box;
             font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
             border-radius: 4px;
             color: #fff;
