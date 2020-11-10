@@ -3,9 +3,9 @@
 @section('content')
     Chào <b>{{ $user_name }}</b>,
     <br>
-    <p>Bạn vừa yêu cầu đặt lại mật khẩu cho tài khoản của bạn tại Evico</p>
+    <p>Bạn vừa đăng ký tài khoản tại <b>{{ config('app.name') }}</b>, vui lòng xác minh tài khoản của bạn để tiếp tục sử dụng dịch vụ của chúng tôi.</p>
     <div style="text-align: center">
-        <a href="{{ url('password/reset', $token) }}" style="    box-sizing: border-box;
+        <a href="{{ $verify_url }}" style="    box-sizing: border-box;
             font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
             border-radius: 4px;
             color: #fff;
@@ -15,11 +15,10 @@
             background-color: #3b7dec;
             border: 8px solid #3b7dec;"
         >
-        Đặt lại mật khẩu
+        Xác minh tài khoản
         </a>
     </div>
-    <p>Liên kết đăt lại mật khẩu này sẽ hết hạn sau 60 phút</p>
-    <p>Nếu không phải bạn đã yêu cầu đặt lại mật khẩu, vui lòng bỏ qua</p>
+    <p>Nếu không phải bạn đã đăng tài khoản, vui lòng bỏ qua</p>
     <br>
     <p>Xin cảm ơn</p>
 @endsection

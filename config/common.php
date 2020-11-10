@@ -10,6 +10,7 @@ return [
     ],
 
     'email_subjects' => [
+        'verify_email' => 'Xác minh tài khoản tại ' . env('APP_NAME'),
         'reset_password' => 'Link đặt lại mật khẩu tại ' . env('APP_NAME')
     ]
 ];

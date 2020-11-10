@@ -17,6 +17,7 @@ Route::get('/email', 'Frontend\SiteController@testEmail');
 Route::get('/', 'Frontend\SiteController@index')->name('app.index');
 
 Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
