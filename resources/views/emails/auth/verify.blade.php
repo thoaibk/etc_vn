@@ -18,7 +18,7 @@
         Xác minh tài khoản
         </a>
     </div>
-    <p>Nếu không phải bạn đã đăng tài khoản, vui lòng bỏ qua</p>
+    <p>Nếu không phải bạn đã đăng ký tài khoản, vui lòng bỏ qua</p>
     <br>
     <p>Xin cảm ơn</p>
 @endsection
