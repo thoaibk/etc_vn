@@ -37,6 +37,9 @@ class CreatePostsTable extends Migration
             $table->enum('status', ['publish', 'hidden'])->default('publish');
             $table->dateTime('publish_time')->nullable();
 
+            $table->enum('approve_status', ['pending', 'yes', 'no'])->default('pending');
+            $table->dateTime('approve_time')->nullable();
+
             $table->integer('view_count')->default(0);
 
             $table->timestamps();

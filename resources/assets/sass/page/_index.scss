@@ -62,25 +62,6 @@ $text-color: #012754;
     }
 }
 
-#section-image-collection{
-    background: #f0f0f0;
-    .image-item{
-        margin-bottom: 15px;
-        box-shadow: 0 2px 5px 0 rgba(183,183,183,0.4);
-        background-color: var(--light-background);
-        overflow: hidden;
-        
-        img{
-            transition: .5s;
-        }
-        &:hover{
-            img{
-                transform: scale3D(1.1,1.1,1);
-            }
-        }
-        
-    }
-}
 
 
 #section-news{

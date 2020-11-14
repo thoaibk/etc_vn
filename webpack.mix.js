@@ -17,7 +17,7 @@ mix.copy('resources/assets/img', 'public/assets/img');
 mix.js('resources/js/app.js', 'public/assets/js')
     .sass('resources/assets/sass/master.scss', 'public/assets/css');
 
-mix.sass('resources/assets/frontend/scss/evico.scss', 'public/assets/frontend/css');
+mix.sass('resources/assets/frontend/scss/style.scss', 'public/assets/frontend/css');
 
 // page
 mix.sass('resources/assets/frontend/scss/pages/category.scss', 'public/assets/frontend/css')

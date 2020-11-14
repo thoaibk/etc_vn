@@ -1,1 +1,54 @@
-$(document).ready(function(){$("#contentEditor").summernote({placeholder:"Nội dung",tabsize:2,height:500,callbacks:{onImageUpload:function(e){!function(e){var t=new FormData;t.append("image_file_upload",e),$.ajax({url:"/backend/api/image/store?entity=content&temp=medium",cache:!1,contentType:!1,processData:!1,data:t,type:"post"}).done(function(e){if(e.success){var t=$("<img>").attr("src",e.files[0].url).attr("delete-url",e.files[0].delete_url);$("#contentEditor").summernote("insertNode",t[0])}else notifiMessage(e.message,"danger")}).fail(function(e){notifiMessage(formatErrorAjaxMessage(e),"danger")})}(e[0])},onMediaDelete:function(e,t,a){var n,o;n=e[0],o=$(n).attr("delete-url"),$.ajax({url:o,type:"DELETE",dataType:"json"}).done(function(e){e.success}).fail(function(e){notifiMessage(formatErrorAjaxMessage(e),"danger")})}}})});
+$(document).ready(function() {
+    $('#contentEditor').summernote({
+        placeholder: 'Nội dung',
+        tabsize: 2,
+        height: 500,
+        callbacks: {
+            onImageUpload: function(image) {
+                editorUploadImage(image[0]);
+            },
+            onMediaDelete : function($target, editor, $editable) {
+                editorRemoveImage($target[0]);
+            }
+        }
+    });
+
+
+    function editorUploadImage(image) {
+        var data = new FormData();
+        data.append("image_file_upload", image);
+        $.ajax({
+            url: '/backend/api/image/store?entity=content&temp=medium',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: data,
+            type: "post",
+
+        }).done(function (res) {
+            if(res.success){
+                var image = $('<img>').attr('src', res.files[0].url).attr('delete-url', res.files[0].delete_url);
+                $('#contentEditor').summernote("insertNode", image[0]);
+            } else {
+                notifiMessage(res.message, 'danger');
+            }
+        }).fail(function (xhr) {
+            notifiMessage(formatErrorAjaxMessage(xhr), 'danger');
+        })
+    }
+
+    function editorRemoveImage(image) {
+        var deleteUrl = $(image).attr('delete-url');
+        $.ajax({
+            url: deleteUrl,
+            type: 'DELETE',
+            dataType: 'json',
+        }).done(function (result) {
+            if(result.success){
+
+            }
+        }).fail(function (xhr) {
+            notifiMessage(formatErrorAjaxMessage(xhr), 'danger');
+        })
+    }
+});

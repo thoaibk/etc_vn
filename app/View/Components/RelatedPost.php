@@ -28,6 +28,7 @@ class RelatedPost extends Component
     {
 
         $posts = Post::whereStatus(Post::STATUS_PUBLISH)
+            ->where('approve_status', Post::APPROVE_STATUS_YES)
             ->where('id', '<>', $this->excludeId)
             ->orderByDesc('created_at')
             ->limit(3)

@@ -35,7 +35,7 @@
 
     <!-- Styles -->
     <link href="{{ mix('assets/css/master.css') }}" rel="stylesheet">
-    <link href="{{ mix('/assets/frontend/css/evico.css') }}" rel="stylesheet">
+    <link href="{{ mix('/assets/frontend/css/style.css') }}" rel="stylesheet">
 
     <link href="{{ asset('assets/plugins/awesome/css/all.min.css') }}" rel="stylesheet">
 

@@ -98,6 +98,15 @@ class PostController extends BackendController
 
     }
 
+    public function view($id){
+        $post = Post::find($id);
+        if(!$post)
+            abort(404);
+
+        return view('backend.post.view')
+            ->with('post', $post);
+    }
+
     /**
      * Remove the specified resource from storage.
      *

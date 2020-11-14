@@ -11,10 +11,12 @@
         </button>
         <!--Division for navbar-->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="nav navbar-nav mr-auto"></ul>
-            <!--UL for links-->
-            <ul class="nav navbar-nav navbar-right">
-                <x-category-nav></x-category-nav>
+            <ul class="nav navbar-nav mr-auto">
+                <li class="nav-item dropdown mr-3">
+                    <a class="nav-link category" href="{{ route('product.index') }}">
+                        <span class="nav-text"> Dịch vụ</span>
+                    </a>
+                </li>
                 <li class="nav-item dropdown mr-3">
                     <a class="nav-link category" href="{{ route('post.index') }}">
                         <span class="nav-text"> Tin tức</span>
@@ -25,6 +27,16 @@
                         <span class="nav-text"> Giới thiệu</span>
                     </a>
                 </li>
+            </ul>
+            <!--UL for links-->
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="nav-item dropdown mr-3">
+                    <a class="nav-link category" href="{{ route('post.index') }}">
+                        <span class="nav-hotline"><i class="fas fa-mobile-alt"></i> Hotline: 0935 86 99 86 </span>
+                    </a>
+                </li>
+
                 @guest
                     <li class="nav-item">
                         <a class="nav-link nav-auth-login " href="{{ route('login') }}"><i class="fad fa-user-alt"></i> Đăng nhập</a>

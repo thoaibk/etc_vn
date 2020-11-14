@@ -15,7 +15,7 @@
 
 @section('content')
 
-@include('backend.includes._product_nav')
+{{--@include('backend.includes._product_nav')--}}
 
 <div class="mt-4">
     {!! Form::open([
@@ -29,10 +29,10 @@
                     {!! Form::text('name', $product->name, ['class' => 'form-control', 'placeholder' => 'Tên sản phẩm', 'autocomplete' => 'off']) !!}
                 </div>
 
-                <div class="form-group">
-                    <label>Mô tả ngắn</label>
-                    {!! Form::textarea('short_desc', $product->short_desc, ['class' => 'form-control', 'rows' => 3, 'placeholder' => 'Mô tả ngắn ']) !!}
-                </div>
+{{--                <div class="form-group">--}}
+{{--                    <label>Mô tả ngắn</label>--}}
+{{--                    {!! Form::textarea('short_desc', $product->short_desc, ['class' => 'form-control', 'rows' => 3, 'placeholder' => 'Mô tả ngắn ']) !!}--}}
+{{--                </div>--}}
 
                 <div class="form-group">
                     <label>Mô tả chi tiết</label>
@@ -59,31 +59,6 @@
                         <h3 class="card-title">Thuộc tính</h3>
                     </div>
                     <div class="card-body">
-                        <div class="form-group">
-                            <label >Giá</label>
-                            {!! Form::number('price', $product->price, ['class' => 'form-control', 'placeholder' => 'Giá', 'autocomplete' => 'off']) !!}
-                        </div>
-                        <hr>
-                        <div class="attr-section mb-2">
-                            <h3 class="attr-title">Lĩnh vực hoạt động</h3>
-                            <div class="attr-body">
-                                @foreach($categories as $cate)
-                                    <div class="form-check">
-                                        <input id="cate_{{ $cate->id }}"  name="cate" value="{{ $cate->id }}" {{ ($product->category_id == $cate->id) ? 'checked' : '' }} class="form-check-input" type="radio">
-                                        <label for="cate_{{ $cate->id }}" class="form-check-label">{{ $cate->name }}</label>
-                                        <div class="child-cate">
-                                            @foreach($cate->childs as $child)
-                                                <div class="form-check">
-                                                    <input id="cate_{{ $child->id }}" name="cate" value="{{ $child->id }}" {{ ($product->category_id == $child->id) ? 'checked' : '' }} class="form-check-input" type="radio">
-                                                    <label for="cate_{{ $child->id }}" class="form-check-label">{{ $child->name }}</label>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                        <hr>
                         <div class="attr-section">
                             <h3 class="attr-title">Ảnh sản phẩm</h3>
                             <div class="attr-body">

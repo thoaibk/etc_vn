@@ -47,7 +47,6 @@ class ProductController extends BackendController
      */
     public function store(ProductRequest $request)
     {
-
         \DB::beginTransaction();
         try{
             Product::create([

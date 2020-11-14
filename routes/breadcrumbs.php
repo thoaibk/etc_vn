@@ -7,7 +7,7 @@ Breadcrumbs::for('home', function ($trail) {
 // Home > Product > Product name
 Breadcrumbs::for('product-detail', function ($trail, $product) {
     $trail->parent('home');
-    $trail->push($product->category->name, $product->category->publicUrl());
+    $trail->push('Dịch vụ',route('product.index'));
     $trail->push($product->name, $product->publicUrl());
 });
 
@@ -29,8 +29,8 @@ Breadcrumbs::for('post_detail', function ($trail, $post) {
 });
 
 // Home > Blog > [Category]
-Breadcrumbs::for('category', function ($trail, $category) {
+Breadcrumbs::for('service', function ($trail) {
     $trail->parent('home');
-    $trail->push($category->name, $category->publicUrl());
+    $trail->push('Dịch vụ', route('product.index'));
 });
 

@@ -1,6 +1,6 @@
-$footer-bg-color: #f7f7f7;
-$footer-title-color: #232323;
-$footer-link-color: #232323;
+$footer-bg-color: #00527a;
+$footer-title-color: #FFF;
+$footer-link-color: #ccc;
 #footer{
 	background-color: $footer-bg-color;
 	
@@ -41,6 +41,7 @@ $footer-link-color: #232323;
 	
 	.footer-title{
 		color: $footer-title-color;
+        font-size: 1.1em;
 	}
 	
 	.footer-link{

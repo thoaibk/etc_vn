@@ -26,8 +26,9 @@ class IndexPost extends Component
     {
 
         $posts = Post::whereStatus(Post::STATUS_PUBLISH)
+            ->where('approve_status', Post::APPROVE_STATUS_YES)
             ->orderByDesc('created_at')
-            ->limit(9)
+            ->limit(3)
             ->get();
 
         return view('components.frontend.index-post')

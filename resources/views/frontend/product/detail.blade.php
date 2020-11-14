@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="related-product">
-                            <h2 class="right-title mt-0 mb-4">Sản phẩm khác</h2>
+                            <h2 class="right-title mt-0 mb-4">Dịch vụ khác</h2>
                             <x-product-right :excludeId="$product->id"></x-product-right>
                         </div>
                     </div>

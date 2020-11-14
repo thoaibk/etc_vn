@@ -23,12 +23,12 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="form-group">
-                    <label>Tên sản phẩm</label>
-                    {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Tên sản phẩm', 'autocomplete' => 'off']) !!}
+                    <label>Tiêu đề</label>
+                    {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Tiêu đề', 'autocomplete' => 'off']) !!}
                 </div>
                 <div class="form-group">
-                    <label>Mô tả sản phẩm</label>
-                    {!! Form::textarea('content', null, ['class' => 'form-control','id' => 'contentEditor','placeholder' => 'Mô tả sản phẩm']) !!}
+                    <label>Nội dung</label>
+                    {!! Form::textarea('content', null, ['class' => 'form-control','id' => 'contentEditor','placeholder' => 'Nội dung']) !!}
                 </div>
 
                 <div class="form-group">

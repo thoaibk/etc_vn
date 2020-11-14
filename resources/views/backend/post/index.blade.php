@@ -17,9 +17,11 @@
                 <thead>
                 <tr>
                     <th style="width: 60px">ID</th>
+                    <th>Tác giả</th>
                     <th>Tiêu đề</th>
                     <th>Ngày tạo</th>
                     <th style="width: 130px">Trạng thái</th>
+                    <th style="width: 130px">Phê duyệt</th>
                     <th style="width: 150px">Thao tác</th>
                 </tr>
                 </thead>
@@ -27,12 +29,15 @@
                 @foreach($posts as $post)
                     <tr id="row_{{ $post->id }}">
                         <td>{{ $post->id }}</td>
+                        <td>{{ $post->user->name }}</td>
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->created_at }}</td>
-                        <td>{{ $post->status }}</td>
+                        <td>{{ $post->statusLabel() }}</td>
+                        <td>{{ $post->approveLabel() }}</td>
                         <td>
                             <button class="btn btn-outline-danger btn-sm" onclick="deleteTableRow('{{ $post->id }}', '{{ $post->deleteUrl() }}')"><i class="fa fa-times"></i></button>
                             <a href="{{ route('backend.post.edit', ['id' => $post->id]) }}" class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil"></i></a>
+                            <a href="{{ route('backend.post.view', ['id' => $post->id]) }}" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fa fa-eye"></i></a>
                         </td>
                     </tr>
                 @endforeach

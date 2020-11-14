@@ -7,21 +7,21 @@ Route::prefix('backend')->middleware('permission:view_admin')->group(function(){
 
     Route::get('/', 'Backend\DashboardController@index')->name('backend.dashboard');
 
-    Route::prefix('order')->group(function(){
-        Route::get('/', 'Backend\OrderController@index')->name('backend.order.index');
-        Route::get('{id}/view', 'Backend\OrderController@view')->name('backend.order.view');
-    });
+//    Route::prefix('order')->group(function(){
+//        Route::get('/', 'Backend\OrderController@index')->name('backend.order.index');
+//        Route::get('{id}/view', 'Backend\OrderController@view')->name('backend.order.view');
+//    });
 
-    Route::prefix('product-category')->group(function(){
-        Route::get('/', 'Backend\ProductCategoryController@index')->name('backend.product_category.index');
-        Route::get('create', 'Backend\ProductCategoryController@create')->name('backend.product_category.create');
-        Route::post('store', 'Backend\ProductCategoryController@store')->name('backend.product_category.store');
-        Route::get('/{id}/edit', 'Backend\ProductCategoryController@edit')->name('backend.product_category.edit');
-        Route::post('/{id}/update', 'Backend\ProductCategoryController@update')->name('backend.product_category.update');
-        Route::post('/{id}/toggle-status', 'Backend\ProductCategoryController@toggleStatus')->name('backend.product_category.toggle_status');
-        Route::delete('/{id}/delete', 'Backend\ProductCategoryController@destroy')->name('backend.product_category.destroy');
-    });
-    Route::prefix('product')->group(function(){
+//    Route::prefix('product-category')->group(function(){
+//        Route::get('/', 'Backend\ProductCategoryController@index')->name('backend.product_category.index');
+//        Route::get('create', 'Backend\ProductCategoryController@create')->name('backend.product_category.create');
+//        Route::post('store', 'Backend\ProductCategoryController@store')->name('backend.product_category.store');
+//        Route::get('/{id}/edit', 'Backend\ProductCategoryController@edit')->name('backend.product_category.edit');
+//        Route::post('/{id}/update', 'Backend\ProductCategoryController@update')->name('backend.product_category.update');
+//        Route::post('/{id}/toggle-status', 'Backend\ProductCategoryController@toggleStatus')->name('backend.product_category.toggle_status');
+//        Route::delete('/{id}/delete', 'Backend\ProductCategoryController@destroy')->name('backend.product_category.destroy');
+//    });
+    Route::prefix('product')->middleware(['permission:product_manager'])->group(function(){
         Route::get('/', 'Backend\ProductController@index')->name('backend.product.index');
 
         Route::get('/create', 'Backend\ProductController@create')->name('backend.product.create');
@@ -42,7 +42,7 @@ Route::prefix('backend')->middleware('permission:view_admin')->group(function(){
     });
 
 
-    Route::prefix('post')->group(function(){
+    Route::prefix('post')->middleware(['permission:article_manager'])->group(function(){
         Route::get('/', 'Backend\PostController@index')->name('backend.post.index');
         Route::get('create', 'Backend\PostController@create')->name('backend.post.create');
         Route::post('store', 'Backend\PostController@store')->name('backend.post.store');
@@ -50,10 +50,12 @@ Route::prefix('backend')->middleware('permission:view_admin')->group(function(){
         Route::post('/{id}/update', 'Backend\PostController@update')->name('backend.post.update');
         Route::post('/{id}/toggle-status', 'Backend\PostController@toggleStatus')->name('backend.post.toggle_status');
         Route::delete('/{id}/delete', 'Backend\PostController@destroy')->name('backend.post.destroy');
+
+        Route::get('/{id}/view', 'Backend\PostController@view')->name('backend.post.view');
     });
 
 
-    Route::prefix('configs')->group(function (){
+    Route::prefix('configs')->middleware(['role:admin'])->group(function (){
         Route::get('menu', 'Backend\MenuController@index')->name('backend.menu');
 
         Route::get('banner', 'Backend\BannerController@index')->name('backend.banner.index');

@@ -12,7 +12,6 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-{{--                <img src="/backend/lte3/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">--}}
             </div>
             <div class="info">
                 <a href="#" class="d-block">{{ auth()->user()->name }}</a>
@@ -23,37 +22,25 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column text-13" data-widget="treeview" role="menu" data-accordion="false" style="margin-bottom: 100px">
-                <li class="nav-header text-uppercase text-11 pl-3">Quản lý User</li>
-                <li class="nav-item">
-                    <a href="{{ route('access_manager.user.index') }}" class="nav-link {{ active_class(if_route('access_manager.user.index')) }}">
-                        <i class="fad fa-users-cog"></i>
-                        <p>Danh sách user</p>
-                    </a>
-                </li>
+                @if(auth()->user()->hasRole('admin'))
+                    <li class="nav-header text-uppercase text-11 pl-3">Quản lý User</li>
+                    <li class="nav-item">
+                        <a href="{{ route('access_manager.user.index') }}" class="nav-link {{ active_class(if_route('access_manager.user.index')) }}">
+                            <i class="fad fa-users-cog"></i>
+                            <p>Danh sách user</p>
+                        </a>
+                    </li>
+                @endif
 
-
-{{--                <li class="nav-header text-uppercase text-11 pl-3">Đơn hàng</li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{ route('backend.order.index') }}" class="nav-link {{ active_class(if_route('backend.order.index')) }}">--}}
-{{--                        <i class="fad fa-clipboard-list"></i>--}}
-{{--                        <p>Danh sách đơn hàng</p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-
-                <li class="nav-header text-uppercase text-11 pl-3">Quản lý sản phẩm</li>
-                <li class="nav-item">
-                    <a href="{{ route('backend.product.index') }}" class="nav-link {{ active_class(if_route('backend.product.index')) }}">
-                        <i class="fad fa-th-list"></i>
-                        <p>Sản phẩm</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('backend.product_category.index') }}" class="nav-link {{ active_class(if_route('backend.product_category.index')) }}">
-                        <i class="fad fa-tags"></i>
-                        <p>Lĩnh vực hoạt động</p>
-                    </a>
-                </li>
-
+                @if(auth()->user()->can('product_manager'))
+                    <li class="nav-header text-uppercase text-11 pl-3">Quản lý dịch vụ</li>
+                    <li class="nav-item">
+                        <a href="{{ route('backend.product.index') }}" class="nav-link {{ active_class(if_route('backend.product.index')) }}">
+                            <i class="fad fa-th-list"></i>
+                            <p>Danh sách dịch vụ</p>
+                        </a>
+                    </li>
+                @endif
                 <li class="nav-header text-uppercase text-11 pl-3">Quản lý bài viết</li>
                 <li class="nav-item">
                     <a href="{{ route('backend.post.index') }}" class="nav-link {{ active_class(if_route('backend.post.index')) }}">
@@ -62,19 +49,21 @@
                     </a>
                 </li>
 
-                <li class="nav-header text-uppercase text-11 pl-3">Cấu hình</li>
-                <li class="nav-item">
-                    <a href="{{ route('backend.config.meta') }}" class="nav-link {{ active_class(if_route('backend.config.meta')) }}">
-                        <i class="fad fa-th-list"></i>
-                        <p>Hiển thị</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('backend.banner.index') }}" class="nav-link {{ active_class(if_route('backend.banner.index')) }}">
-                        <i class="fad fa-th-list"></i>
-                        <p>Banner</p>
-                    </a>
-                </li>
+                @if(auth()->user()->hasRole('admin'))
+                    <li class="nav-header text-uppercase text-11 pl-3">Cấu hình</li>
+                    <li class="nav-item">
+                        <a href="{{ route('backend.config.meta') }}" class="nav-link {{ active_class(if_route('backend.config.meta')) }}">
+                            <i class="fad fa-th-list"></i>
+                            <p>Hiển thị</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('backend.banner.index') }}" class="nav-link {{ active_class(if_route('backend.banner.index')) }}">
+                            <i class="fad fa-th-list"></i>
+                            <p>Banner</p>
+                        </a>
+                    </li>
+                @endif
 
             </ul>
         </nav>

@@ -1,14 +1,14 @@
 {
-    "/assets/backend/js/backend.js": "/assets/backend/js/backend.js?id=cfe77c8a7f627b52f3a0",
-    "/assets/backend/js/menu_management.js": "/assets/backend/js/menu_management.js?id=6a41621ce336314f4e9a",
-    "/assets/js/app.js": "/assets/js/app.js?id=8b3604586a7703f2c06c",
-    "/assets/css/master.css": "/assets/css/master.css?id=f637a7de386ab4428f32",
-    "/assets/frontend/css/evico.css": "/assets/frontend/css/evico.css?id=32639deef27c3308a1ae",
-    "/assets/frontend/css/category.css": "/assets/frontend/css/category.css?id=e52e2148e02c8dfe2168",
-    "/assets/backend/css/lte.css": "/assets/backend/css/lte.css?id=430467862643fa459a52",
-    "/assets/frontend/js/cart.js": "/assets/frontend/js/cart.js?id=f922c3681abadd9da72c",
-    "/assets/backend/js/content_editor.js": "/assets/backend/js/content_editor.js?id=030d5cc63b1aeef57e36",
-    "/assets/backend/js/common.js": "/assets/backend/js/common.js?id=bbf228caaba0c378f9b9",
-    "/assets/backend/js/product_editor.js": "/assets/backend/js/product_editor.js?id=98432e894bbbce468225",
-    "/assets/backend/js/post_editor.js": "/assets/backend/js/post_editor.js?id=3aff3ef154c820e1eb2a"
+    "/assets/backend/js/backend.js": "/assets/backend/js/backend.js",
+    "/assets/backend/js/menu_management.js": "/assets/backend/js/menu_management.js",
+    "/assets/js/app.js": "/assets/js/app.js",
+    "/assets/css/master.css": "/assets/css/master.css",
+    "/assets/frontend/css/style.css": "/assets/frontend/css/style.css",
+    "/assets/frontend/css/category.css": "/assets/frontend/css/category.css",
+    "/assets/backend/css/lte.css": "/assets/backend/css/lte.css",
+    "/assets/frontend/js/cart.js": "/assets/frontend/js/cart.js",
+    "/assets/backend/js/content_editor.js": "/assets/backend/js/content_editor.js",
+    "/assets/backend/js/common.js": "/assets/backend/js/common.js",
+    "/assets/backend/js/product_editor.js": "/assets/backend/js/product_editor.js",
+    "/assets/backend/js/post_editor.js": "/assets/backend/js/post_editor.js"
 }

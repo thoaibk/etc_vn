@@ -1,5 +1,5 @@
 <?php
 
-Route::get('/cate/{slug}', 'Frontend\ProductController@category')->name('product.category');
+Route::get('/service', 'Frontend\ProductController@index')->name('product.index');
 
-Route::get('/san-pham/{slug}', 'Frontend\ProductController@detail')->name('product.detail');
+Route::get('/service/{slug}', 'Frontend\ProductController@detail')->name('product.detail');

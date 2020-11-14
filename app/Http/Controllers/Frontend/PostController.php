@@ -10,7 +10,8 @@ class PostController extends Controller
 {
 
     public function index(){
-        $posts = Post::query()
+        $posts = Post::whereStatus(Post::STATUS_PUBLISH)
+            ->where('approve_status', Post::APPROVE_STATUS_YES)
             ->paginate(10);
 
         $title = 'Tin tức Evico';
@@ -25,7 +26,20 @@ class PostController extends Controller
             ->with('posts', $posts);
     }
     public function detail($id, $slug, Request $request){
-        $post = Post::find($id);
+
+
+
+        $post = Post::query();
+
+        if($request->get('ref') === 'preview' && auth()->user()->hasRole('admin')){
+            $post = $post->first();
+        } else {
+            $post = $post->where('status', Post::STATUS_PUBLISH)
+                ->where('approve_status', Post::APPROVE_STATUS_YES)
+                ->first();
+        }
+
+
         if(!$post)
             abort(404);
 

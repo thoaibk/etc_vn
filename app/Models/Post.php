@@ -60,6 +60,10 @@ class Post extends Model
     const STATUS_PUBLISH = 'publish';
     const STATUS_HIDDEN = 'hidden';
 
+    const APPROVE_STATUS_PENDING = 'pending';
+    const APPROVE_STATUS_YES = 'yes';
+    const APPROVE_STATUS_NO = 'no';
+
     public function sluggable()
     {
         return [
@@ -81,6 +85,27 @@ class Post extends Model
      */
     public function image(){
         return $this->belongsTo(Image::class, 'image_id');
+    }
+
+    public function statusLabel(){
+        if($this->status == self::STATUS_PUBLISH){
+            return 'Đang hiển thị';
+        } else if($this->status == self::STATUS_HIDDEN){
+            return 'Đã ẩn';
+        }
+        return '--';
+    }
+
+    public function approveLabel(){
+        if($this->approve_status == self::APPROVE_STATUS_PENDING){
+            return 'Chờ duyệt';
+        } else if($this->approve_status == self::APPROVE_STATUS_YES){
+            return 'Đã duyệt';
+        } else if($this->approve_status == self::APPROVE_STATUS_NO){
+            return 'Từ chối duyệt';
+        }
+
+        return '--';
     }
 
     public function thumb($template = 'small'){

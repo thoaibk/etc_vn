@@ -25,15 +25,13 @@ class ProductRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'short_desc' => 'required'
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required' => 'Tên sản phẩm không được để trống',
-            'short_desc.required' => 'Mô tả ngắn sản phẩm không được để trống'
+            'name.required' => 'Tên sản phẩm không được để trống'
         ];
     }
 }

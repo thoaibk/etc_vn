@@ -1,1 +1,63 @@
-function addToCart(t){$.ajax("/cart/add",{type:"POST",data:{id:t}}).done(function(t){$("#cartSuccessModal").modal(),updateNavCartCount()}).fail(function(t){console.error(t)})}function updateCartQuantity(t,a){$.ajax({url:"/cart/update-quantity",type:"POST",data:{action:t,rowId:a}}).done(function(t){updateNavCartCount(),updateCartContent(t.cart_content_html)}).fail(function(t){})}function removeCartItem(t){$.ajax({url:"/cart/remove",type:"POST",data:{rowId:t}}).done(function(t){updateNavCartCount(),updateCartContent(t.cart_content_html)}).fail(function(t){})}function updateCartContent(t){$("#cartContentJs").empty().html(t)}function updateNavCartCount(){var t=$(".nav-cart-count");$.get("/cart/count").done(function(a){a.success&&(a.count>0?t.addClass("badge badge-pill badge-danger").text(a.count):t.removeClass("badge badge-pill badge-danger").text(""))}).fail(function(t){})}$(function(){updateNavCartCount()});
+$(function () {
+    updateNavCartCount();
+});
+
+
+function addToCart(productID) {
+    $.ajax('/cart/add', {
+        type: 'POST',
+        data: {id: productID}
+    }).done(function (res) {
+        $('#cartSuccessModal').modal();
+        updateNavCartCount();
+    }).fail(function (xhr) {
+        console.error(xhr);
+    });
+}
+
+
+function updateCartQuantity(action, rowId) {
+    $.ajax({
+        url: '/cart/update-quantity',
+        type: 'POST',
+        data: {action: action, rowId: rowId}
+    }).done(function (res) {
+        updateNavCartCount();
+        updateCartContent(res.cart_content_html);
+    }).fail(function (xhr) {
+
+    })
+}
+
+
+function removeCartItem(rowId) {
+    $.ajax({
+        url: '/cart/remove',
+        type: 'POST',
+        data: {rowId: rowId}
+    }).done(function (res) {
+        updateNavCartCount();
+        updateCartContent(res.cart_content_html);
+    }).fail(function (xhr) {
+
+    })
+}
+
+function updateCartContent(cartContentHtml) {
+    $('#cartContentJs').empty().html(cartContentHtml);
+}
+
+function updateNavCartCount() {
+    var cartNumber = $('.nav-cart-count');
+    $.get('/cart/count').done(function (res) {
+        if(res.success){
+            if(res.count > 0){
+                cartNumber.addClass('badge badge-pill badge-danger').text(res.count);
+            } else {
+                cartNumber.removeClass('badge badge-pill badge-danger').text('');
+            }
+        }
+    }).fail(function (xhr) {
+
+    })
+}

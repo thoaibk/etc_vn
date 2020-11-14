@@ -1,5 +1,5 @@
 @import "../../../../sass/style_variables";
-#product-category{
+#product-index{
 	background-color: #f8f8f8;
 	.section-top{
 		background-color: $main-color;
@@ -13,27 +13,50 @@
 			}
 		}
 	}
-	
-	.product-card{
-		border: solid thin #f2f2f2;
-		
-		.product-info{
-			.product-name{
-				color: $main-color;
-				font-size: 1.4em;
-				font-weight: 600;
-				height: 25px;
-				white-space: nowrap;
-				overflow: hidden !important;
-				text-overflow: ellipsis;
-			}
-			.short-desc{
-				font-size: 1.1em;
-				height: 71px;
-				overflow: hidden;
-			}
-		}
-	}
+    
+    .product-card{
+        border: transparent;
+        box-shadow: 0 0.15rem 1.75rem 0 rgba(33,40,50,.15);
+        border-radius: 4px;
+        overflow: hidden;
+        .product-img{
+            transition: 0.5s;
+        }
+        .card-body{
+            padding: 20px;
+        }
+        .product-title{
+            margin-top: 15px;
+            font-size: 1.2em;
+            height: 44px;
+            overflow: hidden;
+            font-weight: 600;
+            a{
+                color: #3d4145;
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
+        .btn-detail{
+            color: white;
+            background-color: #00BCD4;
+            border-color: #80aea9;
+            transition: .3s;
+        }
+        
+        &:hover{
+            .btn-detail{
+                background: #FF5722;
+                border-color: #e14614;
+                color: white;
+            }
+            
+            .product-img{
+                transform: scale3D(1.1, 1.1, 1)
+            }
+        }
+    }
 }
 
 #category-detail{
