@@ -27,8 +27,6 @@ class PostController extends Controller
     }
     public function detail($id, $slug, Request $request){
 
-
-
         $post = Post::query();
 
         if($request->get('ref') === 'preview' && auth()->user()->hasRole('admin')){

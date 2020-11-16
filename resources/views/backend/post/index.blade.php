@@ -33,11 +33,13 @@
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->created_at }}</td>
                         <td>{{ $post->statusLabel() }}</td>
-                        <td>{{ $post->approveLabel() }}</td>
+                        <td><span class="{{ $post->approveCssClass() }}"><i class="fad fa-circle text-sm"></i> {{ $post->approveLabel() }}</span></td>
                         <td>
                             <button class="btn btn-outline-danger btn-sm" onclick="deleteTableRow('{{ $post->id }}', '{{ $post->deleteUrl() }}')"><i class="fa fa-times"></i></button>
                             <a href="{{ route('backend.post.edit', ['id' => $post->id]) }}" class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil"></i></a>
-                            <a href="{{ route('backend.post.view', ['id' => $post->id]) }}" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fa fa-eye"></i></a>
+                            @if(auth()->user()->hasRole('admin'))
+                                <a href="{{ $post->backendViewUrl() }}" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fa fa-eye"></i></a>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

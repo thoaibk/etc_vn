@@ -16,10 +16,6 @@
 @section('content')
 
     <div class="">
-        {!! Form::open([
-            'route' => ['backend.post.update', ['id' => $post->id]],
-            'id' => 'PostForm'
-        ]) !!}
         <div class="row">
             <div class="col-lg-8">
                 <div class="bg-white p-4">
@@ -58,34 +54,35 @@
                         <div class="attr-section">
                             <h3 class="attr-title">Ảnh đại diện</h3>
                             <div class="attr-body">
-                                <div class="image-upload-form">
-                                    {!! Form::hidden('image_id', $post->image_id, ['id' => 'image_id']) !!}
-                                    @include('backend.includes._image_thumb_upload_require')
-                                    <div id="upload-grid">
-                                        <div class="files row"></div>
-                                    </div>
-
-                                    <div class="image-upload">
-                                        <br/>
-                                        <div id="image-upload-box" class="text-center">
-                                        <span class="btn btn-material-teal-500 btn-sm fileinput-button margin0">
-                                            <i class="fa fa-camera"></i> Chọn ảnh
-                                            <input class="form-control" type="file" name="image_file_upload" multiple />
-                                        </span>
-                                        </div>
-                                        <br/>
-                                    </div>
-                                </div>
+                                <img class="img-fluid" src="{{ $post->thumb() }}" alt="">
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        {!! Form::submit('Lưu bài viết', ['class' => 'btn btn-primary']) !!}
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Trạng thái duyệt: <strong class="{{ $post->approveCssClass() }}">{{ $post->approveLabel() }}</strong></h3>
+                    </div>
+                    <div class="card-body">
+                        {!! Form::open([
+                            'route' => ['backend.post.approve', ['id' => $post->id]],
+                            'id' => 'PostForm'
+                        ]) !!}
+                        <p>Ngày duyệt: <strong>{{ $post->approve_time }}</strong></p>
+                        @if($post->approve_status === \App\Models\Post::APPROVE_STATUS_PENDING || $post->approve_status === \App\Models\Post::APPROVE_STATUS_NO)
+                            {!! Form::hidden('approve_status', \App\Models\Post::APPROVE_STATUS_YES) !!}
+                            {!! Form::submit('Duyệt bài viết', ['class' => 'btn btn-primary']) !!}
+                        @elseif($post->approve_status === \App\Models\Post::APPROVE_STATUS_YES)
+                            {!! Form::hidden('approve_status', \App\Models\Post::APPROVE_STATUS_NO) !!}
+                            {!! Form::submit('Hủy duyệt', ['class' => 'btn btn-danger']) !!}
+                        @endif
+                        {!! Form::close() !!}
                     </div>
                 </div>
+
             </div>
         </div>
-        {!! Form::close() !!}
+
     </div>
 
 @stop

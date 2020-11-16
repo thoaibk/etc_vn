@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\PostRequest;
 use App\Models\Post;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -65,6 +66,10 @@ class PostController extends BackendController
         if(!$post)
             abort(404);
 
+        if(!auth()->user()->hasRole('admin') && $post->user_id != auth()->user()->id){
+            return redirect(route('backend.post.index'))->withFlashDanger('Thao tác không hợp lệ. Bạn chỉ được phép chỉnh sửa bài viết của mình');
+        }
+
         if($post->image){
             \JavaScript::put([
                 'imageThumbUrl' => route('backend.api.image.show', ['id' => $post->image->id, 'template' => 'small'])
@@ -75,10 +80,19 @@ class PostController extends BackendController
             ->with('post', $post);
     }
 
+    /**
+     * @param $id
+     * @param PostRequest $request
+     * @return mixed
+     */
     public function update($id, PostRequest $request){
         $post = Post::find($id);
         if(!$post)
             abort(404);
+
+        if(!auth()->user()->hasRole('admin') && $post->user_id != auth()->user()->id){
+            return redirect(route('backend.post.index'))->withFlashDanger('Thao tác không hợp lệ. Bạn chỉ được phép chỉnh sửa bài viết của mình');
+        }
 
         try{
 
@@ -108,6 +122,29 @@ class PostController extends BackendController
     }
 
     /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function approve($id, Request $request){
+        $post = Post::find($id);
+        if(!$post)
+            abort(404);
+
+        $validator = \Validator::make($request->all(), [
+            'approve_status' => 'required'
+        ]);
+        if(!$validator->passes()){
+            return redirect($post->backendViewUrl())->withErrors($validator->errors());
+        }
+
+        $post->approve_status = $request->get('approve_status');
+        $post->Approve_time = Carbon::now()->toDateTimeString();
+        $post->update();
+        return redirect($post->backendViewUrl())->withFlashSuccess('Đã cập nhật');
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -118,6 +155,10 @@ class PostController extends BackendController
         $model = Post::find($id);
         if(!$model){
             abort(404);
+        }
+
+        if(!auth()->user()->hasRole('admin') && $model->user_id != auth()->user()->id){
+            return response('Thao thác không được phép. Bạn chỉ được xóa bài viết của mình', 501);
         }
 
         $model->delete();

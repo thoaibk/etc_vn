@@ -51,7 +51,8 @@ Route::prefix('backend')->middleware('permission:view_admin')->group(function(){
         Route::post('/{id}/toggle-status', 'Backend\PostController@toggleStatus')->name('backend.post.toggle_status');
         Route::delete('/{id}/delete', 'Backend\PostController@destroy')->name('backend.post.destroy');
 
-        Route::get('/{id}/view', 'Backend\PostController@view')->name('backend.post.view');
+        Route::get('/{id}/view', 'Backend\PostController@view')->middleware(['role:admin'])->name('backend.post.view');
+        Route::post('/{id}/approve', 'Backend\PostController@approve')->middleware(['role:admin'])->name('backend.post.approve');
     });
 
 

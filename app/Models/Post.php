@@ -108,12 +108,31 @@ class Post extends Model
         return '--';
     }
 
+    public function approveCssClass(){
+        if($this->approve_status == self::APPROVE_STATUS_PENDING){
+            return 'text-default';
+        } else if($this->approve_status == self::APPROVE_STATUS_YES){
+            return 'text-success';
+        } else if($this->approve_status == self::APPROVE_STATUS_NO){
+            return 'text-danger';
+        }
+
+        return '';
+    }
+
     public function thumb($template = 'small'){
         $defautImage = 'assets/img/no-image.jpg';
         if($this->image){
             return $this->image->getImageSrc($template);
         }
         return $defautImage;
+    }
+
+    /**
+     * @return string
+     */
+    public function backendViewUrl(){
+        return route('backend.post.view', ['id' => $this->id]);
     }
 
     /**
