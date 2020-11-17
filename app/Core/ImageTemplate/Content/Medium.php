@@ -11,6 +11,6 @@ class Medium implements FilterInterface
 {
     public function applyFilter(Image $image)
     {
-        return $image->fit(756, 466);
+        return $image->fit(600, 315);
     }
 }

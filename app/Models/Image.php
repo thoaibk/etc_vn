@@ -42,6 +42,9 @@ class Image extends Model
     }
 
     public function getImageSrc($template){
+        if($this->entity == 'content'){
+            return '/images/' . $this->path; 
+        }
         $imageSrc = MyStorage::get_image_link($this->disk, $this->path, $this->entity, $template);
         return $imageSrc;
     }

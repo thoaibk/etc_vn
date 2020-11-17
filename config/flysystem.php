@@ -256,8 +256,8 @@ return [
         'height' => '315',
     ],
     'content' => [
-        'width' => '756',
-        'height' => '466',
+        'width' => '600',
+        'height' => '315',
     ],
     'banner' => [
         'width' => '1920',

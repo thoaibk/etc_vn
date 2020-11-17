@@ -46,14 +46,20 @@ class ImageController extends Controller
                     ])
                 ]);
             }
-
-            $saved = $disk->putStream($path,
+            
+            if($entity == 'content'){
+                $saved = $disk->putStream($path, $uploaded_image->encode(null,100)
+                    ->stream()
+                    ->detach());
+            } else {
+                $saved = $disk->putStream($path,
                 $uploaded_image->resize($width, $height, function ($constraint) {
                     $constraint->aspectRatio();
                 })
                     ->encode(null,100)
                     ->stream()
-                    ->detach());
+                    ->detach());    
+            }
 
             if($saved){
                 $image = \App\Models\Image::create([
