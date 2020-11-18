@@ -5,5 +5,7 @@
 @stop
 
 @section('content')
-
+    <div>
+        Chào mừng {{ auth()->user()->name }} quay trở lại
+    </div>
 @stop
