@@ -33,7 +33,7 @@ class SiteController extends Controller
 
         \OpenGraph::setTitle($title);
         \OpenGraph::setDescription($desc);
-        \OpenGraph::addImage(config('app.url') . '/image/graph-evico.jpg',['height' => 1200, 'width' => 630]);
+        \OpenGraph::addImage(config('app.url') . '/image/image-og.jpg',['height' => 1200, 'width' => 630]);
 
         $hotProducts = Product::query()
             ->where('status', Product::STATUS_ACTIVE)
