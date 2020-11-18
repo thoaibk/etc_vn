@@ -6,6 +6,6 @@
 
 @section('content')
     <div>
-        Chào mừng {{ auth()->user()->name }} quay trở lại
+        Chào mừng <strong>{{ auth()->user()->name }}</strong> quay trở lại
     </div>
 @stop
