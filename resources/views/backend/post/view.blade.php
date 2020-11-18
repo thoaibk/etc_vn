@@ -5,12 +5,11 @@
 @stop
 
 @section('before-styles-end')
-    {!! Html::style('https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css') !!}
-
-    {!! Html::style('/assets/plugins/blueimp/jquery.gallery/css/blueimp-gallery.min.css') !!}
-    {!! Html::style('/assets/plugins/blueimp/jquery.file.upload/css/jquery.fileupload.css') !!}
-    {!! Html::style('/assets/plugins/blueimp/jquery.file.upload/css/jquery.fileupload-ui.css') !!}
-
+    <style>
+        .viewContent img{
+            max-width: 100%;
+        }
+    </style>
 @stop
 
 @section('content')
@@ -24,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <label>Nội dung bài viết</label>
-                        <div>
+                        <div class="viewContent">
                             {!! $post->content !!}
                         </div>
                     </div>
