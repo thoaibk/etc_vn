@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\AppOption;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $footerWidgetLeft = AppOption::getWigetLinkLeftFromCache('left');
+        $footerWidgetCenter = AppOption::getWigetLinkLeftFromCache('center');
+
+        view()->share('footerWidgetLeft', $footerWidgetLeft);
+        view()->share('footerWidgetCenter', $footerWidgetCenter);
     }
 }

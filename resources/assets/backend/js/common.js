@@ -135,7 +135,31 @@ function deleteTableRow(rowID, deleteUrl) {
             }
         }
     });
+}
 
-
-
+function deleteDataItem(rowId, deleteUrl){
+    $.confirm({
+        title: 'Xóa dữ liệu',
+        content: 'Bạn muốn xóa bản ghi này?',
+        buttons: {
+            confirm: {
+                text: 'Xác nhận',
+                btnClass: 'btn-danger',
+                action: function(){
+                    $.ajax({
+                        url: deleteUrl,
+                        type: 'DELETE'
+                    }).done(res => {
+                        $('#key_' + rowId).remove();
+                    }).fail((xhr, statusText, ex) => {
+                        console.log(xhr, statusText);
+                        $.alert('Có lỗi xảy ra. Vui lòng thử lại');
+                    })
+                }
+            },
+            cancel: function () {
+                return;
+            },
+        }
+    });
 }

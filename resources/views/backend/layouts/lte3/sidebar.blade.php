@@ -63,6 +63,12 @@
                             <p>Banner</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('backend.footer.meta_link', ['meta' => 'left']) }}" class="nav-link {{ active_class(if_route('backend.footer.meta_link')) }}">
+                            <i class="fad fa-th-list"></i>
+                            <p>Footer</p>
+                        </a>
+                    </li>
                 @endif
 
             </ul>

@@ -68,4 +68,49 @@ Route::prefix('backend')->middleware('permission:view_admin')->group(function(){
 
         Route::match(['get', 'post'], 'meta', 'Backend\ConfigController@meta')->name('backend.config.meta');
     });
+
+    Route::group(['prefix' => 'footer'], function (){
+        Route::match(['GET', 'POST'], '/index', [
+            'uses' => 'Backend\FooterController@info',
+            'as' => 'backend.footer.info'
+        ]);
+
+        Route::match(['GET', 'POST'], '/meta-link/{meta}', [
+            'uses' => 'Backend\FooterController@meta_link',
+            'as' => 'backend.footer.meta_link'
+        ]);
+        Route::get('/add-link-meta/{meta}', [
+            'uses' => 'Backend\FooterController@create_link',
+            'as' => 'backend.footer.create_link'
+        ]);
+
+        Route::post('/store-footer-link/{meta}', [
+            'uses' => 'Backend\FooterController@store_link',
+            'as' => 'backend.footer.store_link'
+        ]);
+
+        Route::get('/{meta}/edit-link', [
+            'uses' => 'Backend\FooterController@edit_link',
+            'as' => 'backend.footer.edit_link'
+        ]);
+
+        Route::post('/{meta}/update-link/{id}', [
+            'uses' => 'Backend\FooterController@update_link',
+            'as' => 'backend.footer.update_widget_link'
+        ]);
+
+        Route::delete('/{meta}/delete-link/{id}', [
+            'uses' => 'Backend\FooterController@delete_link',
+            'as' => 'backend.footer.delete_widget_link'
+        ]);
+
+        Route::match(['GET', 'POST'], '/widget-social', [
+            'uses' => 'Backend\FooterController@widget_social',
+            'as' => 'backend.footer.widget_social'
+        ]);
+        Route::match(['GET', 'POST'], '/copyright', [
+            'uses' => 'Backend\FooterController@copyright',
+            'as' => 'backend.footer.copyright'
+        ]);
+    });
 });
