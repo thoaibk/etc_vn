@@ -22,18 +22,13 @@
                         <span class="nav-text"> Tin tức</span>
                     </a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link category" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="nav-text"> Giới thiệu</span>
-                    </a>
-                </li>
             </ul>
             <!--UL for links-->
             <ul class="nav navbar-nav navbar-right">
 
                 <li class="nav-item dropdown mr-3">
                     <a class="nav-link category" href="{{ route('post.index') }}">
-                        <span class="nav-hotline"><i class="fas fa-mobile-alt"></i> Hotline: 0935 86 99 86 </span>
+                        <span class="nav-hotline"><i class="fas fa-mobile-alt"></i> Hotline: {{ \App\Models\AppOption::getOptionValue(\App\Models\AppOption::FOOTER_HOTLINE, true) }} </span>
                     </a>
                 </li>
 
