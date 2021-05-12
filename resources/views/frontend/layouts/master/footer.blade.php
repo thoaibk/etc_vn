@@ -65,7 +65,7 @@
                                 @endif
                                 @if(\App\Models\AppOption::getOptionValue(\App\Models\AppOption::FOOTER_WIDGET_SOCIAL_EMAIL, true))
                                     <div class="social-item mr-3">
-                                        <a class="social-link email" href="{{ \App\Models\AppOption::getOptionValue(\App\Models\AppOption::FOOTER_WIDGET_SOCIAL_EMAIL, true) }}" target="_blank"><i class="fal fa-envelope"></i></a>
+                                        <a class="social-link email" href="mailto:{{ \App\Models\AppOption::getOptionValue(\App\Models\AppOption::FOOTER_WIDGET_SOCIAL_EMAIL, true) }}"><i class="fal fa-envelope"></i></a>
                                     </div>
                                 @endif
                             </div>
