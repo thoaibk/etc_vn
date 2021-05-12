@@ -27,7 +27,7 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li class="nav-item dropdown mr-3">
-                    <a class="nav-link category" href="{{ route('post.index') }}">
+                    <a class="nav-link category" href="javascript:void(0)">
                         <span class="nav-hotline"><i class="fas fa-mobile-alt"></i> Hotline: {{ \App\Models\AppOption::getOptionValue(\App\Models\AppOption::FOOTER_HOTLINE, true) }} </span>
                     </a>
                 </li>
