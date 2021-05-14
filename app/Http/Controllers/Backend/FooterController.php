@@ -50,6 +50,7 @@ class FooterController extends Controller
 
             \Cache::forget(AppOption::FOOTER_NAME);
             \Cache::forget(AppOption::FOOTER_HOTLINE);
+            \Cache::forget(AppOption::FOOTER_PHONE);
             \Cache::forget(AppOption::FOOTER_EMAIL);
             \Cache::forget(AppOption::FOOTER_ADDRESS);
 
