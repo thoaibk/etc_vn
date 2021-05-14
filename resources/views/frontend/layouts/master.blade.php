@@ -45,7 +45,7 @@
 <div id="evico-app">
     @include('frontend.layouts.master.nav')
     @yield('content')
-    @include('frontend.layouts.master.footer')
+    @include('frontend.layouts.master.evismart.footer')
 </div>
 
 @yield('script-before')

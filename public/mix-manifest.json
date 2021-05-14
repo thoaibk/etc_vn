@@ -1,14 +1,14 @@
 {
-    "/assets/backend/js/backend.js": "/assets/backend/js/backend.js",
-    "/assets/backend/js/menu_management.js": "/assets/backend/js/menu_management.js",
-    "/assets/js/app.js": "/assets/js/app.js",
-    "/assets/css/master.css": "/assets/css/master.css",
-    "/assets/frontend/css/style.css": "/assets/frontend/css/style.css",
-    "/assets/frontend/css/category.css": "/assets/frontend/css/category.css",
-    "/assets/backend/css/lte.css": "/assets/backend/css/lte.css",
-    "/assets/frontend/js/cart.js": "/assets/frontend/js/cart.js",
-    "/assets/backend/js/content_editor.js": "/assets/backend/js/content_editor.js",
-    "/assets/backend/js/common.js": "/assets/backend/js/common.js",
-    "/assets/backend/js/product_editor.js": "/assets/backend/js/product_editor.js",
-    "/assets/backend/js/post_editor.js": "/assets/backend/js/post_editor.js"
+    "/assets/backend/js/backend.js": "/assets/backend/js/backend.js?id=cfe77c8a7f627b52f3a0",
+    "/assets/backend/js/menu_management.js": "/assets/backend/js/menu_management.js?id=6a41621ce336314f4e9a",
+    "/assets/js/app.js": "/assets/js/app.js?id=4857a2e6bb1a90d37859",
+    "/assets/css/master.css": "/assets/css/master.css?id=1f4443b01bcb48326cab",
+    "/assets/frontend/css/style.css": "/assets/frontend/css/style.css?id=ef071bc63706d7239cdf",
+    "/assets/frontend/css/category.css": "/assets/frontend/css/category.css?id=7fa3dcb44cf03878b022",
+    "/assets/backend/css/lte.css": "/assets/backend/css/lte.css?id=430467862643fa459a52",
+    "/assets/frontend/js/cart.js": "/assets/frontend/js/cart.js?id=f922c3681abadd9da72c",
+    "/assets/backend/js/content_editor.js": "/assets/backend/js/content_editor.js?id=030d5cc63b1aeef57e36",
+    "/assets/backend/js/common.js": "/assets/backend/js/common.js?id=52aab5eb90ed89c40cf5",
+    "/assets/backend/js/product_editor.js": "/assets/backend/js/product_editor.js?id=98432e894bbbce468225",
+    "/assets/backend/js/post_editor.js": "/assets/backend/js/post_editor.js?id=3aff3ef154c820e1eb2a"
 }

@@ -35,6 +35,7 @@ class AppOption extends Model
 
     const FOOTER_NAME = 'footer_name';
     const FOOTER_HOTLINE = 'footer_hotline';
+    const FOOTER_PHONE = 'footer_phone';
     const FOOTER_EMAIL = 'footer_email';
     const FOOTER_ADDRESS = 'footer_address';
 

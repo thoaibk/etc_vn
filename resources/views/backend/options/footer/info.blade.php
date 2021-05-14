@@ -24,6 +24,10 @@
                 {!! Form::text('footer_hotline', \App\Models\AppOption::getOptionValue(\App\Models\AppOption::FOOTER_HOTLINE), ['class' => 'form-control', 'rows' => 3, 'placeholder' => 'Hotline' ]) !!}
             </div>
             <div class="form-group">
+                <label for="">Điện thoại</label>
+                {!! Form::text('footer_phone', \App\Models\AppOption::getOptionValue(\App\Models\AppOption::FOOTER_PHONE), ['class' => 'form-control', 'rows' => 3, 'placeholder' => 'Điện thoại' ]) !!}
+            </div>
+            <div class="form-group">
                 <label for="">Email</label>
                 {!! Form::text('footer_email', \App\Models\AppOption::getOptionValue(\App\Models\AppOption::FOOTER_EMAIL), ['class' => 'form-control', 'rows' => 3, 'placeholder' => 'Email' ]) !!}
             </div>

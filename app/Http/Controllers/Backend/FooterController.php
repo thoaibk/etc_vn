@@ -18,6 +18,7 @@ class FooterController extends Controller
         if($request->isMethod('POST')){
             $footer_name = $request->get('footer_name');
             $footer_hotline = $request->get('footer_hotline');
+            $footer_phone = $request->get('footer_phone');
             $email = $request->get('footer_email');
             $footer_address = $request->get('footer_address');
 
@@ -30,6 +31,11 @@ class FooterController extends Controller
                 'key' => AppOption::FOOTER_HOTLINE
             ], [
                 'value' => $footer_hotline
+            ]);
+            AppOption::updateOrCreate([
+                'key' => AppOption::FOOTER_PHONE
+            ], [
+                'value' => $footer_phone
             ]);
             AppOption::updateOrCreate([
                 'key' => AppOption::FOOTER_EMAIL
