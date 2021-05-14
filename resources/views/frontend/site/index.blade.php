@@ -82,13 +82,13 @@
                 <div class="row">
                     <div class="col-6 col-md-3 col-lg-3">
                         <div class="counter text-center">
-                            <div class="counter-title">6</div>
+                            <div class="counter-title">8</div>
                             <div class="counter-desc text-uppercase text-white"><strong>Năm kinh nghiệm</strong></div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3 col-lg-3">
                         <div class="counter text-center">
-                            <div class="counter-title">40</div>
+                            <div class="counter-title">40+</div>
                             <div class="counter-desc text-uppercase text-white"><strong>Nhân viên chuyên nghiệp</strong></div>
                         </div>
                     </div>
